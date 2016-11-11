@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="spellList.css"></link>
+    <script type="text/javascript" src="spellList.js"></script>
+</head>
+<body onload="init(); loadClass()">
+    <div id="select-player">
+        <form>
+            <select id="select-className">
+                <optgroup label="Martials">
+                    <option>Archer</option>
+                    <option>Assassin</option>
+                    <option>Barbarian</option>
+                    <option>Monk</option>
+                    <option>Scout</option>
+                    <option>Warrior</option>
+                </optgroup>
+                <optgroup label="Magic-Users">
+                    <option>Bard</option>
+                    <option>Druid</option>
+                    <option>Healer</option>
+                    <option>Wizard</option>
+                </optgroup>
+                <optgroup label="Knights">
+                    <option>Anti-Paladin</option>
+                    <option>Paladin</option>
+                </optgroup>
+            <select>
+            <select id="select-level">
+                <option value="1st Level">1st Level</option>
+                <option value="2nd Level">2nd Level</option>
+                <option value="3rd Level">3rd Level</option>
+                <option value="4th Level">4th Level</option>
+                <option value="5th Level">5th Level</option>
+                <option value="6th Level">6th Level</option>
+            </select>
+            <br>
+            <!--
+            <input type="checkbox" id="select-lookThePart">Look the Part?</input>
+            <br>
+            -->
+            <button type="button" id="refresh-button" onclick="loadClass()">Load Class</button>
+        </form>
+    </div>
+    <div id="player-class">
+        <table id="class-list">
+            <caption id="class-name"></caption>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Cost</th>
+                    <th>Max</th>
+                    <th>Frequency</th>
+                    <th>Type</th>
+                    <th>School</th>
+                    <th>Range</th>
+                    <th>&#8210;&nbsp;/&nbsp;#&nbsp;/&nbsp;+</th>
+                    <th>EXP</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div id="display-player">
+        <label for="current-abilities">Current Abilities:<ul id="current-abilities"></ul></label>
+        <label for="current-equipment">Current Equipment:<ul id="current-equipment"></ul></label>
+    </div>
+</body>
+</html>
