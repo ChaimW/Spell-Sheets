@@ -5,7 +5,6 @@ var allDefaultClasses;  //map[String: DefaultClass]
 var currentPlayer;
 
 var spellARR;
-var abilityXML;
 var classXML;
 
 function getXMLDoc(file) {
@@ -27,30 +26,16 @@ function init() {
     allDefaultEquipment = new Array();
     allDefaultClasses = new Map();
     
-    var allAbilityNodes = toArray(getXMLDoc(abilityXML).getElementsByTagName("ability"));
-    allAbilityNodes.sort(function(firstNode, secondNode) {
-        if (firstNode.id > secondNode.id) {
-            return 1;
-        } else if (firstNode.id < secondNode.id) {
-            return -1;
-        } else {
-            return 0;
-        }
-    });
-    /*
-    for (var uniqueName in spellsARR) {
-        allDefaultAbilities.set(spellsARR[uniqueName].name, makeDefaultAbilityFromJSON(spellsARR[uniqueName]));
-    }
-    */
     allDefaultAbilities.set("Look the Part", new DefaultAbility("Look the Part", "&#8210;", "&#8210;", "&#8210;"));
-    allAbilityNodes.forEach(function(curAbilityNode, abilityNodeIndex, allAbilityNodes) {
-        allDefaultAbilities.set(curAbilityNode.id, makeAbilityFromNode(curAbilityNode));
-        toArray(curAbilityNode.getElementsByTagName("equipment")).forEach(function(curEquipmentNode) {
-            if (allDefaultEquipment.indexOf(curEquipmentNode.getAttribute("value")) == -1) {
-                allDefaultEquipment[allDefaultEquipment.length] = curEquipmentNode.getAttribute("value");
+    for (var uniqueName in spellsARR) {
+        var newDefaultAbility = new DefaultAbility(jsonEntry.name, jsonEntry.t, jsonEntry.s, jsonEntry.r, jsonEntry.m);
+        allDefaultAbilities.set(spellsARR[uniqueName].name, newDefaultAbility);
+        newDefaultAbility.equipment.forEach(function(count, equipment) {
+            if (allDefaultEquipment.indexOf(equipment) == -1) {
+                allDefaultEquipment.push(equipment);
             }
         });
-    });
+    }
     allDefaultEquipment.sort();
     toArray(getXMLDoc(classXML).getElementsByTagName("classList")).forEach(function(curClassNode, classNodeIndex, allClassNodes) {
         var curClass;
@@ -255,8 +240,8 @@ function update() {
                 } else  {
                     document.getElementById("rem " + abilityEntry.name + " @ " + curLevel.index).disabled = (currentPlayer.getCountOfAbilityEntry(abilityEntry) == 0);
                     document.getElementById("add " + abilityEntry.name + " @ " + curLevel.index).disabled = (currentPlayer.getCostOfAbilityEntry(abilityEntry.name, curLevel.index) == undefined);
-                    /*
-                    if (currentPlayer.playerClass.canExpAbilityEntry(abilityEntry, curLevel.index)) {
+                    //if (currentPlayer.playerClass.canExpAbilityEntry(abilityEntry, curLevel.index)) {
+                    if (false) {
                         document.getElementById("exp " + abilityEntry.name + " @ " + curLevel.index).style.visibility = "visible";
                         if (currentPlayer.expAbilities.indexOf(abilityEntry) == -1) {
                             //document.getElementById("exp " + abilityEntry.name + " @ " + curLevel.index).disabled = (currentPlayer.expAbilities.length == currentPlayer.getCountOfAbilityName("Experienced"));
@@ -267,7 +252,6 @@ function update() {
                     } else {
                         document.getElementById("exp " + abilityEntry.name + " @ " + curLevel.index).style.visibility = "hidden";
                     }
-                    */
                 }
             } else {
                 document.getElementById("rem " + abilityEntry.name + " @ " + curLevel.index).style.visibility = "hidden";
@@ -527,7 +511,7 @@ function DefaultClass(name, isMagicUser) {
     
     this.addAbilityEntry = function DefaultClass_addAbilityEntry(levelIndex, name, abilityName, cost, max, count, per, charge) {
         var level = this.levels[levelIndex];
-        console.log(this.name);
+        //console.log(this.name);
         if (level == undefined || level.indexOfAbilityName(abilityName) != -1) {
             print("cannot add ability entry " + name + " at level index " + levelIndex);
         } else {
@@ -704,7 +688,7 @@ function Level(index, points) {
     
     this.indexOfAbilityName = function Level_indexOfAbilityName(abilityName) {
         for (var i = 0; i < this.abilityEntries.length; i++) {
-            console.log(this.name() + "[" + i + "]=" + this.abilityEntries[i].ability.name);
+            //console.log(this.name() + "[" + i + "]=" + this.abilityEntries[i].ability.name);
             if (this.abilityEntries[i].ability.name == abilityName) {
                 return i;
             }
@@ -726,13 +710,13 @@ function DefaultAbility(name, type, school, range, newEquipment) {
     this.uniqueName = this.name.toLowerCase().replace(new RegExp(" ", "g"), "").replace(new RegExp(",","g"), "").replace(new RegExp(":","g"), "");
     this.type = String(type);
     this.school = String(school);
-    if (range.length == 0) {
+    if (range == undefined) {
         this.range = "&#8210;";
     } else {
         this.range = String(range);
     }
     this.equipment = new Map();
-    if (newEquipment != undefined && newEquipment.length != 0) {
+    if (newEquipment != undefined && newEquipment.length > 0 && newEquipment != "No strip required") {
         newEquipment.sort();
         for (var i = 0; i < newEquipment.length; i++) {
             if (this.equipment.has(newEquipment[i])) {
@@ -808,10 +792,10 @@ function sum(arrayObj) {
     );
 }
 
-var logMessagesFrom = ["!update", "!Player_getCostOfAbilityEntry", "!Player_getPointsRemainingAtLevelIndex", "!Player_getPointsSpentOnAbilityEntry", "!Player_addAbilityEntry", "DefaultClass_addAbilityEntry"];
+var outputMessagesFrom = ["!update", "!Player_getCostOfAbilityEntry", "!Player_getPointsRemainingAtLevelIndex", "!Player_getPointsSpentOnAbilityEntry", "!Player_addAbilityEntry", "DefaultClass_addAbilityEntry"];
 
 function doBeVerbose() {
-    var returnVal = (logMessagesFrom.indexOf(doBeVerbose.caller.caller.name) != -1);
+    var returnVal = (outputMessagesFrom.indexOf(doBeVerbose.caller.caller.name) != -1);
     /*
     if (returnVal) {
         console.trace();
@@ -902,34 +886,6 @@ function formatPointArray(preLabel, pointArray, postLabel) {
     return text;
 }
 
-function makeDefaultAbilityFromJSON(jsonEntry) {
-    return new DefaultAbility(
-        jsonEntry.n,
-        jsonEntry.t,
-        jsonEntry.s,
-        jsonEntry.r,
-        jsonEntry.m
-    );
-}
-
-function makeAbilityFromNode(abilityNode) {
-    var newAbility = new DefaultAbility(
-        abilityNode.id,
-        "",
-        "",
-        "",
-        toArray(abilityNode.getElementsByTagName("equipment")).map(function(curEquipmentNode) {
-            return curEquipmentNode.getAttribute("value").toString();
-        })
-    );
-    newAbility.type = spellsARR[newAbility.uniqueName].t;
-    newAbility.school = spellsARR[newAbility.uniqueName].s;
-    if (spellsARR[newAbility.uniqueName].r != undefined) {
-        newAbility.range = spellsARR[newAbility.uniqueName].r;
-    }
-    return newAbility;
-}
-
 function preInit() {
     {spellsARR = {
   "abeyance": {
@@ -939,7 +895,7 @@ function preInit() {
     "e": "Target is Stunned for 60 seconds. Ignores armor",
     "i": "\"The strength of aether is mine to evoke\" x3",
     "keywords": "abeyance ball green subdual healer",
-    "m": "Green Magic Ball",
+    "m": ["Magic Ball, Green"],
     "name": "Abeyance",
     "r": "Ball",
     "s": "Subdual",
@@ -956,7 +912,7 @@ function preInit() {
     "s": "Protection",
     "r": "Touch",
     "i": "\"I enchant thee with this blessing\" x3",
-    "m": "White Strip",
+    "m": ["Strip, White"],
     "e": "Bearer becomes Resistant to one of the following Schools: Death, Flame, Subdual, Command, Sorcery. School is chosen at the time of casting. Does not count towards a players Enchantment limit, may not be worn with any other Enchantments from the Protection School"
   },
   "adaptiveprotection": {
@@ -969,7 +925,7 @@ function preInit() {
     "s": "Protection",
     "r": "Touch",
     "i": "\"I enchant thee with this protection\" x3",
-    "m": "White Strip",
+    "m": ["Strip, White"],
     "e": "earer becomes Immune to one of the following Schools: Death, Flame, Subdual, Command, Sorcery. School is chosen at the time of casting"
   },
 
@@ -1042,7 +998,7 @@ function preInit() {
     "s": "Protection",
     "r": "Touch",
     "i": "<br>\"May this armor protect you from all forms of harm.<br>May the flames of the fire not burn you.<br>May the bolts from the heavens not strike you.<br>May the arrows of your enemies not pierce you.<br>May this armor protect you from all forms of harm\"",
-    "m": "White Strip",
+    "m": ["Strip, White"],
     "e": "The effects of a Magic Ball, projectile, or weapon which just struck armor worn by the player is ignored, even if the object would not otherwise affect the armor. The armor loses one point of value in the location struck. This effect will not trigger if the armor has no points left in the location struck. Ancestral Armor is not expended after use and will continue to provide protection until removed with Dispel Magic or similar magic or abilities",
     "l": "Phase Arrow and Phase Bolt interact with armor worn by the bearer as though Ancestral Armor was not present",
     "n": "Abilities that ignore armor do not trigger Ancestral Armor"
@@ -1085,7 +1041,7 @@ function preInit() {
     "s": "Sorcery",
     "r": "Touch",
     "i": "\"I enchant thee with attune\" x3",
-    "m": "Yellow strip",
+    "m": ["Strip, Yellow"],
     "e": "May wear an additional Enchantment. Attuned does not count towards the bearer’s Enchantment limit",
     "l": "This ability may not be used in conjunction with any other similar ability or magic"
   },
@@ -1142,7 +1098,7 @@ function preInit() {
     "s": "Protection",
     "r": "Touch",
     "i": "\"I enchant thee with barkskin\" x3",
-    "m": "White strip",
+    "m": ["Strip, White"],
     "e": "Bearer gains one point of Magic Armor"
   },
 
@@ -1156,7 +1112,7 @@ function preInit() {
     "s": "Spirit",
     "r": "Self or Touch",
     "i": "\“Be a bastion of healing\” x3",
-    "m": "4 Yellow strips",
+    "m": ["Strip, Yellow", "Strip, Yellow", "Strip, Yellow", "Strip, Yellow"],
     "e": "Bearer is Stopped. Bearer may cast Greater Heal by announcing \"[Player] thou art made whole\". Bearer must remove an Enchantment strip after each use of Greater Heal",
     "n": "Battlefield Triage is removed when the last strip is removed"
   },
@@ -1183,7 +1139,7 @@ function preInit() {
     "s": "Sorcery",
     "r": "Touch",
     "i": "\"I enchant thee with the strength of the bear\" x3",
-    "m": "Red Strip",
+    "m": ["Strip, Red"],
     "e": "Bearer’s melee weapons are Shield Crushing"
   },
 
@@ -1196,7 +1152,7 @@ function preInit() {
     "t": "Enchantment",
     "s": "Sorcery",
     "r": "Self",
-    "m": "Red Strip",
+    "m": ["Strip, Red"],
     "e": "All weapons wielded in melee are Armor Breaking"
   },
 
@@ -1210,7 +1166,7 @@ function preInit() {
     "s": "Protection",
     "r": "Touch",
     "i": "\"I enchant thy person, arms, and armor\" x3",
-    "m": "White Strip",
+    "m": ["Strip, White"],
     "e": "Resistant to the next effect which would inflict a Wound, Death, State, or the next effect which would negatively affect them or their equipment. Does not trigger against effects cast by the player"
   },
 
@@ -1224,7 +1180,7 @@ function preInit() {
     "s": "Protection",
     "r": "Touch",
     "i": "\"I enchant thee against all harm\" x3",
-    "m": "White Strip",
+    "m": ["Strip, White"],
     "e": "Resistant to the next effect which would inflict a Wound, Death, State, or other negative effect. Does not trigger against effects cast by the player"
   },
 
@@ -1238,7 +1194,7 @@ function preInit() {
     "s": "Protection",
     "r": "Touch",
     "i": "\"I enchant thee against wounds\" x3",
-    "m": "White Strip",
+    "m": ["Strip, White"],
     "e": "Resistant to Wounds. Does not count towards a players Enchantment limit",
     "l": "May not be worn with any other Enchantments from the Protection School"
   },
@@ -1379,7 +1335,7 @@ function preInit() {
     "s": "Death",
     "r": "Touch",
     "i": "\"May thou bear this plague to all\" x3",
-    "m": "Red Strip",
+    "m": ["Strip, Red"],
     "e": "All melee weapons wielded by player are Wounds Kill. Bearer is Fragile"
   },
 
@@ -1393,7 +1349,7 @@ function preInit() {
     "s": "Death",
     "r": "Self or Touch",
     "i": "\"The mists of corrosion surround thee\" x3",
-    "m": "5 Red Strips",
+    "m": ["Strip, Red", "Strip, Red", "Strip, Red", "Strip, Red", "Strip, Red"],
     "e": "Bearer is Stopped. Bearer may cast Destroy Armor by announcing \"[Player] the mists of corrosion destroy your [armor location] armor\". Bearer must remove a strip after each use of Destroy Armor",
     "n": "Corrosive Mist is removed when the last strip is removed"
   },
@@ -1445,7 +1401,7 @@ function preInit() {
     "t": "Specialty Arrow",
     "s": "Sorcery",
     "i": "\"Destruction Arrow\"",
-    "m": "Arrow with red head cover labeled 'Destruction'",
+    "m": ["Arrow, Red (Destruction)"],
     "e": "This arrow is Armor Destroying and Shield Destroying. Armor Destroying and Shield Destroying are applied after the normal effect of being hit with an arrow is applied"
   },
 
@@ -1472,7 +1428,7 @@ function preInit() {
     "s": "Command",
     "r": "Self",
     "i": "\"My discordant melodies shall stymie my foes\" x3",
-    "m": "5 Red Strips",
+    "m": ["Strip, Red", "Strip, Red", "Strip, Red", "Strip, Red", "Strip, Red"],
     "e": "Tie on five enchantment strips. Bearer may cast Break Concentration by announcing \"[Player] thou art suppressed\" and removing an enchantment strip. Enchantment is removed when the last strip is removed"
   },
 
@@ -1546,7 +1502,7 @@ function preInit() {
     "s": "Protection",
     "r": "Touch",
     "i": "\"A distant magic has no hold upon thy now enlightened soul\" x3",
-    "m": "White Strip",
+    "m": ["Strip, White"],
     "e": "Player is unaffected by Verbal magic used at a Range greater than Touch",
     "l": "Effects beneficial magic as well as harmful magic"
   },
@@ -1563,7 +1519,7 @@ function preInit() {
     "s": "Subdual",
     "r": "Ball",
     "i": "\"The strength of earth is mine to evoke\" x3",
-    "m": "Brown Magic Ball",
+    "m": ["Magic Ball, Brown"],
     "e": "Target is Stopped for 60 seconds. Engulfing"
   },
 
@@ -1655,7 +1611,7 @@ function preInit() {
     "s": "Sorcery",
     "r": "Touch",
     "i": "\"Open up and receive my power\" x3",
-    "m": "Yellow Strip",
+    "m": ["Strip, Yellow"],
     "e": "Bearer may wear up to three additional Enchantments. Essence Graft does not count towards the bearer’s Enchantment limit",
     "l": "Bearer may only wear Enchantments from the caster of Essence Graft. This ability may not be used in conjunction with any other similar ability or magic"
   },
@@ -1710,7 +1666,7 @@ function preInit() {
     "s": "Protection",
     "r": "Touch",
     "i": "Tie strip on target: \"May the blessing of my god protect thee\" x3",
-    "m": "White Strip",
+    "m": ["Strip, White"],
     "e": "The target player gains either Resistant to Command or Resistant to Death",
     "l": "Type of Ability must be chosen at the time of casting and may not be changed. The caster may only have one instance of Extend Immunities active at a time"
   },
@@ -1768,7 +1724,7 @@ function preInit() {
     "s": "Flame",
     "r": "Ball",
     "i": "\"The flame of fire is mine to evoke\" x3",
-    "m": "Red Magic Ball",
+    "m": ["Magic Ball, Red"],
     "e": "Fireball will have one of the following effects on the object first struck:<br>1. A weapon hit is destroyed<br>2. A shield hit is subject to Shield Destroying<br>3. Armor hit with Armor Points remaining is subject to Armor Destroying<br>4. A player hit receives a Wounds Kill Wound to that hit location"
   },
 
@@ -1782,7 +1738,7 @@ function preInit() {
     "s": "Flame",
     "r": "Touch",
     "i": "\"The element of fire shall infuse your weapons\" x3",
-    "m": "Red Strip and White Strip",
+    "m": ["Strip, Red", "Strip, White"],
     "e": "Bearer’s melee weapons are Armor Breaking and Shield Crushing. Bearer and their weapons are Immune to Flame"
   },
 
@@ -1810,7 +1766,7 @@ function preInit() {
     "s": "Sorcery",
     "r": "Ball",
     "i": "\"Forcebolt\" x3",
-    "m": "Blue Magic Ball",
+    "m": ["Magic Ball, Blue"],
     "e": "Force Bolt will have one of the following effects on the object first struck:<br>1. A weapon hit is destroyed<br>2. Armor hit with Armor Points remaining is subject to Armor Breaking<br>3. A player hit receives a Wound to that hit location"
   },
 
@@ -1824,7 +1780,7 @@ function preInit() {
     "s": "Protection",
     "r": "Touch",
     "i": "\"I grant thee a gift of the air\" x3",
-    "m": "White Strip",
+    "m": ["Strip, White"],
     "e": "When struck by a melee weapon or projectile the bearer instead announces \"Gift of Air\" and becomes Insubstantial. The bearer treats the triggering event as though it had no effect on them other than triggering Gift of Air. Bearer may choose to return directly to their respawn location immediately after Gift of Air activates. Melee weapons with the Armor Breaking, Armor Destroying, Shield Crushing, or Shield Destroying Special Effects will wound the bearer as normal and do not trigger Gift of Air",
     "l": "Bearer may not wield weapons or shields",
     "n": "Bearer may end the Insubstantial state caused by Gift of Air at any time with the standard Incantation"
@@ -1840,7 +1796,7 @@ function preInit() {
     "s": "Protection",
     "r": "Touch",
     "i": "\"I grant thee a gift of the earth\" x3",
-    "m": "White Strip",
+    "m": ["Strip, White"],
     "e": "Bearer gains two points of magic armor and is affected as per Greater Harden. Bearer is Suppressed"
   },
 
@@ -1854,7 +1810,7 @@ function preInit() {
     "s": "Sorcery",
     "r": "Touch",
     "i": "\"I grant thee a gift of the fire\" x3",
-    "m": "Red Strip and White Strip",
+    "m": ["Strip, Red", "Strip, White"],
     "e": "Bearer is Immune to Flame and gains Heat Weapon 1/Refresh Charge x3"
   },
 
@@ -1868,7 +1824,7 @@ function preInit() {
     "s": "Sorcery",
     "r": "Touch",
     "i": "\"I grant thee a gift of the water\" x3",
-    "m": "White Strip and Yellow Strip",
+    "m": ["Strip, White", "Strip, Yellow"],
     "e": "Bearer gains one point of magic armor and Heal (self- only) unlimited"
   },
 
@@ -1882,7 +1838,7 @@ function preInit() {
     "s": "Sorcery",
     "r": "Touch",
     "i": "\"From earth and clay I form thee\" x3",
-    "m": "White Strip and Red Strip",
+    "m": ["Strip, Red", "Strip, White"],
     "e": "Bearer is Immune to Death. Bearer is Cursed. Bearer can remove a Wound via Mend. Bearer may use the caster as an alternate respawn point while the caster is alive. Non-magical armor worn affected as per Imbue Armor",
     "l": "A caster may only have a single Golem Enchantment active at a time",
     "n": "All Enchantments worn by the Bearer, including Golem, are Persistent while Golem is worn"
@@ -1898,7 +1854,7 @@ function preInit() {
     "s": "Command",
     "r": "Self",
     "i": "\"The hands of the earth rise to your bidding\" x3",
-    "m": "5 Red Strips",
+    "m": ["Strip, Red", "Strip, Red", "Strip, Red", "Strip, Red", "Strip, Red"],
     "e": "Bearer is Stopped. Bearer may cast Hold Person by announcing \"[Player] stop at my command.\" Bearer must remove an Enchantment strip after each use of Hold Person",
     "n": "Grasping Tentacles is removed when the last strip is removed"
   },
@@ -1913,7 +1869,7 @@ function preInit() {
     "s": "Protection",
     "r": "Touch",
     "i": "\"I enchant thee with Greater Harden\" x3",
-    "m": "White Strip",
+    "m": ["Strip, White"],
     "e": "Shields and weapons wielded by the player are affected as per Harden. May only be cast on a player"
   },
 
@@ -1982,7 +1938,7 @@ function preInit() {
     "s": "Death",
     "r": "Touch",
     "i": "<br>\"Flesh rots, bones break, skulls sigh, spirits take let the power of my will descend on thee<br>let the power of my will restore thy spirit<br>let the power of my will knit thy corpse<br>let the power of my will give thee direction<br>let the power of my will cheat thy death<br>by the power of my will, arise my greater minion!\"",
-    "m": "Yellow Strip",
+    "m": ["Strip, Yellow"],
     "e": "<br>1. Bearer does not die or respawn as normal<br>2. Bearer is Cursed and Suppressed<br>3. When the bearer would normally die, they instead become Insubstantial and return to the caster as soon as possible. Insubstantial players may not move more than 10’ from the caster and may not speak. The caster may touch the player and then Incant “Rise and fight again” x5 to end this Insubstantial State and remove all Wounds from the player so long as no living enemies are within 10’ of the bearer<br>4. If Insubstantial is removed from the Bearer in any other manner than outlined in item 3 (or prevented entirely) this Enchantment is removed<br>5. If the caster dies, this Enchantment is removed the next time the bearer returns to the caster<br>6. If the Enchantment is removed, the bearer dies<br>7. For the duration of the Enchantment, the Caster is considered the players respawn<br>8. Dead players may be targeted by Greater Undead Minion and are immediately returned to life with all Wounds removed and the Insubstantial State applied",
     "l": "<br>1. The Insubstantial State imposed by Greater Undead Minion can be removed or prevented by any Magic or Ability which would normally be capable of removing Insubstantial or preventing Insubstantial such as Tracking, Planar Grounding, Release, or similar Magic and Abilities<br>2. This Enchantment is removed by Banish and Dimensional Rift if used on the player while they are Insubstantial<br>3. The caster may not have more than three active Greater Undead Minion and Undead Minion Enchantments combined"
   },
@@ -1998,7 +1954,7 @@ function preInit() {
     "s": "Protection",
     "r": "Touch",
     "i": "\"I enchant thee with Harden\" x3",
-    "m": "White Strip",
+    "m": ["Strip, White"],
     "e": "Bearers weapons or shield may only be destroyed by Magic Balls/Verbals which destroy objects e.g. Fireball or Pyrotechnics",
     "l": "Will only affect either the weapons or the shield of the bearer, not both"
   },
@@ -2031,7 +1987,7 @@ function preInit() {
     "s": "Spirit",
     "r": "Self",
     "i": "\"Let all those who oppose the hive feel the wrath of the swarm\" x3",
-    "m": "Yellow Strip",
+    "m": ["Strip, Yellow"],
     "e": "Bearer is Stopped. Any player on the bearer’s team may use the bearer as their respawn point as per the normal game rules. Players respawning at the caster do so by announcing \"My life for the swarm.\"",
     "l": "Players can not respawn at the bearer if there are living enemy players or a game objective within 20’ of the bearer"
   },
@@ -2078,7 +2034,7 @@ function preInit() {
     "s": "Subdual",
     "r": "Ball",
     "i": "\"The strength of ice is mine to evoke\" x3",
-    "m": "White Magic Ball",
+    "m": ["Magic Ball, White"],
     "e": "Target player becomes Frozen for 60 seconds. Engulfing"
   },
 
@@ -2106,7 +2062,7 @@ function preInit() {
     "s": "Protection",
     "r": "Touch",
     "i": "\"I enchant thee with Imbued Armor\" x3",
-    "m": "White Strip",
+    "m": ["Strip, White"],
     "e": "All armor worn by the bearer gains +1 up to the bearer’s class maximum",
     "n": "Does not apply to magic armor. A player may only benefit from one instance of Imbue Armor, or similar magic and abilities that increase Armor Points, at a time"
   },
@@ -2121,7 +2077,7 @@ function preInit() {
     "s": "Protection",
     "r": "Touch",
     "i": "\"This shield shall neither break or bend\" x3",
-    "m": "White Strip",
+    "m": ["Strip, White"],
     "e": "Shield wielded by the player cannot be destroyed. Engulfing effects hitting the shield are ignored"
   },
 
@@ -2135,7 +2091,7 @@ function preInit() {
     "s": "Death",
     "r": "Touch",
     "i": "\"I enchant thee to slay all foes\" x3",
-    "m": "Red Strip",
+    "m": ["Strip, Red"],
     "e": "Melee weapons wielded by the bearer are Wounds Kill"
   },
 
@@ -2178,7 +2134,7 @@ function preInit() {
     "s": "Protection",
     "r": "Touch",
     "i": "\"I enchant thee with Ironskin\" x3",
-    "m": "White Strip",
+    "m": ["Strip, White"],
     "e": "Bearer is Immune to Flame and gains two points Magic Armor affected as per Ancestral Armor"
   },
 
@@ -2203,7 +2159,7 @@ function preInit() {
     "s": "Flame",
     "r": "Ball",
     "i": "\"The flame of storms is mine to evoke\" x3",
-    "m": "Yellow Magic Ball",
+    "m": ["Magic Ball, Yellow"],
     "e": "A player struck is subject to an Engulfing Stopped effect for 60 seconds. In addition Lightning Bolt will have one of the following effects on the object first struck:<br>1. A weapon hit is destroyed<br>2. Armor hit with Armor Points remaining is subject to Armor Breaking<br>3. A player hit receives a Wound in that hit location"
   },
 
@@ -2231,7 +2187,7 @@ function preInit() {
     "s": "Death",
     "r": "Touch",
     "i": "\"Stalked in the forest, too close to hide, I’ll be upon thee by the moonlight side\" x3",
-    "m": "White Strip and Red Strip",
+    "m": ["Strip, Red", "Strip, White"],
     "e": "Bearer gains two points of magic armor. Bearer’s melee weapons are Shield Crushing. Bearer is Immune to Command"
   },
 
@@ -2258,7 +2214,7 @@ function preInit() {
     "s": "Spirit",
     "r": "Self",
     "i": "\"Let the powers of healing flow through me\" x3",
-    "m": "Five Yellow Strips",
+    "m": ["Strip, Yellow", "Strip, Yellow", "Strip, Yellow", "Strip, Yellow", "Strip, Yellow"],
     "e": "Caster may Heal a player by touching them, stating \"I grant thee healing\". Bearer must remove an Enchantment strip after each use of Heal",
     "n": "Mass Healing is removed when the last strip is removed"
   },
@@ -2303,7 +2259,7 @@ function preInit() {
     "s": "Sorcery",
     "r": "Self",
     "i": "\"I shall restore the balance\" x3",
-    "m": "Five Red Strips",
+    "m": ["Strip, Red", "Strip, Red", "Strip, Red", "Strip, Red", "Strip, Red"],
     "e": "Bearer may cast Dispel Magic by announcing \"[Player] thou art dispelled.\" Bearer must remove an Enchantment strip after each use of Dispel Magic and the Enchantment is removed when the last strip is removed"
   },
 
@@ -2341,7 +2297,7 @@ function preInit() {
     "t": "Specialty Arrow",
     "s": "Sorcery",
     "i": "\"Phase Arrow\"",
-    "m": "Arrow with grey cover labeled 'Phase'",
+    "m": ["Arrow, Gray (Phase)"],
     "e": "This arrow does not interact with ongoing Magic or Abilities. Example: This arrow is not stopped by Stoneskin, Protection from Projectiles, and does not trigger the effects of Troll Blood, Undead Minion, Missile Block, or similar Magic or Abilities",
     "l": "This arrow does not supercede the Frozen, Insubstantial, or Out of Game States"
   },
@@ -2356,7 +2312,7 @@ function preInit() {
     "s": "Sorcery",
     "r": "Ball",
     "i": "\"The power of sorcery is mine to evoke\" x3",
-    "m": "Grey Magic Ball",
+    "m": ["Magic Ball, Gray"],
     "e": "This Magic Ball does not interact with other ongoing Magic or Abilities. Example: This Magic Ball is not stopped by Stoneskin, Protection from Projectiles, and does not trigger the effects of Troll Blood, Undead Minion, Magic Ball Block, or similar Magic or Abilities. Will have one of the following effects:<br>1. A weapon hit is destroyed<br>2. Armor hit with Armor Points remaining is subject to Armor Breaking<br>3. A player hit receives a Wound in that hit location",
     "n": "Does not supercede the Frozen, Insubstantial, or Out of Game States"
   },
@@ -2371,7 +2327,7 @@ function preInit() {
     "s": "Spirit",
     "r": "Touch",
     "i": "\"May the tears of the phoenix wash over thee\" x3",
-    "m": "Two White Strips",
+    "m": ["Strip, White", "Strip, White"],
     "e": "Enchanted player does not die as normal. When the player would otherwise die they instead remove a strip and become Frozen for 30 seconds. When the Frozen State is ended the bearer has:<br>1. All Wounds removed<br>2. All States removed that are removed by Death or Respawning<br>3. All ongoing effects with a timer are expired<br>4. All of their equipment is fully repaired<br>5. All enchantments, except those which are Persistent, are removed<br>Additionally Phoenix Tears allows you to wear an extra Enchantment from the Protection School. This extra enchantment is considered Persistent as long as Phoenix Tears is present. The additional Enchantment is not removed once Phoenix Tears is removed",
     "n": "Phoenix Tears is removed when the last strip is removed"
   },
@@ -2385,7 +2341,7 @@ function preInit() {
     "t": "Specialty Arrow",
     "s": "Sorcery",
     "i": "\"Pinning Arrow\"",
-    "m": "Arrow with yellow head cover labeled 'Pinning'",
+    "m": ["Arrow, Yellow (Pinning)"],
     "e": "A player struck by this arrow is Stopped for 30 seconds",
     "n": "Engulfing"
   },
@@ -2414,7 +2370,7 @@ function preInit() {
     },
     "t": "Enchantment",
     "s": "Death",
-    "m": "Red Strip",
+    "m": ["Strip, Red"],
     "r": "Touch",
     "i": "(Assassins and Anti-Paladins must hold weapon in both hands) \"I coat these weapons with a deadly poison\" x 2",
     "e": "The next Wound dealt by the bearer in melee is Wounds Kill"
@@ -2429,7 +2385,7 @@ function preInit() {
     "t": "Specialty Arrow",
     "s": "Death",
     "i": "\"Poison Arrow\"",
-    "m": "Arrow with green head cover labeled 'Poison'",
+    "m": ["Arrow, Green (Poison)"],
     "e": "This arrow is Wounds Kill"
   },
 
@@ -2443,7 +2399,7 @@ function preInit() {
     "s": "Death",
     "r": "Touch",
     "i": "\"Thou shalt secrete poison from thy venemous glands\" x3",
-    "m": "Red Strip",
+    "m": ["Strip, Red"],
     "e": "Bearer gains self-only Poison (ex) 1/Refresh Charge x3"
   },
 
@@ -2470,7 +2426,7 @@ function preInit() {
     "s": "Protection",
     "r": "Touch",
     "i": "\"I enchant thee with protection from magic\" x3",
-    "m": "White Strip",
+    "m": ["Strip, White"],
     "e": "Bearer is Immune to magic from any school. Upon death the player is Cursed"
   },
 
@@ -2484,7 +2440,7 @@ function preInit() {
     "s": "Protection",
     "r": "Touch",
     "i": "\"I enchant thee with Protection from Projectiles\" x3",
-    "m": "White Strip",
+    "m": ["Strip, White"],
     "e": "Bearer is unaffected by ammunition, thrown javelins, rocks, and throwing weapons. Engulfing effects from those objects, such as Pinning Arrow, do not affect the player"
   },
 
@@ -2536,7 +2492,7 @@ function preInit() {
     "s": "Spirit",
     "r": "Touch",
     "i": "\"I grant thee the power of regeneration\" x3",
-    "m": "Yellow Strip",
+    "m": ["Strip, Yellow"],
     "e": "Bearer gains unlimited use of Swift Heal (self-only)",
     "l": "The Heal granted by Regeneration may not be used within 10’ of a living enemy"
   },
@@ -2725,7 +2681,7 @@ function preInit() {
     "s": "Sorcery",
     "r": "Self or Touch",
     "i": "\"The seething sea ceaseth and thus the seething sea sufficeth us\" x2",
-    "m": "Yellow Strip",
+    "m": ["Strip, Yellow"],
     "e": "Bearer gains Swift 1/refresh Charge x3. Swift may still only be used on eligible magic. Other sources of Swift may not be utilized while Silver Tongue is worn",
     "n": "Does not use up any purchased instances of Swift"
   },
@@ -2740,7 +2696,7 @@ function preInit() {
     "s": "Sorcery",
     "r": "Touch",
     "i": "\"May thy power remain\" x3",
-    "m": "Yellow Strip",
+    "m": ["Strip, Yellow"],
     "e": "Enchantments worn by the bearer, other than Sleight of Mind, are not removed by Dispel Magic or similar Magic and Abilities. Does not count towards the bearer’s Enchantment Limit"
   },
 
@@ -2882,7 +2838,7 @@ function preInit() {
     "s": "Sorcery",
     "r": "Ball",
     "i": "\"The power of void is mine to evoke\" x3",
-    "m": "Black Magic Ball",
+    "m": ["Magic Ball, Black"],
     "e": "Sphere of Annihilation will have one of the following effects on the object first struck:<br>1. A weapon hit is destroyed<br>2. A shield hit is subject to Shield Destroying<br>3. A player hit dies and is Cursed",
     "n": "Ignores armor. Enchantments which affect equipment, such as Imbue Shield or Harden, do not function against Sphere of Annihilation"
   },
@@ -2926,7 +2882,7 @@ function preInit() {
     "s": "Protection",
     "r": "Touch",
     "i": "\"May nature protect thee from all forms of attack\" x3",
-    "m": "White Strip",
+    "m": ["Strip, White"],
     "e": "Bearer gains 2 points of Magic armor affected as per Ancestral Armor"
   },
 
@@ -2992,7 +2948,7 @@ function preInit() {
     "t": "Specialty Arrow",
     "s": "Sorcery",
     "i": "\"Suppression Arrow\"",
-    "m": "Arrow with purple head cover labeled 'Suppression'",
+    "m": ["Arrow, Purple (Suppression)"],
     "e": "A player struck by this arrow is Suppressed for 30 seconds",
     "n": "Engulfing"
   },
@@ -3007,7 +2963,7 @@ function preInit() {
     "s": "Subdual",
     "r": "Ball",
     "i": "\"The strength of suppression is mine to evoke\" x3",
-    "m": "Purple Magic Ball",
+    "m": ["Magic Ball, Purple"],
     "e": "Target is Suppressed for 60 seconds. Engulfing"
   },
 
@@ -3094,7 +3050,7 @@ function preInit() {
     "s": "Protection",
     "r": "Touch",
     "i": "\"The blood of the trolls sustains thee\" x3",
-    "m": "Three White Strips",
+    "m": ["Strip, White", "Strip, White", "Strip, White"],
     "e": "Enchanted player does not die as normal. When the player would otherwise die they instead ignore the triggering effect as though it had not occurred, remove a strip, and become Frozen for 30 seconds. The bearer is treated as though they have the effects of Regeneration in addition to the above",
     "n": "Troll Blood is removed when the last strip is removed"
   },
@@ -3123,7 +3079,7 @@ function preInit() {
     "s": "Death",
     "r": "Touch",
     "i": "<br>Flesh rots, bones break, skulls sigh, spirits take let the power of my will descend on thee<br>let the power of my will restore thy spirit<br>let the power of my will knit thy corpse<br>let the power of my will give thee direction<br>let the power of my will cheat thy death<br>by the power of my will, arise my minion!",
-    "m": "Yellow Strip",
+    "m": ["Strip, Yellow"],
     "e": "<br>1. Bearer does not die or respawn as normal<br>2. Bearer is Cursed, Fragile, and Suppressed<br>3. When the bearer would normally die, they instead become Insubstantial and return to the caster as soon as possible. Insubstantial players may not move more than 10’ from the caster and may not speak. The caster may touch the player and then Incant “Rise and fight again” x10 to end this Insubstantial State and remove all Wounds from the player so long as no living enemies are within 10’ of the bearer<br>4. If Insubstantial is removed from the Bearer in any other manner than outlined in item 3 (or prevented entirely) this Enchantment is removed<br>5. If the caster dies, this Enchantment is removed the next time the bearer returns to the caster<br>6. If the Enchantment is removed, the bearer dies<br>7. For the duration of the Enchantment, the Caster is considered the players respawn<br>8. Dead players may be targeted by Undead Minion and are immediately returned to life with all Wounds removed and the Insubstantial State applied",
     "l": "<br>1. The Insubstantial State imposed by Undead Minion can be removed or prevented by any Magic or Ability which would normally be capable of removing Insubstantial or preventing Insubstantial such as Tracking, Planar Grounding, Release, or similar Magic and Abilities<br>2. This Enchantment is removed by Banish and Dimensional Rift if used on the player while they are Insubstantial<br>3. The caster may not have more than three active Greater Undead Minion and Undead Minion Enchantments combined"
   },
@@ -3138,7 +3094,7 @@ function preInit() {
     "s": "Death",
     "r": "Touch",
     "i": "\"Thy hunger can never be sated\" x3",
-    "m": "Yellow Strip and White Strip",
+    "m": ["Strip, White", "Strip, Yellow"],
     "e": "Player gains Adrenaline unlimited (ex), is Immune to Death, and is Cursed. Bearer’s Adrenaline ability will work through their Cursed State"
   },
 
@@ -3152,7 +3108,7 @@ function preInit() {
     "s": "Sorcery",
     "r": "Touch",
     "i": "\"Embrace the old ones and surrender thyself\" x3",
-    "m": "Red Strip and White Strip",
+    "m": ["Strip, Red", "Strip, White"],
     "e": "Melee weapons wielded by bearer are Armor Breaking. Bearer may use Shadow Step 1/Refresh Charge x30 (ex), Steal Life Essence unlimited (ex), and is Immune to magic from the Sorcery, Spirit, and Death Schools. May still benefit from their own Steal Life Essence. Player is Cursed"
   },
 
@@ -3166,7 +3122,7 @@ function preInit() {
     "s": "Protection",
     "r": "Self",
     "i": "\"The power of magic defends me\" x3",
-    "m": "White Strip",
+    "m": ["Strip, White"],
     "e": "Resistant to the next effect which would inflict a Wound, Death, or State. Does not trigger against effects cast by the player"
   },
 
@@ -3224,443 +3180,6 @@ function preInit() {
   }
 
 };}
-
-    {abilityXML = `<xml>
-    <nonability id="Max Width">
-    </nonability>
-    <ability id="Abeyance">
-        <equipment value="Magic Ball, Green"></equipment>
-    </ability>
-    <ability id="Adaptive Blessing">
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Adaptive Protection">
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Adrenaline">
-    </ability>
-    <ability id="Agoraphobia">
-    </ability>
-    <ability id="Amplification">
-    </ability>
-    <ability id="Ambulant"></ability>
-    <ability id="Ancestral Armor">
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Assassinate">
-        <equipment value=""></equipment>
-    </ability>
-    <ability id="Astral Intervention">
-        <equipment value=""></equipment>
-    </ability>
-    <ability id="Attuned">
-        <equipment value="Strip, Yellow"></equipment>
-    </ability>
-    <ability id="Avatar of Nature">
-    </ability>
-    <ability id="Awe">
-    </ability>
-    <ability id="Banish">
-    </ability>
-    <ability id="Barkskin">
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Battlefield Triage">
-        <equipment value="Strip, Yellow"></equipment>
-        <equipment value="Strip, Yellow"></equipment>
-        <equipment value="Strip, Yellow"></equipment>
-        <equipment value="Strip, Yellow"></equipment>
-    </ability>
-    <ability id="Battlemage">
-    </ability>
-    <ability id="Bear Strength">
-        <equipment value="Strip, Red"></equipment>
-    </ability>
-    <ability id="Berserk">
-        <equipment value="Strip, Red"></equipment>
-    </ability>
-    <ability id="Blessed Aura">
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Blessing Against Harm">
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Blessing Against Wounds">
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Blink">
-    </ability>
-    <ability id="Blood and Thunder">
-    </ability>
-    <ability id="Break Concentration">
-    </ability>
-    <ability id="Brutal Strike">
-    </ability>
-    <ability id="Call Lightning">
-    </ability>
-    <ability id="Cancel">
-    </ability>
-    <ability id="Circle of Protection">
-    </ability>
-    <ability id="Combat Caster">
-    </ability>
-    <ability id="Confidence">
-    </ability>
-    <ability id="Contagion">
-        <equipment value="Strip, Red"></equipment>
-    </ability>
-    <ability id="Corrosive Mist">
-        <equipment value="Strip, Red"></equipment>
-        <equipment value="Strip, Red"></equipment>
-        <equipment value="Strip, Red"></equipment>
-        <equipment value="Strip, Red"></equipment>
-        <equipment value="Strip, Red"></equipment>
-    </ability>
-    <ability id="Coup de Grace">
-    </ability>
-    <ability id="Dervish">
-    </ability>
-    <ability id="Destroy Armor">
-    </ability>
-    <ability id="Destruction Arrow">
-        <equipment value="Arrow, Red (Destruction)"></equipment>
-    </ability>
-    <ability id="Dimensional Rift">
-    </ability>
-    <ability id="Discordia">
-        <equipment value="Strip, Red"></equipment>
-    </ability>
-    <ability id="Dispel Magic">
-    </ability>
-    <ability id="Dragged Below">
-    </ability>
-    <ability id="Elemental Barrage">
-    </ability>
-    <ability id="Empower">
-    </ability>
-    <ability id="Enlightened Soul">
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Entangle">
-        <equipment value="Magic Ball, Brown"></equipment>
-        <equipment value="Magic Ball, Brown"></equipment>
-    </ability>
-    <ability id="Equipment: Armor, 1 Point">
-        <equipment value="Armor, 1 Point"></equipment>
-    </ability>
-    <ability id="Equipment: Shield, Medium">
-        <equipment value="Shield, Medium"></equipment>
-    </ability>
-    <ability id="Equipment: Shield, Small">
-        <equipment value="Shield, Small"></equipment>
-    </ability>
-    <ability id="Equipment: Weapon, Great">
-        <equipment value="Weapon, Great"></equipment>
-    </ability>
-    <ability id="Equipment: Weapon, Hinged">
-        <equipment value="Weapon, Hinged"></equipment>
-    </ability>
-    <ability id="Equipment: Weapon, Long">
-        <equipment value="Weapon, Long"></equipment>
-    </ability>
-    <ability id="Equipment: Weapon, Short">
-        <equipment value="Weapon, Short"></equipment>
-    </ability>
-    <ability id="Essence Graft">
-        <equipment value="Strip, Yellow"></equipment>
-    </ability>
-    <ability id="Evoker">
-    </ability>
-    <ability id="Evolution">
-    </ability>
-    <ability id="Experienced">
-    </ability>
-    <ability id="Extend Immunities">
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Extension">
-    </ability>
-    <ability id="Fight After Death">
-    </ability>
-    <ability id="Finger of Death">
-    </ability>
-    <ability id="Fireball">
-        <equipment value="Magic Ball, Red"></equipment>
-    </ability>
-    <ability id="Flame Blade">
-        <equipment value="Strip, Red"></equipment>
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Force Barrier">
-    </ability>
-    <ability id="Force Bolt">
-        <equipment value="Magic Ball, Blue"></equipment>
-    </ability>
-    <ability id="Gift of Air">
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Gift of Earth">
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Gift of Fire">
-        <equipment value="Strip, Red"></equipment>
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Gift of Water">
-        <equipment value="Strip, White"></equipment>
-        <equipment value="Strip, Yellow"></equipment>
-    </ability>
-    <ability id="Golem">
-        <equipment value="Strip, Red"></equipment>
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Grasping Tentacles">
-        <equipment value="Strip, Red"></equipment>
-        <equipment value="Strip, Red"></equipment>
-        <equipment value="Strip, Red"></equipment>
-        <equipment value="Strip, Red"></equipment>
-        <equipment value="Strip, Red"></equipment>
-    </ability>
-    <ability id="Greater Harden">
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Greater Heal">
-    </ability>
-    <ability id="Greater Mend">
-    </ability>
-    <ability id="Greater Release">
-    </ability>
-    <ability id="Greater Resurrect">
-    </ability>
-    <ability id="Greater Undead Minion">
-        <equipment value="Strip, Yellow"></equipment>
-    </ability>
-    <ability id="Harden">
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Heal">
-    </ability>
-    <ability id="Heart of the Swarm">
-        <equipment value="Strip, Yellow"></equipment>
-    </ability>
-    <ability id="Heat Weapon">
-    </ability>
-    <ability id="Hold Person">
-    </ability>
-    <ability id="Iceball">
-    </ability>
-    <ability id="Icy Blast">
-    </ability>
-    <ability id="Imbue Armor">
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Imbue Shield">
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Imbue Weapon">
-        <equipment value="Strip, Red"></equipment>
-    </ability>
-    <ability id="Innate">
-    </ability>
-    <ability id="Insult">
-    </ability>
-    <ability id="Ironskin">
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Legend">
-    </ability>
-    <ability id="Lightning Bolt">
-        <equipment value="Magic Ball, Yellow"></equipment>
-    </ability>
-    <ability id="Lost">
-    </ability>
-    <ability id="Lycanthropy">
-        <equipment value="Strip, Red"></equipment>
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Magic Ball Block">
-    </ability>
-    <ability id="Mass Healing">
-        <equipment value="Strip, Yellow"></equipment>
-        <equipment value="Strip, Yellow"></equipment>
-        <equipment value="Strip, Yellow"></equipment>
-        <equipment value="Strip, Yellow"></equipment>
-        <equipment value="Strip, Yellow"></equipment>
-    </ability>
-    <ability id="Mend">
-    </ability>
-    <ability id="Missile Block">
-    </ability>
-    <ability id="Naturalize Magic">
-        <equipment value="Strip, Red"></equipment>
-        <equipment value="Strip, Red"></equipment>
-        <equipment value="Strip, Red"></equipment>
-        <equipment value="Strip, Red"></equipment>
-        <equipment value="Strip, Red"></equipment>
-    </ability>
-    <ability id="Necromancer">
-    </ability>
-    <ability id="Persistent">
-    </ability>
-    <ability id="Phase Arrow">
-        <equipment value="Arrow, Gray (Phase)"></equipment>
-    </ability>
-    <ability id="Phase Bolt">
-        <equipment value="Magic Ball, Gray"></equipment>
-    </ability>
-    <ability id="Phoenix Tears">
-        <equipment value="Strip, White"></equipment>
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Pinning Arrow">
-        <equipment value="Arrow, Yellow (Pinning)"></equipment>
-    </ability>
-    <ability id="Planar Grounding">
-    </ability>
-    <ability id="Poison">
-        <range value="Touch"></range>
-    </ability>
-    <ability id="Poison Arrow">
-        <equipment value="Arrow, Green (Poison)"></equipment>
-    </ability>
-    <ability id="Poison Glands">
-        <range value="Touch"></range>
-        <equipment value="Strip, Red"></equipment>
-    </ability>
-    <ability id="Priest">
-    </ability>
-    <ability id="Protection from Magic">
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Protection from Projectiles">
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Pyrotechnics">
-    </ability>
-    <ability id="Ranger">
-    </ability>
-    <ability id="Ravage">
-    </ability>
-    <ability id="Regeneration">
-        <equipment value="Strip, Yellow"></equipment>
-    </ability>
-    <ability id="Release">
-    </ability>
-    <ability id="Reload">
-    </ability>
-    <ability id="Restoration">
-    </ability>
-    <ability id="Resurrect">
-    </ability>
-    <ability id="Sanctuary">
-    </ability>
-    <ability id="Scavenge">
-    </ability>
-    <ability id="Sever Spirit">
-    </ability>
-    <ability id="Shadow Step">
-    </ability>
-    <ability id="Shake It Off">
-    </ability>
-    <ability id="Shatter">
-    </ability>
-    <ability id="Shatter Weapon">
-    </ability>
-    <ability id="Shove">
-    </ability>
-    <ability id="Silver Tongue">
-        <equipment value="Strip, Yellow"></equipment>
-    </ability>
-    <ability id="Sleight of Mind">
-        <equipment value="Strip, Yellow"></equipment>
-    </ability>
-    <ability id="Sniper">
-    </ability>
-    <ability id="Song of Battle">
-    </ability>
-    <ability id="Song of Deflection">
-    </ability>
-    <ability id="Song of Determination">
-    </ability>
-    <ability id="Song of Freedom">
-    </ability>
-    <ability id="Song of Interference">
-    </ability>
-    <ability id="Song of Power">
-    </ability>
-    <ability id="Song of Survival">
-    </ability>
-    <ability id="Song of Visit">
-    </ability>
-    <ability id="Sphere of Annihilation">
-        <equipment value="Magic Ball, Black"></equipment>
-    </ability>
-    <ability id="Steal Life Essence">
-    </ability>
-    <ability id="Stoneform">
-    </ability>
-    <ability id="Stoneskin">
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Stun">
-    </ability>
-    <ability id="Summon Dead">
-    </ability>
-    <ability id="Summoner">
-    </ability>
-    <ability id="Suppress Aura">
-    </ability>
-    <ability id="Suppression Arrow">
-        <equipment value="Arrow, Purple (Suppression)"></equipment>
-    </ability>
-    <ability id="Suppression Bolt">
-        <equipment value="Magic Ball, Purple"></equipment>
-    </ability>
-    <ability id="Swift">
-    </ability>
-    <ability id="Teleport">
-    </ability>
-    <ability id="Terror">
-    </ability>
-    <ability id="Throw">
-    </ability>
-    <ability id="Tracking">
-    </ability>
-    <ability id="Troll Blood">
-        <equipment value="Strip, White"></equipment>
-        <equipment value="Strip, White"></equipment>
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="True Grit">
-    </ability>
-    <ability id="Undead Minion">
-        <equipment value="Strip, Yellow"></equipment>
-    </ability>
-    <ability id="Vampirism">
-        <equipment value="Strip, Yellow"></equipment>
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Void Touched">
-        <equipment value="Strip, Red"></equipment>
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Ward Self">
-        <equipment value="Strip, White"></equipment>
-    </ability>
-    <ability id="Warder">
-    </ability>
-    <ability id="Warlock">
-    </ability>
-    <ability id="Word of Mending">
-    </ability>
-    <ability id="Wounding">
-    </ability>
-    <!--
-    <ability id="">
-        <equipment value=""></equipment>
-    </ability>
-    -->
-    </xml>`;}
 
     {classXML = `<xml>
     <classList id="Archer">
