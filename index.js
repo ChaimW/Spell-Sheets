@@ -61,11 +61,8 @@ function init() {
         toArray(curClassNode.getElementsByTagName("level")).forEach(function(curLevelNode, levelNodeIndex, allLevelNodes) {
             var curLevel;
             if (curLevelNode.hasAttribute("points")) {
-                curLevel = new Level(levelNodeIndex, curLevelNode.getAttribute("points"));
-            } else {
-                curLevel = new Level(levelNodeIndex, 0);
+                curClass.levels[levelNodeIndex].points = curLevelNode.getAttribute("points");
             }
-            curClass.levels[curLevel.index] = curLevel;
     
             allAbilityNodes = toArray(curLevelNode.getElementsByTagName("abilityEntry")).sort(function(firstNode, secondNode) {
                 if (firstNode.getAttribute("abilityName") > secondNode.getAttribute("abilityName")) {
@@ -78,7 +75,7 @@ function init() {
             });
             allAbilityNodes.forEach(function(curAbilityNode, abilityNodeIndex, allAbilityNodes) {
                 curClass.addAbilityEntry(
-                    curLevel.index,
+                    levelNodeIndex,
                     curAbilityNode.getAttribute("name"),
                     curAbilityNode.getAttribute("abilityName"),
                     curAbilityNode.getAttribute("cost"),
@@ -89,8 +86,8 @@ function init() {
                 );
             });
         });
-        if (curClass.levels.length < 7) {
-            curClass.levels[6] = new Level(6, 1);
+        if (curClass.levels[6].abilityEntries.length == 0) {
+            curClass.levels[6].points = 1;
         }
         curClass.addAbilityEntry(6, "*Look the Part*", "Look the Part", 0, 1, 1, "&#8210;", 0);
         allDefaultClasses.set(curClassNode.id, curClass);
@@ -201,18 +198,18 @@ function update() {
     toArray(document.getElementById("class-list").getElementsByTagName("tbody")).forEach(function(body) {
         document.getElementById("class-list").removeChild(body);
     });
-    currentPlayer.playerClass.levels.forEach(function(curLevel) {
+    currentPlayer.playerClass.levels.forEach(function(curLevel, curLevelIndex) {
         bod = document.createElement("tbody");
-        classList = "<tr><td colspan=\"9\"><b>" + curLevel.name();
-        if (curLevel.points > 0 && currentPlayer.hasLevelIndex(curLevel.index)) {
-            classList += ": </b>" + currentPlayer.getPointsRemainingAtLevelIndex(curLevel.index) + "/" + curLevel.points;
+        classList = "<tr><td colspan=\"9\"><b>" + curLevel.levelName;
+        if (curLevel.points > 0 && currentPlayer.hasLevelIndex(curLevelIndex)) {
+            classList += ": </b>" + currentPlayer.getPointsRemainingAtLevelIndex(curLevelIndex) + "/" + curLevel.points;
         } else {
             classList += "</b>";
         }
         classList += "</td></tr>";
         curLevel.abilityEntries.forEach(function(abilityEntry) {
             classList += "<tr><td class=\"tooltip\">&nbsp;&nbsp;" + abilityEntry.name;
-            classList += "<span class=\"tooltiptext\" id=\"tip " + abilityEntry.name + " @ " + curLevel.index + "\"></span>";
+            classList += "<span class=\"tooltiptext\" id=\"tip " + abilityEntry.name + " @ " + curLevelIndex + "\"></span>";
             classList += "</td><td>" + Math.max(abilityEntry.cost, 0) + "</td><td>";
             if (abilityEntry.max == -1) {
                 classList += "&#8210;";
@@ -226,51 +223,51 @@ function update() {
                 classList += abilityEntry.longFrequency();
             }
             classList += "</td><td>" + abilityEntry.ability.type + "</td><td>" + abilityEntry.ability.school + "</td><td>" + abilityEntry.ability.range + "</td><td>";
-            classList += "<button type=\"button\" id=\"rem " + abilityEntry.name + " @ " + curLevel.index + "\" onclick=\"currentPlayer.remAbilityEntry('" + abilityEntry.name + "', '" + curLevel.index + "'); update()\">&#8210;</button>";
-            classList += "<span id=\"num " + abilityEntry.name + " @ " + curLevel.index + "\" style=\"font-family:monospace\"></span>";
-            classList += "<button type=\"button\" id=\"add " + abilityEntry.name + " @ " + curLevel.index + "\" onclick=\"currentPlayer.addAbilityEntry('" + abilityEntry.name + "','" + curLevel.index + "'); update()\">+</button>";
+            classList += "<button type=\"button\" id=\"rem " + abilityEntry.name + " @ " + curLevelIndex + "\" onclick=\"currentPlayer.remAbilityEntry('" + abilityEntry.name + "', '" + curLevelIndex + "'); update()\">&#8210;</button>";
+            classList += "<span id=\"num " + abilityEntry.name + " @ " + curLevelIndex + "\" style=\"font-family:monospace\"></span>";
+            classList += "<button type=\"button\" id=\"add " + abilityEntry.name + " @ " + curLevelIndex + "\" onclick=\"currentPlayer.addAbilityEntry('" + abilityEntry.name + "','" + curLevelIndex + "'); update()\">+</button>";
             classList += "</td><td>";
-            classList += "<button type=\"button\" id=\"exp " + abilityEntry.name + " @ " + curLevel.index + "\" onclick=\"currentPlayer.expAbilityEntry('" + abilityEntry.name + "','" + curLevel.index + "'); update()\"></button>";
+            classList += "<button type=\"button\" id=\"exp " + abilityEntry.name + " @ " + curLevelIndex + "\" onclick=\"currentPlayer.expAbilityEntry('" + abilityEntry.name + "','" + curLevelIndex + "'); update()\"></button>";
             classList += "</td></tr>";
         });
         bod.innerHTML = classList;
         document.getElementById("class-list").appendChild(bod);
         
         curLevel.abilityEntries.forEach(function(abilityEntry) {
-            document.getElementById("tip " + abilityEntry.name + " @ " + curLevel.index).innerHTML = abilityEntry.ability;
-            document.getElementById("num " + abilityEntry.name + " @ " + curLevel.index).innerHTML = "&nbsp;" + formatNumber(currentPlayer.getCountOfAbilityEntry(abilityEntry)) + "&nbsp;";
+            document.getElementById("tip " + abilityEntry.name + " @ " + curLevelIndex).innerHTML = abilityEntry.ability;
+            document.getElementById("num " + abilityEntry.name + " @ " + curLevelIndex).innerHTML = "&nbsp;" + formatNumber(currentPlayer.getCountOfAbilityEntry(abilityEntry)) + "&nbsp;";
             if (abilityEntry.ability.name == "Look the Part") {
-                document.getElementById("num " + abilityEntry.name + " @ " + curLevel.index).innerHTML = "&nbsp;" + formatNumber(currentPlayer.hasLookThePart) + "&nbsp;";
-                document.getElementById("rem " + abilityEntry.name + " @ " + curLevel.index).disabled = !currentPlayer.hasLookThePart;
-                document.getElementById("rem " + abilityEntry.name + " @ " + curLevel.index).onclick = function(){currentPlayer.hasLookThePart = false; update()};
-                document.getElementById("add " + abilityEntry.name + " @ " + curLevel.index).disabled = currentPlayer.hasLookThePart
-                document.getElementById("add " + abilityEntry.name + " @ " + curLevel.index).onclick = function(){currentPlayer.hasLookThePart = true; update()};
-            } else if (currentPlayer.hasLevelIndex(curLevel.index) && (abilityEntry.cost != 0 || currentPlayer.playerClass.isMagicUser)) {
+                document.getElementById("num " + abilityEntry.name + " @ " + curLevelIndex).innerHTML = "&nbsp;" + formatNumber(currentPlayer.hasLookThePart) + "&nbsp;";
+                document.getElementById("rem " + abilityEntry.name + " @ " + curLevelIndex).disabled = !currentPlayer.hasLookThePart;
+                document.getElementById("rem " + abilityEntry.name + " @ " + curLevelIndex).onclick = function(){currentPlayer.hasLookThePart = false; update()};
+                document.getElementById("add " + abilityEntry.name + " @ " + curLevelIndex).disabled = currentPlayer.hasLookThePart
+                document.getElementById("add " + abilityEntry.name + " @ " + curLevelIndex).onclick = function(){currentPlayer.hasLookThePart = true; update()};
+            } else if (currentPlayer.hasLevelIndex(curLevelIndex) && (abilityEntry.cost != 0 || currentPlayer.playerClass.isMagicUser)) {
                 if (unimplementedAbilityNames.indexOf(abilityEntry.ability.name) != -1) {
-                    document.getElementById("rem " + abilityEntry.name + " @ " + curLevel.index).innerHTML = "?";
-                    document.getElementById("rem " + abilityEntry.name + " @ " + curLevel.index).disabled = true;
-                    document.getElementById("add " + abilityEntry.name + " @ " + curLevel.index).innerHTML = "?";
-                    document.getElementById("add " + abilityEntry.name + " @ " + curLevel.index).disabled = true;
+                    document.getElementById("rem " + abilityEntry.name + " @ " + curLevelIndex).innerHTML = "?";
+                    document.getElementById("rem " + abilityEntry.name + " @ " + curLevelIndex).disabled = true;
+                    document.getElementById("add " + abilityEntry.name + " @ " + curLevelIndex).innerHTML = "?";
+                    document.getElementById("add " + abilityEntry.name + " @ " + curLevelIndex).disabled = true;
                 } else  {
-                    document.getElementById("rem " + abilityEntry.name + " @ " + curLevel.index).disabled = (currentPlayer.getCountOfAbilityEntry(abilityEntry) == 0);
-                    document.getElementById("add " + abilityEntry.name + " @ " + curLevel.index).disabled = (currentPlayer.getCostOfAbilityEntry(abilityEntry.name, curLevel.index) == undefined);
-                    //if (currentPlayer.playerClass.canExpAbilityEntry(abilityEntry, curLevel.index)) {
+                    document.getElementById("rem " + abilityEntry.name + " @ " + curLevelIndex).disabled = (currentPlayer.getCountOfAbilityEntry(abilityEntry) == 0);
+                    document.getElementById("add " + abilityEntry.name + " @ " + curLevelIndex).disabled = (currentPlayer.getCostOfAbilityEntry(abilityEntry.name, curLevelIndex) == undefined);
+                    //if (currentPlayer.playerClass.canExpAbilityEntry(abilityEntry, curLevelIndex)) {
                     if (false) {
-                        document.getElementById("exp " + abilityEntry.name + " @ " + curLevel.index).style.visibility = "visible";
+                        document.getElementById("exp " + abilityEntry.name + " @ " + curLevelIndex).style.visibility = "visible";
                         if (currentPlayer.expAbilities.indexOf(abilityEntry) == -1) {
-                            //document.getElementById("exp " + abilityEntry.name + " @ " + curLevel.index).disabled = (currentPlayer.expAbilities.length == currentPlayer.getCountOfAbilityName("Experienced"));
-                            document.getElementById("exp " + abilityEntry.name + " @ " + curLevel.index).innerHTML = "+";
+                            //document.getElementById("exp " + abilityEntry.name + " @ " + curLevelIndex).disabled = (currentPlayer.expAbilities.length == currentPlayer.getCountOfAbilityName("Experienced"));
+                            document.getElementById("exp " + abilityEntry.name + " @ " + curLevelIndex).innerHTML = "+";
                         } else {
-                            document.getElementById("exp " + abilityEntry.name + " @ " + curLevel.index).innerHTML = "&#8210;";
+                            document.getElementById("exp " + abilityEntry.name + " @ " + curLevelIndex).innerHTML = "&#8210;";
                         }
                     } else {
-                        document.getElementById("exp " + abilityEntry.name + " @ " + curLevel.index).style.visibility = "hidden";
+                        document.getElementById("exp " + abilityEntry.name + " @ " + curLevelIndex).style.visibility = "hidden";
                     }
                 }
             } else {
-                document.getElementById("rem " + abilityEntry.name + " @ " + curLevel.index).style.visibility = "hidden";
-                document.getElementById("add " + abilityEntry.name + " @ " + curLevel.index).style.visibility = "hidden";
-                document.getElementById("exp " + abilityEntry.name + " @ " + curLevel.index).style.visibility = "hidden";
+                document.getElementById("rem " + abilityEntry.name + " @ " + curLevelIndex).style.visibility = "hidden";
+                document.getElementById("add " + abilityEntry.name + " @ " + curLevelIndex).style.visibility = "hidden";
+                document.getElementById("exp " + abilityEntry.name + " @ " + curLevelIndex).style.visibility = "hidden";
             }
         });
     });
@@ -288,7 +285,6 @@ function Player(playerClassName, level) {
     this.maxPoints = new Array();
     this.points = new Map();
     this.counts = new Map();
-    this.expAbilities = new Array();
     
     this.allAvailableAbilityEntries = new Array();
     var curAbilityEntry;
@@ -362,7 +358,7 @@ function Player(playerClassName, level) {
         }
         print("getting cost of ability entry " + abilityEntry + " at level index " + levelIndex);
         indent(true);
-        print("found level " + this.playerClass.levels[levelIndex].name());
+        print("found level " + this.playerClass.levels[levelIndex].levelName);
         print("comparing ability count " + this.getCountOfAbilityEntry(abilityEntry) + " to maximum count " + abilityEntry.max);
         if (abilityEntry.max == -1 || this.getCountOfAbilityEntry(abilityEntry) < abilityEntry.max) {
             print("purchases remaining");
@@ -500,33 +496,41 @@ function Player(playerClassName, level) {
 function DefaultClass(name, isMagicUser) {
     this.name = String(name);
     this.isMagicUser = Boolean(isMagicUser);
-    this.levels = new Array();
     
-    this.indexOfLevelName = function DefaultClass_indexOfLevelName(levelName, maximumLevelIndex, minimumLevelIndex) {
-        if (maximumLevelIndex == undefined) {
-            maximumLevelIndex = 6;
-        } else {
-            maximumLevelIndex = Math.minimum(maximumLevelIndex, 6);
-        }
-        if (minimumLevelIndex == undefined) {
-            minimumLevelIndex = 0;
-        } else {
-            maximumLevelIndex = Math.maximum(minimumLevelIndex, 0);
-        }
-        while(minimumLevelIndex < maximumLevelIndex) {
-            if(this.levels[minimumLevelIndex].name() == levelName) {
-                return minimumLevelIndex;
-            } else {
-                minimumLevelIndex++;
+    this.levels = [
+        {levelName:"1st Level", points:0, abilityEntries:[]},
+        {levelName:"2nd Level", points:0, abilityEntries:[]},
+        {levelName:"3rd Level", points:0, abilityEntries:[]},
+        {levelName:"4th Level", points:0, abilityEntries:[]},
+        {levelName:"5th Level", points:0, abilityEntries:[]},
+        {levelName:"6th Level", points:0, abilityEntries:[]},
+        {levelName:"Look the Part", points:0, abilityEntries:[]}
+    ];
+    
+    this.indexOfAbilityEntry = function DefaultClass_indexOfAbilityEntry(abilityEntryName, levelIndex) {
+        for (var i = 0; i < this.levels[levelIndex].abilityEntries.length; i++) {
+            if (this.levels[levelIndex].abilityEntries[i].name == abilityEntryName) {
+                return i;
             }
         }
         return -1;
     };
     
+    this.indexOfAbilityName = function DefaultClass_indexOfAbilityName(abilityName, levelIndex) {
+        for (var i = 0; i < this.levels[levelIndex].abilityEntries.length; i++) {
+            if (this.levels[levelIndex].abilityEntries[i].ability.name == abilityName) {
+                return i;
+            }
+        }
+        return -1;
+    };
+    
+    this.hasAbilityEntry = function DefaultClass_hasAbilityEntry(abilityEntry, levelIndex) {
+        return (this.levels[levelIndex].abilityEntries.indexOf(abilityEntry) != -1);
+    };
+    
     this.addAbilityEntry = function DefaultClass_addAbilityEntry(levelIndex, name, abilityName, cost, max, count, per, charge) {
-        var level = this.levels[levelIndex];
-        //console.log(this.name);
-        if (level == undefined || level.indexOfAbilityName(abilityName) != -1) {
+        if (this.indexOfAbilityName(abilityName, levelIndex) != -1) {
             print("cannot add ability entry " + name + " at level index " + levelIndex);
         } else {
             var abilityEntry = new AbilityEntry(name, abilityName, 0, 1, 1, "&#8210;", 0);
@@ -550,30 +554,29 @@ function DefaultClass(name, isMagicUser) {
             if (charge != undefined) {
                 abilityEntry.charge = Number(charge);
             }
-            level.abilityEntries.unshift(abilityEntry);
-            level.abilityEntries.sort(sortByName);
+            this.levels[levelIndex].abilityEntries.unshift(abilityEntry);
+            this.levels[levelIndex].abilityEntries.sort(sortByName);
         }
     };
 
     this.getAbilityEntry = function DefaultClass_getAbilityEntry(abilityEntryName, levelIndex) {
-        var level = this.levels[levelIndex];
-        if (level == undefined) {
+        if (levelIndex < 0 || levelIndex > 6) {
             print(abilityName + ": level index " + levelIndex + " does not exist");
             return undefined;
         } else {
-            var abilityEntryIndex = level.indexOfAbilityEntry(abilityEntryName);
+            var abilityEntryIndex = this.indexOfAbilityEntry(abilityEntryName, levelIndex);
             if (abilityEntryIndex != -1) {
-                return level.abilityEntries[abilityEntryIndex];
+                return this.levels[levelIndex].abilityEntries[abilityEntryIndex];
             } else {
-                print(abilityName + ": does not exist at level " + level.name());
+                print(abilityName + ": does not exist at level " + this.levels[levelIndex].name);
                 return undefined;
             }
         }
     };
     
     this.canExpAbilityEntry = function DefaultClass_canExpAbilityEntry(abilityEntry, levelIndex) {
-        if (levelIndex < 4 && this.levels[levelIndex] != undefined) {
-            if (this.levels[levelIndex].hasAbilityEntry(abilityEntry)) {
+        if (levelIndex < 4) {
+            if (this.hasAbilityEntry(abilityEntry, levelIndex)) {
                 if (abilityEntry.ability.type == "Verbal" && (abilityEntry.per == "Life" || abilityEntry.per == "Refresh") && abilityEntry.charge == 0) {
                     return true;
                 }
@@ -674,51 +677,6 @@ function joinAbilityEntries(firstAbilityEntry, secondAbilityEntry) {
     }
 }
 
-function Level(index, points) {
-    this.index = Number(index);
-    this.points = Number(points);
-    this.abilityEntries = new Array();
-    
-    this.name = function() {
-        return [
-            "1st Level",
-            "2nd Level",
-            "3rd Level",
-            "4th Level",
-            "5th Level",
-            "6th Level",
-            "Look the Part"
-        ][this.index];
-    };
-    
-    this.indexOfAbilityEntry = function Level_indexOfAbilityEntry(abilityEntryName) {
-        for (var i = 0; i < this.abilityEntries.length; i++) {
-            if (this.abilityEntries[i].name == abilityEntryName) {
-                return i;
-            }
-        }
-        return -1;
-    };
-    
-    this.indexOfAbilityName = function Level_indexOfAbilityName(abilityName) {
-        for (var i = 0; i < this.abilityEntries.length; i++) {
-            //console.log(this.name() + "[" + i + "]=" + this.abilityEntries[i].ability.name);
-            if (this.abilityEntries[i].ability.name == abilityName) {
-                return i;
-            }
-        }
-        return -1;
-    };
-    
-    this.hasAbilityEntry = function Level_hasAbilityEntry(abilityEntry) {
-        return (this.abilityEntries.indexOf(abilityEntry) != -1);
-    };
-    
-    this.toString = function() {
-        return this.name();
-    }
-}
-
 function DefaultAbility(name, type, school, range, newEquipment) {
     this.name = String(name);
     this.uniqueName = this.name.toLowerCase().replace(new RegExp(" ", "g"), "").replace(new RegExp(",","g"), "").replace(new RegExp(":","g"), "");
@@ -806,7 +764,7 @@ function sum(arrayObj) {
     );
 }
 
-var outputMessagesFrom = ["!update", "!Player_getCostOfAbilityEntry", "!Player_getPointsRemainingAtLevelIndex", "!Player_getPointsSpentOnAbilityEntry", "!Player_addAbilityEntry", "DefaultClass_addAbilityEntry"];
+var outputMessagesFrom = ["update", "!Player_getCostOfAbilityEntry", "!Player_getPointsRemainingAtLevelIndex", "!Player_getPointsSpentOnAbilityEntry", "!Player_addAbilityEntry", "DefaultClass_addAbilityEntry"];
 
 function doBeVerbose() {
     var returnVal = (outputMessagesFrom.indexOf(doBeVerbose.caller.caller.name) != -1);
@@ -846,7 +804,7 @@ function indent(isCollapsed) {
 
 function formatPointDistributionOfPlayer(playerObj) {
     var text = "";
-    text += playerObj.playerClass.name + ", " + playerObj.playerClass.levels[playerObj.level].name() + "\n";
+    text += playerObj.playerClass.name + ", " + playerObj.playerClass.levels[playerObj.level].levelName + "\n";
     text += "                               0  1  2  3  4  5  6\n";
     text += formatPointArray(
         "MAX",
@@ -862,8 +820,8 @@ function formatPointDistributionOfPlayer(playerObj) {
     });
     text += formatPointArray(
         "LEFT",
-        playerObj.playerClass.levels.map(function(level) {
-            return playerObj.getPointsRemainingAtLevelIndex(level.index);
+        playerObj.playerClass.levels.map(function(level, levelIndex) {
+            return playerObj.getPointsRemainingAtLevelIndex(levelIndex);
         }),
         "\n"
     );
