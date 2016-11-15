@@ -1,0 +1,2035 @@
+[
+    {
+        "name": "Archer",
+        "levels": [
+            {
+                "points": "2",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Reload",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Destruction Arrow",
+                        "cost": "1",
+                        "per": "Arrow"
+                    },
+                    {
+                        "abilityName": "Pinning Arrow",
+                        "cost": "1",
+                        "per": "Arrow"
+                    },
+                    {
+                        "abilityName": "Poison Arrow",
+                        "cost": "1",
+                        "per": "Arrow"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Mend",
+                        "per": "Life"
+                    }
+                ]
+            },
+            {
+                "points": "2",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Destruction Arrow",
+                        "cost": "1",
+                        "per": "Arrow"
+                    },
+                    {
+                        "abilityName": "Pinning Arrow",
+                        "cost": "1",
+                        "per": "Arrow"
+                    },
+                    {
+                        "abilityName": "Poison Arrow",
+                        "cost": "1",
+                        "per": "Arrow"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Suppression Arrow",
+                        "per": "Arrow"
+                    }
+                ]
+            },
+            {
+                "points": "2",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Destruction Arrow",
+                        "cost": "1",
+                        "per": "Arrow"
+                    },
+                    {
+                        "abilityName": "Pinning Arrow",
+                        "cost": "1",
+                        "per": "Arrow"
+                    },
+                    {
+                        "abilityName": "Poison Arrow",
+                        "cost": "1",
+                        "per": "Arrow"
+                    }
+                ]
+            },
+            {
+                "points": "1",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Phase Arrow",
+                        "per": "Arrow"
+                    },
+                    {
+                        "abilityName": "Sniper",
+                        "cost": "1",
+                        "max": "1"
+                    }
+                ]
+            },
+            {
+                "points": "1",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Destruction Arrow",
+                        "cost": "1",
+                        "per": "Arrow"
+                    },
+                    {
+                        "abilityName": "Pinning Arrow",
+                        "cost": "1",
+                        "per": "Arrow"
+                    },
+                    {
+                        "abilityName": "Poison Arrow",
+                        "cost": "1",
+                        "per": "Arrow"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Assassin",
+        "levels": [
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Shadow Step",
+                        "count": "2",
+                        "per": "Life",
+                        "tags": [
+                            "Ambulant"
+                        ]
+                    },
+                    {
+                        "abilityName": "Assassinate",
+                        "per": "Unlimited",
+                        "tags": [
+                            "Ambulant"
+                        ]
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Poison",
+                        "count": "1",
+                        "per": "Life",
+                        "charge": "3",
+                        "tags": [
+                            "Self-Only"
+                        ]
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Blink",
+                        "count": "2",
+                        "per": "Life",
+                        "tags": [
+                            "Ambulant"
+                        ]
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Hold Person",
+                        "count": "1",
+                        "per": "Life"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Teleport",
+                        "count": "2",
+                        "per": "Life",
+                        "tags": [
+                            "Self-Only"
+                        ]
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Coup de Grace",
+                        "count": "1",
+                        "per": "Life",
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Poison",
+                        "count": "1",
+                        "per": "Life",
+                        "tags": [
+                            "Self-Only"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Barbarian",
+        "levels": [
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Berserk"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Fight After Death",
+                        "count": "1",
+                        "per": "Refresh",
+                        "tags": [
+                            "Ambulant"
+                        ]
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Adrenaline",
+                        "per": "Unlimited",
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Fight After Death",
+                        "count": "1",
+                        "per": "Refresh",
+                        "tags": [
+                            "Ambulant"
+                        ]
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Brutal Strike",
+                        "count": "1",
+                        "per": "Life",
+                        "tags": [
+                            "Ambulant"
+                        ]
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Blood and Thunder",
+                        "count": "2",
+                        "per": "Refresh"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Blood and Thunder",
+                        "count": "2",
+                        "per": "Refresh"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Monk",
+        "levels": [
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Enlightened Soul"
+                    },
+                    {
+                        "abilityName": "Missile Block"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "name": "Sanctuary",
+                        "count": "1",
+                        "per": "Life",
+                        "charge": "5",
+                        "tags": [
+                            "Ambulant"
+                        ]
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "name": "Heal",
+                        "count": "1",
+                        "per": "Life",
+                        "charge": "3",
+                        "tags": [
+                            "Self-Only"
+                        ]
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "name": "Resurrect",
+                        "count": "1",
+                        "per": "Refresh",
+                        "charge": "10"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Magic Ball Block"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "name": "Heal",
+                        "count": "1",
+                        "per": "Life",
+                        "tags": [
+                            "Self-Only"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Scout",
+        "levels": [
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Tracking",
+                        "count": "2",
+                        "per": "Life",
+                        "charge": "3",
+                        "tags": [
+                            "Ambulant"
+                        ]
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Heal",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Release",
+                        "count": "1",
+                        "per": "Life",
+                        "charge": "3"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Shadow Step",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Dispel Magic",
+                        "count": "1",
+                        "per": "Refresh"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Evolution"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Hold Person",
+                        "count": "1",
+                        "per": "Life"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Adaptive Blessing",
+                        "count": "1",
+                        "per": "Life",
+                        "tags": [
+                            "Self-Only"
+                        ]
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Heal",
+                        "count": "1",
+                        "per": "Life"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Warrior",
+        "levels": [
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Scavenge",
+                        "per": "Unlimited"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Harden",
+                        "count": "1",
+                        "per": "Life"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "True Grit",
+                        "count": "1",
+                        "per": "Refresh"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Insult",
+                        "count": "1",
+                        "per": "Life",
+                        "tags": [
+                            "Ambulant"
+                        ]
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Shake It Off",
+                        "count": "1",
+                        "per": "Refresh",
+                        "charge": "3"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Ancestral Armor",
+                        "count": "3",
+                        "per": "Refresh",
+                        "tags": [
+                            "Swift"
+                        ]
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Insult",
+                        "count": "1",
+                        "per": "Life",
+                        "tags": [
+                            "Ambulant"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Bard",
+        "magic-user": "true",
+        "levels": [
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Cancel",
+                        "cost": "0",
+                        "max": "1",
+                        "per": "Unlimited"
+                    },
+                    {
+                        "abilityName": "Confidence",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh",
+                        "charge": "5"
+                    },
+                    {
+                        "abilityName": "Equipment: Weapon, Short",
+                        "cost": "2",
+                        "max": "2"
+                    },
+                    {
+                        "abilityName": "Experienced",
+                        "cost": "2",
+                        "max": "2"
+                    },
+                    {
+                        "abilityName": "Insult",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Release",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Shove",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Song of Determination",
+                        "cost": "1",
+                        "max": "1",
+                        "per": "Unlimited"
+                    }
+                ]
+            },
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Empower",
+                        "cost": "1",
+                        "count": "2",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Equipment: Armor, 1 Point",
+                        "cost": "4",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Greater Release",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Innate",
+                        "cost": "1",
+                        "max": "4",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Mend",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Song of Battle",
+                        "cost": "1",
+                        "max": "1",
+                        "per": "Unlimited"
+                    },
+                    {
+                        "abilityName": "Song of Visit",
+                        "cost": "1",
+                        "max": "1",
+                        "per": "Unlimited"
+                    }
+                ]
+            },
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Awe",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Battlefield Triage",
+                        "cost": "1",
+                        "max": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Break Concentration",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Extension",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Equipment: Shield, Small",
+                        "cost": "2",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Song of Freedom",
+                        "cost": "1",
+                        "max": "1",
+                        "per": "Unlimited"
+                    }
+                ]
+            },
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Amplification",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Equipment: Weapon, Long",
+                        "cost": "3",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Restoration",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Sleight of Mind",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Song of Deflection",
+                        "cost": "1",
+                        "max": "1",
+                        "per": "Unlimited"
+                    },
+                    {
+                        "abilityName": "Song of Power",
+                        "cost": "1",
+                        "max": "1",
+                        "per": "Unlimited"
+                    },
+                    {
+                        "abilityName": "Suppress Aura",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Swift",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Terror",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    }
+                ]
+            },
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Agoraphobia",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Ambulant",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Discordia",
+                        "cost": "1",
+                        "max": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Equipment: Shield, Medium",
+                        "cost": "3",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Heart of the Swarm",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Lost",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Song of Survival",
+                        "cost": "1",
+                        "max": "1",
+                        "per": "Unlimited"
+                    }
+                ]
+            },
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Combat Caster",
+                        "cost": "2",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Dervish",
+                        "cost": "2",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Equipment: Armor, 1 Point",
+                        "cost": "2",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Legend",
+                        "cost": "1",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Silver Tongue",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Song of Interference",
+                        "cost": "1",
+                        "max": "1",
+                        "count": "1",
+                        "per": "Refresh",
+                        "charge": "5"
+                    },
+                    {
+                        "abilityName": "Stun",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Druid",
+        "magic-user": "true",
+        "levels": [
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Barkskin",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Cancel",
+                        "cost": "0",
+                        "max": "1",
+                        "per": "Unlimited"
+                    },
+                    {
+                        "abilityName": "Corrosive Mist",
+                        "cost": "1",
+                        "max": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Entangle",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "2",
+                        "per": "Ball"
+                    },
+                    {
+                        "abilityName": "Equipment: Weapon, Short",
+                        "cost": "2",
+                        "max": "2"
+                    },
+                    {
+                        "abilityName": "Experienced",
+                        "cost": "2",
+                        "max": "0"
+                    },
+                    {
+                        "abilityName": "Heat Weapon",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life",
+                        "charge": "3"
+                    },
+                    {
+                        "abilityName": "Imbue Armor",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Mend",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    }
+                ]
+            },
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Equipment: Shield, Small",
+                        "cost": "4",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Gift of Earth",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Heal",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Iceball",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "2",
+                        "per": "Ball"
+                    },
+                    {
+                        "abilityName": "Innate",
+                        "cost": "1",
+                        "max": "4",
+                        "count": "1",
+                        "per": "Refresh"
+                    
+                    },
+                    {
+                        
+                        "abilityName": "Poison",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Release",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Stoneform",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh",
+                        "charge": "3"
+                    }
+                ]
+            },
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Attuned",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Bear Strength",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Dispel Magic",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Extension",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Gift of Fire",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Greater Mend",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Icy Blast",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Regeneration",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Stoneskin",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    }
+                ]
+            },
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Equipment: Weapon, Long",
+                        "cost": "4",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Flame Blade",
+                        "cost": "2",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Force Bolt",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "2",
+                        "per": "Ball"
+                    },
+                    {
+                        "abilityName": "Gift of Water",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Golem",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Lycanthropy",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Swift",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Teleport",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Life"
+                    }
+                ]
+            },
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Ambulant",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Equipment: Weapon, Great",
+                        "cost": "5",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Essence Graft",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Gift of Air",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Heart of the Swarm",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Ironskin",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Poison Glands",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Resurrect",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Troll Blood",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    }
+                ]
+            },
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Avatar of Nature",
+                        "cost": "1",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Call Lightning",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Grasping Tentacles",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Imbue Weapon",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Naturalize Magic",
+                        "cost": "1",
+                        "max": "2"
+                    },
+                    {
+                        "abilityName": "Ranger",
+                        "cost": "2",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Summoner",
+                        "cost": "2",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Word of Mending",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Healer",
+        "magic-user": "true",
+        "levels": [
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Banish",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Blessing Against Wounds",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Cancel",
+                        "cost": "0",
+                        "max": "1",
+                        "per": "Unlimited"
+                    },
+                    {
+                        "abilityName": "Equipment: Shield, Small",
+                        "cost": "2",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Equipment: Weapon, Short",
+                        "cost": "3",
+                        "max": "2"
+                    },
+                    {
+                        "abilityName": "Experienced",
+                        "cost": "2",
+                        "max": "2"
+                    },
+                    {
+                        "abilityName": "Harden",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Heal",
+                        "cost": "1",
+                        "max": "1",
+                        "per": "Unlimited"
+                    },
+                    {
+                        "abilityName": "Release",
+                        "cost": "1",
+                        "count": "2",
+                        "per": "Refresh",
+                        "charge": "3"
+                    }
+                ]
+            },
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Adaptive Blessing",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Entangle",
+                        "cost": "1",
+                        "max": "4",
+                        "count": "2",
+                        "per": "Ball"
+                    },
+                    {
+                        "abilityName": "Equipment: Weapon, Hinged",
+                        "cost": "3",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Greater Release",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Hold Person",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life",
+                        "charge": "3"
+                    },
+                    {
+                        "abilityName": "Innate",
+                        "cost": "2",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Sever Spirit",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life",
+                        "charge": "3"
+                    },
+                    {
+                        "abilityName": "Shove",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Summon Dead",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life",
+                        "charge": "3"
+                    }
+                ]
+            },
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Adaptive Protection",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Astral Intervention",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life",
+                        "charge": "3"
+                    },
+                    {
+                        "abilityName": "Equipment: Shield, Medium",
+                        "cost": "2",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Extension",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Greater Harden",
+                        "cost": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Iceball",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "2",
+                        "per": "Ball"
+                    },
+                    {
+                        "abilityName": "Mend",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Resurrect",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh",
+                        "charge": "5"
+                    },
+                    {
+                        "abilityName": "Undead Minion",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    }
+                ]
+            },
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Blessing Against Harm",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Circle of Protection",
+                        "cost": "1",
+                        "max": "1",
+                        "count": "1",
+                        "per": "Refresh",
+                        "charge": "10"
+                    },
+                    {
+                        "abilityName": "Greater Heal",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Imbue Shield",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Protection from Projectiles",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Swift",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Teleport",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Life"
+                    }
+                ]
+            },
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Abeyance",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Ball"
+                    },
+                    {
+                        "abilityName": "Ambulant",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Blessed Aura",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Dispel Magic",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Enlightened Soul",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Greater Resurrect",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Greater Undead Minion",
+                        "cost": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Steal Life Essence",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Life"
+                    }
+                ]
+            },
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Ancestral Armor",
+                        "cost": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Mass Healing",
+                        "cost": "1",
+                        "max": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Necromancer",
+                        "cost": "1",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Persistent",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Phoenix Tears",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Priest",
+                        "cost": "1",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Protection from Magic",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Stun",
+                        "cost": "1",
+                        "max": "4",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Warder",
+                        "cost": "2",
+                        "max": "1"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Wizard",
+        "magic-user": "true",
+        "levels": [
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Banish",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Cancel",
+                        "cost": "0",
+                        "max": "1",
+                        "per": "Unlimited"
+                    },
+                    {
+                        "abilityName": "Equipment: Weapon, Short",
+                        "cost": "2",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Experienced",
+                        "cost": "2",
+                        "max": "2"
+                    },
+                    {
+                        "abilityName": "Force Barrier",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Force Bolt",
+                        "cost": "1",
+                        "max": "4",
+                        "count": "3",
+                        "per": "Ball"
+                    },
+                    {
+                        "abilityName": "Heat Weapon",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Mend",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Shove",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life",
+                        "charge": "3"
+                    }
+                ]
+            },
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Astral Intervention",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Break Concentration",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Entangle",
+                        "cost": "1",
+                        "max": "3",
+                        "count": "2",
+                        "per": "Ball"
+                    },
+                    {
+                        "abilityName": "Innate",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Planar Grounding",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Release",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Suppression Bolt",
+                        "cost": "1",
+                        "max": "3",
+                        "count": "1",
+                        "per": "Ball"
+                    },
+                    {
+                        "abilityName": "Teleport",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Life"
+                    }
+                ]
+            },
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Dispel Magic",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh",
+                        "charge": "3"
+                    },
+                    {
+                        "abilityName": "Dragged Below",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Extension",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Greater Mend",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Hold Person",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Iceball",
+                        "cost": "1",
+                        "max": "3",
+                        "count": "2",
+                        "per": "Ball"
+                    },
+                    {
+                        "abilityName": "Lightning Bolt",
+                        "cost": "1",
+                        "max": "4",
+                        "count": "1",
+                        "per": "Ball"
+                    },
+                    {
+                        "abilityName": "Ravage",
+                        "cost": "1",
+                        "count": "2",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Shatter Weapon",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Throw",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    }
+                ]
+            },
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Destroy Armor",
+                        "cost": "1",
+                        "count": "2",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Dimensional Rift",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Fireball",
+                        "cost": "1",
+                        "max": "4",
+                        "count": "1",
+                        "per": "Ball"
+                    },
+                    {
+                        "abilityName": "Icy Blast",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Shatter",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Suppress Aura",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Swift",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Vampirism",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Wounding",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh",
+                        "charge": "3"
+                    }
+                ]
+            },
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Ambulant",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Contagion",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Equipment: Weapon, Long",
+                        "cost": "4",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Phase Bolt",
+                        "cost": "1",
+                        "max": "4",
+                        "count": "1",
+                        "per": "Ball"
+                    },
+                    {
+                        "abilityName": "Pyrotechnics",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Steal Life Essence",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Life"
+                    },
+                    {
+                        "abilityName": "Void Touched",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Ward Self",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    }
+                ]
+            },
+            {
+                "points": "5",
+                "abilityEntries": [
+                    {
+                        "abilityName": "Battlemage",
+                        "cost": "2",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Elemental Barrage",
+                        "cost": "1",
+                        "max": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Evoker",
+                        "cost": "2",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Finger of Death",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Persistent",
+                        "cost": "2",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Protection from Magic",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    },
+                    {
+                        "abilityName": "Sphere of Annihilation",
+                        "cost": "2",
+                        "max": "1",
+                        "count": "1",
+                        "per": "Ball"
+                    },
+                    {
+                        "abilityName": "Warlock",
+                        "cost": "2",
+                        "max": "1"
+                    },
+                    {
+                        "abilityName": "Word of Mending",
+                        "cost": "1",
+                        "count": "1",
+                        "per": "Refresh"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Anti-Paladin",
+        "levels": [
+            {
+                "abilityEntries": [
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Poison",
+                        "count": "1",
+                        "per": "Refresh",
+                        "charge": "3",
+                        "tags": [
+                            "Self-Only"
+                        ]
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Steal Life Essence",
+                        "count": "1",
+                        "per": "Life"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Brutal Strike",
+                        "count": "1",
+                        "per": "Life",
+                        "tags": [
+                            "Ambulant"
+                        ]
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Awe",
+                        "count": "1",
+                        "per": "Life"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Undead Minion",
+                        "count": "2",
+                        "per": "Refresh"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Awe",
+                        "count": "1",
+                        "per": "Life"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Paladin",
+        "levels": [
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Heal",
+                        "count": "1",
+                        "per": "Refresh",
+                        "charge": "3"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Extend Immunities",
+                        "count": "1",
+                        "per": "Refresh",
+                        "charge": "5"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Resurrect",
+                        "count": "2",
+                        "per": "Refresh"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Awe",
+                        "count": "1",
+                        "per": "Life"
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Protection from Magic",
+                        "count": "2",
+                        "per": "Refresh",
+                        "tags": [
+                            "Self/Touch"
+                        ]
+                    }
+                ]
+            },
+            {
+                "abilityEntries": [
+                    {
+                        "abilityName": "Awe",
+                        "count": "1",
+                        "per": "Life"
+                    }
+                ]
+            }
+        ]
+    }
+]
