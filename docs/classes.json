@@ -191,7 +191,7 @@
                     {
                         "abilityName": "Coup de Grace",
                         "count": "1",
-                        "per": "Life",
+                        "per": "Life"
                     }
                 ]
             },
