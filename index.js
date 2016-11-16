@@ -20,25 +20,6 @@ function getXMLDoc(file) {
     return xmlDoc;
 }
 
-function getJSON(URL) {
-    request = new XMLHttpRequest();
-    request.open('GET', String(URL), true);
-
-    request.onload = function() {
-        if (request.status >= 200 && request.status < 400){
-            return JSON.parse(request.responseText);
-        } else {
-            console.warn("Server reached, returned error code " + request.status + " with URL " + URL);
-        }
-    };
-
-    request.onerror = function() {
-        console.warn("Connection error with URL " + URL);
-    };
-    
-    request.send();
-}
-
 function init() {
     preInit();
     allDefaultAbilities = new Map();
@@ -872,8 +853,41 @@ function formatPointArray(preLabel, pointArray, postLabel) {
 }
 
 function preInit() {
-    abilitiesJSON = getJSON("https://jkat718.github.io/abilities.json");
+    abilitiesRequest = new XMLHttpRequest();
+    abilitiesRequest.open('GET', String("https://jkat718.github.io/Spell-Sheets-By-Gor/abilities.json"), true);
+
+    abilitiesRequest.onload = function() {
+        if (abilitiesRequest.status >= 200 && abilitiesRequest.status < 400){
+            abilitiesJSON = JSON.parse(abilitiesRequest.responseText);
+        } else {
+            console.warn("Server reached, returned error code " + abilitiesRequest.status + " with URL " + URL);
+            abilitiesJSON = "";
+        }
+    };
+
+    abilitiesRequest.onerror = function() {
+        console.warn("Connection error with URL " + URL);
+    };
+    
+    abilitiesRequest.send();
     console.log(abilitiesJSON);
-    classesJSON = getJSON("https://jkat718.github.io/classes.json");
+    
+    classesRequest = new XMLHttpRequest();
+    classesRequest.open('GET', String("https://jkat718.github.io/Spell-Sheets-By-Gor/classes.json"), true);
+
+    classesRequest.onload = function() {
+        if (classesRequest.status >= 200 && classesRequest.status < 400){
+            classesJSON = JSON.parse(classesRequest.responseText);
+        } else {
+            console.warn("Server reached, returned error code " + classesRequest.status + " with URL " + URL);
+            classesJSON = "";
+        }
+    };
+
+    classesRequest.onerror = function() {
+        console.warn("Connection error with URL " + URL);
+    };
+    
+    classesRequest.send();
     console.log(classesJSON);
 }
