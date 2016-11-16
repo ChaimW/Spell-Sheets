@@ -872,10 +872,8 @@ function formatPointArray(preLabel, pointArray, postLabel) {
 }
 
 function preInit() {
-    var location = window.location.href;
-    location = location.substr(0, location.lastIndexOf('/'));
-    abilitiesJSON = getJSON("../abilities.json");
+    abilitiesJSON = getJSON("https://jkat718.github.io/abilities.json");
     console.log(abilitiesJSON);
-    classesJSON = getJSON("../classes.json");
+    classesJSON = getJSON("https://jkat718.github.io/classes.json");
     console.log(classesJSON);
 }
