@@ -854,7 +854,7 @@ function formatPointArray(preLabel, pointArray, postLabel) {
 
 function preInit() {
     abilitiesRequest = new XMLHttpRequest();
-    abilitiesRequest.open('GET', "https://jkat718.github.io/Spell-Sheets-By-Gor/abilities.json", true);
+    abilitiesRequest.open('GET', String("https://jkat718.github.io/Spell-Sheets-By-Gor/abilities.json"), true);
 
     abilitiesRequest.onload = function() {
         if (abilitiesRequest.status >= 200 && abilitiesRequest.status < 400){
@@ -873,7 +873,7 @@ function preInit() {
     console.log(abilitiesJSON);
     
     classesRequest = new XMLHttpRequest();
-    classesRequest.open('GET', "https://jkat718.github.io/Spell-Sheets-By-Gor/classes.json", true);
+    classesRequest.open('GET', String("https://jkat718.github.io/Spell-Sheets-By-Gor/classes.json"), true);
 
     classesRequest.onload = function() {
         if (classesRequest.status >= 200 && classesRequest.status < 400){
