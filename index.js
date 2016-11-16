@@ -102,7 +102,7 @@ function loadClass() {
 
 var unimplementedAbilityNames = ["Avatar of Nature", "Battlemage", "Dervish", "Evoker", "Experienced", "Legend", "Necromancer", "Priest", "Ranger", "Sniper", "Summoner", "Warder", "Warlock"]
 function update() {
-    console.clear();
+    //console.clear();
     console.dir(allDefaultClasses);
     currentPlayer.updatePoints();
     console.dir(currentPlayer);
@@ -854,40 +854,61 @@ function formatPointArray(preLabel, pointArray, postLabel) {
 
 function preInit() {
     abilitiesRequest = new XMLHttpRequest();
-    abilitiesRequest.open('GET', String("https://jkat718.github.io/Spell-Sheets-By-Gor/abilities.json"), true);
+    abilitiesRequest.open('GET', "https://jkat718.github.io/Spell-Sheets-By-Gor/abilities.json", true);
 
     abilitiesRequest.onload = function() {
         if (abilitiesRequest.status >= 200 && abilitiesRequest.status < 400){
             abilitiesJSON = JSON.parse(abilitiesRequest.responseText);
         } else {
-            console.warn("Server reached, returned error code " + abilitiesRequest.status + " with URL " + URL);
-            abilitiesJSON = "";
+            console.warn("Server reached, returned error code " + abilitiesRequest.status + " when requesting abilities");
         }
-    };
-
-    abilitiesRequest.onerror = function() {
-        console.warn("Connection error with URL " + URL);
     };
     
     abilitiesRequest.send();
-    console.log(abilitiesJSON);
+    if (false) {
+    //if (abilitiesJSON == undefined) {
+        abilitiesJSON = JSON.parse(`
+        {
+            "placeholderability": {
+                "e": "Hold a place",
+                "i": "I am a placeholder x3",
+                "m": ["Magic Ball, Gray"],
+                "name": "Placeholder Ability",
+                "r": "Self",
+                "s": "Neutral",
+                "t": "Neutral"
+            }
+        }`);
+    }
     
     classesRequest = new XMLHttpRequest();
-    classesRequest.open('GET', String("https://jkat718.github.io/Spell-Sheets-By-Gor/classes.json"), true);
+    classesRequest.open('GET', "https://jkat718.github.io/Spell-Sheets-By-Gor/classes.json", true);
 
     classesRequest.onload = function() {
         if (classesRequest.status >= 200 && classesRequest.status < 400){
             classesJSON = JSON.parse(classesRequest.responseText);
         } else {
-            console.warn("Server reached, returned error code " + classesRequest.status + " with URL " + URL);
-            classesJSON = "";
+            console.warn("Server reached, returned error code " + classesRequest.status + " when requesting classes");
         }
-    };
-
-    classesRequest.onerror = function() {
-        console.warn("Connection error with URL " + URL);
     };
     
     classesRequest.send();
-    console.log(classesJSON);
+    if (false) {
+    //if (classesJSON == undefined) {
+        classesJSON = JSON.parse(`
+        [
+            {
+                "name": "Archer",
+                "levels": [
+                    {
+                        "abilityEntries": [
+                            {
+                                "abilityName": "Placeholder Ability"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]`);
+    }
 }

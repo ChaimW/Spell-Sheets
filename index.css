@@ -74,54 +74,54 @@ ul {
 }
 
 /* Name */
-#class-list tr > td:first-child {
+#class-list tr > :first-child {
     min-width: 12em;
 }
 /* Cost */
-#class-list tr > td:nth-child(2) {
+#class-list tr > :nth-child(2) {
     min-width: 3em;
     text-align: center;
 }
 
 /* Max */
-#class-list tr > td:nth-child(3) {
+#class-list tr > :nth-child(3) {
     min-width: 3em;
     text-align: center;
 }
 
 /* Frequency */
-#class-list tr > td:nth-child(4) {
+#class-list tr > :nth-child(4) {
     min-width: 9em;
 }
 
 /* Type */
-#class-list tr > td:nth-child(5) {
+#class-list tr > :nth-child(5) {
     min-width: 7em;
 }
 
 /* School */
-#class-list tr > td:nth-child(6) {
+#class-list tr > :nth-child(6) {
     min-width: 5em;
 }
 
 /* Range */
-#class-list tr > td:nth-child(7) {
+#class-list tr > :nth-child(7) {
     min-width: 6em;
 }
 
 /* Rem/Count/Add */
-#class-list tr > td:nth-child(8) {
+#class-list tr > :nth-child(8) {
     min-width: 5em;
     text-align: center;
 }
 
 /* Exp */
-#class-list tr > td:nth-child(9) {
+#class-list tr > :nth-child(9) {
     min-width: 2em;
     text-align: center;
 }
 
-#class-list tr > td:nth-child(10) {
+#class-list tr > :nth-child(10) {
     min-width: 2em;
     text-align: center;
 }
