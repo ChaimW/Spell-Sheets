@@ -235,7 +235,7 @@
                 "abilityEntries": [
                     {
                         "abilityName": "Adrenaline",
-                        "per": "Unlimited",
+                        "per": "Unlimited"
                     }
                 ]
             },
