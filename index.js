@@ -71,6 +71,7 @@ function init() {
         allDefaultClasses.set(jsonEntry["name"], curClass);
     }
     
+    document.getElementById("refresh-button").disabled = false;
     loadClass();
 }
 
@@ -85,7 +86,6 @@ function loadClass() {
 //set currentPlayer
     currentPlayer = new Player(playerClassName, level);
     currentPlayer.hasLookThePart = false;
-    
     update();
 }
 
@@ -156,8 +156,6 @@ function update() {
         currentAbilities.forEach(function(newAbilityEntry) {
             if (newAbilityEntry.ability.equipment.has(curEquipment)) {
                 currentEquipmentCount += newAbilityEntry.ability.equipment.get(curEquipment) * newAbilityEntry.count;
-            } else {
-                console.log(newAbilityEntry.name, curEquipment);
             }
         });
         if (currentEquipmentCount > 0) {
