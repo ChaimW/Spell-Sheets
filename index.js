@@ -1,53 +1,60 @@
 var allDefaultAbilities;    //map[String: DefaultAbility]
-var allDefaultEquipment;    //array[String]
 var allDefaultClasses;  //map[String: DefaultClass]
+var allMaterials = [
+    "Arrow, Gray (Phase)",
+    "Arrow, Green (Poison)",
+    "Arrow, Purple (Suppression)",
+    "Arrow, Red (Destruction)",
+    "Arrow, Yellow (Pinning)",
+    "Magic Ball, Black",
+    "Magic Ball, Blue",
+    "Magic Ball, Brown",
+    "Magic Ball, Gray",
+    "Magic Ball, Green",
+    "Magic Ball, Purple",
+    "Magic Ball, Red",
+    "Magic Ball, White",
+    "Magic Ball, Yellow",
+    "Strip, Red",
+    "Strip, White",
+    "Strip, Yellow"
+];
 
 var currentPlayer;
 
-var abilitiesJSON;
-var classesJSON;
-
-function init() {
+function initAbilities(abilitiesJSON) {
     allDefaultAbilities = new Map();
-    allDefaultClasses = new Map();
-    
     allDefaultAbilities.set("Look the Part", new DefaultAbility("Look the Part", "&#8210;", "&#8210;", "&#8210;"));
-    var jsonEntry;
-    for (var uniqueName in abilitiesJSON) {
+    var uniqueName, jsonEntry;
+    for (uniqueName in abilitiesJSON) {
         jsonEntry = abilitiesJSON[uniqueName];
-        var newDefaultAbility = new DefaultAbility(jsonEntry["name"], jsonEntry["t"], jsonEntry["s"], jsonEntry["r"], jsonEntry["m"]);
-        allDefaultAbilities.set(abilitiesJSON[uniqueName]["name"], newDefaultAbility);
+        allDefaultAbilities.set(
+            jsonEntry["name"],
+            new DefaultAbility(
+                jsonEntry["name"],
+                jsonEntry["t"],
+                jsonEntry["s"],
+                jsonEntry["r"],
+                jsonEntry["m"],
+                jsonEntry["i"],
+                jsonEntry["e"],
+                jsonEntry["l"],
+                jsonEntry["n"]
+            )
+        );
     }
-    
-    allDefaultEquipment = [
-        "Arrow, Gray (Phase)",
-        "Arrow, Green (Poison)",
-        "Arrow, Purple (Suppression)",
-        "Arrow, Red (Destruction)",
-        "Arrow, Yellow (Pinning)",
-        "Magic Ball, Black",
-        "Magic Ball, Blue",
-        "Magic Ball, Brown",
-        "Magic Ball, Gray",
-        "Magic Ball, Green",
-        "Magic Ball, Purple",
-        "Magic Ball, Red",
-        "Magic Ball, White",
-        "Magic Ball, Yellow",
-        "Strip, Red",
-        "Strip, White",
-        "Strip, Yellow"
-    ];
-    
-    var curClass, abilityObj;
-    
-    for (var defaultClass in classesJSON) {
+}
+
+function initClasses(classesJSON) {
+    allDefaultClasses = new Map();
+    var defaultClass, curClass, abilityObj, levelIndex;
+    for (defaultClass in classesJSON) {
         jsonEntry = classesJSON[defaultClass];
         curClass = new DefaultClass(jsonEntry["name"], false);
         if (jsonEntry["magic-user"] != undefined) {
             curClass.isMagicUser = jsonEntry["magic-user"];
         }
-        for (var levelIndex = 0; levelIndex < 7 && levelIndex < jsonEntry["levels"].length; levelIndex++) {
+        for (levelIndex = 0; levelIndex < 7 && levelIndex < jsonEntry["levels"].length; levelIndex++) {
             if (jsonEntry["levels"][levelIndex]["points"] != undefined) {
                 curClass.levels[levelIndex].points = jsonEntry["levels"][levelIndex]["points"];
             }
@@ -70,28 +77,24 @@ function init() {
         curClass.addAbilityEntry(6, "*Look the Part*", "Look the Part", 0, 1, 1, "&#8210;", 0);
         allDefaultClasses.set(jsonEntry["name"], curClass);
     }
-    
+}
+
+function unlock() {
     document.getElementById("refresh-button").disabled = false;
-    loadClass();
+    document.getElementById("class-name").innerHTML = "Select Class and Level";
 }
 
 function loadClass() {
-//set playerLevel
-    var level = document.getElementById("select-level").selectedIndex;
-
-//set playerClass
-    var playerClassName = document.getElementById("select-className");
-    playerClassName = playerClassName.options[playerClassName.selectedIndex].text;
-    
-//set currentPlayer
-    currentPlayer = new Player(playerClassName, level);
-    currentPlayer.hasLookThePart = false;
+    currentPlayer = new Player(
+        document.getElementById("select-className").value,
+        document.getElementById("select-level").selectedIndex
+    );
     update();
 }
 
 var unimplementedAbilityNames = ["Avatar of Nature", "Battlemage", "Dervish", "Evoker", "Experienced", "Legend", "Necromancer", "Priest", "Ranger", "Sniper", "Summoner", "Warder", "Warlock"]
 function update() {
-    console.clear();
+    //console.clear();
     console.dir(allDefaultClasses);
     currentPlayer.updatePoints();
     console.dir(currentPlayer);
@@ -151,11 +154,11 @@ function update() {
 //update Current Equipment
     document.getElementById("current-equipment").innerHTML = "";
     var currentEquipmentCount, currentEquipmentText;
-    allDefaultEquipment.forEach(function(curEquipment) {
+    allMaterials.forEach(function(curEquipment) {
         currentEquipmentCount = 0;
         currentAbilities.forEach(function(newAbilityEntry) {
-            if (newAbilityEntry.ability.equipment.has(curEquipment)) {
-                currentEquipmentCount += newAbilityEntry.ability.equipment.get(curEquipment) * newAbilityEntry.count;
+            if (newAbilityEntry.ability.materials.has(curEquipment)) {
+                currentEquipmentCount += newAbilityEntry.ability.materials.get(curEquipment) * newAbilityEntry.count;
             }
         });
         if (currentEquipmentCount > 0) {
@@ -179,6 +182,7 @@ function update() {
     toArray(document.getElementById("class-list").getElementsByTagName("tbody")).forEach(function(body) {
         document.getElementById("class-list").removeChild(body);
     });
+    
     currentPlayer.playerClass.levels.forEach(function(curLevel, curLevelIndex) {
         bod = document.createElement("tbody");
         classList = "<tr><td colspan=\"9\"><b>" + curLevel.levelName;
@@ -190,8 +194,8 @@ function update() {
         classList += "</td></tr>";
         curLevel.abilityEntries.forEach(function(abilityEntry) {
             classList += "<tr><td class=\"tooltip\">&nbsp;&nbsp;" + abilityEntry.name;
-            classList += "<span class=\"tooltiptext\" id=\"tip " + abilityEntry.name + " @ " + curLevelIndex + "\"></span>";
-            classList += "</td><td>" + Math.max(abilityEntry.cost, 0) + "</td><td>";
+            classList += "<span class=\"tooltiptext\" id=\"tip " + abilityEntry.name + " @ " + curLevelIndex + "\">" + abilityEntry.ability.description + "</span>";
+            classList += "</td><td>" + abilityEntry.cost + "</td><td>";
             if (abilityEntry.max == -1) {
                 classList += "&#8210;";
             } else {
@@ -204,39 +208,44 @@ function update() {
                 classList += abilityEntry.longFrequency();
             }
             classList += "</td><td>" + abilityEntry.ability.type + "</td><td>" + abilityEntry.ability.school + "</td><td>" + abilityEntry.ability.range + "</td><td>";
-            classList += "<button type=\"button\" id=\"rem " + abilityEntry.name + " @ " + curLevelIndex + "\" onclick=\"currentPlayer.remAbilityEntry('" + abilityEntry.name + "', '" + curLevelIndex + "'); update()\">&#8210;</button>";
-            classList += "<span id=\"num " + abilityEntry.name + " @ " + curLevelIndex + "\" style=\"font-family:monospace\"></span>";
-            classList += "<button type=\"button\" id=\"add " + abilityEntry.name + " @ " + curLevelIndex + "\" onclick=\"currentPlayer.addAbilityEntry('" + abilityEntry.name + "','" + curLevelIndex + "'); update()\">+</button>";
+            if (currentPlayer.hasLevelIndex(curLevelIndex) || abilityEntry.ability.name == "Look the Part") {
+                classList += "<button type=\"button\" id=\"rem " + abilityEntry.name + " @ " + curLevelIndex + "\" onclick=\"currentPlayer.remAbilityEntry('" + abilityEntry.name + "', '" + curLevelIndex + "'); update()\">&#8210;</button>";
+            }
+            classList += "<span id=\"num " + abilityEntry.name + " @ " + curLevelIndex + "\" style=\"font-family:monospace\">&nbsp;" + formatNumber(currentPlayer.getCountOfAbilityEntry(abilityEntry)) + "&nbsp;</span>";
+            if (currentPlayer.hasLevelIndex(curLevelIndex) || abilityEntry.ability.name == "Look the Part") {
+                classList += "<button type=\"button\" id=\"add " + abilityEntry.name + " @ " + curLevelIndex + "\" onclick=\"currentPlayer.addAbilityEntry('" + abilityEntry.name + "','" + curLevelIndex + "'); update()\">+</button>";
+            }
             classList += "</td><td>";
-            classList += "<button type=\"button\" id=\"exp " + abilityEntry.name + " @ " + curLevelIndex + "\" onclick=\"currentPlayer.expAbilityEntry('" + abilityEntry.name + "','" + curLevelIndex + "'); update()\"></button>";
+            //classList += "<button type=\"button\" id=\"exp " + abilityEntry.name + " @ " + curLevelIndex + "\" onclick=\"currentPlayer.expAbilityEntry('" + abilityEntry.name + "','" + curLevelIndex + "'); update()\"></button>";
             classList += "</td></tr>";
         });
         bod.innerHTML = classList;
         document.getElementById("class-list").appendChild(bod);
         
         curLevel.abilityEntries.forEach(function(abilityEntry) {
-            document.getElementById("tip " + abilityEntry.name + " @ " + curLevelIndex).innerHTML = abilityEntry.ability;
-            document.getElementById("num " + abilityEntry.name + " @ " + curLevelIndex).innerHTML = "&nbsp;" + formatNumber(currentPlayer.getCountOfAbilityEntry(abilityEntry)) + "&nbsp;";
             if (abilityEntry.ability.name == "Look the Part") {
-                document.getElementById("num " + abilityEntry.name + " @ " + curLevelIndex).innerHTML = "&nbsp;" + formatNumber(currentPlayer.hasLookThePart) + "&nbsp;";
                 document.getElementById("rem " + abilityEntry.name + " @ " + curLevelIndex).disabled = !currentPlayer.hasLookThePart;
                 document.getElementById("rem " + abilityEntry.name + " @ " + curLevelIndex).onclick = function(){currentPlayer.hasLookThePart = false; update()};
+                
                 document.getElementById("add " + abilityEntry.name + " @ " + curLevelIndex).disabled = currentPlayer.hasLookThePart
                 document.getElementById("add " + abilityEntry.name + " @ " + curLevelIndex).onclick = function(){currentPlayer.hasLookThePart = true; update()};
+                
+                //document.getElementById("exp " + abilityEntry.name + " @ " + curLevelIndex).style.visibility = "hidden";
             } else if (currentPlayer.hasLevelIndex(curLevelIndex) && (abilityEntry.cost != 0 || currentPlayer.playerClass.isMagicUser)) {
                 if (unimplementedAbilityNames.indexOf(abilityEntry.ability.name) != -1) {
                     document.getElementById("rem " + abilityEntry.name + " @ " + curLevelIndex).innerHTML = "?";
                     document.getElementById("rem " + abilityEntry.name + " @ " + curLevelIndex).disabled = true;
+                    
                     document.getElementById("add " + abilityEntry.name + " @ " + curLevelIndex).innerHTML = "?";
                     document.getElementById("add " + abilityEntry.name + " @ " + curLevelIndex).disabled = true;
                 } else  {
                     document.getElementById("rem " + abilityEntry.name + " @ " + curLevelIndex).disabled = (currentPlayer.getCountOfAbilityEntry(abilityEntry) == 0);
                     document.getElementById("add " + abilityEntry.name + " @ " + curLevelIndex).disabled = (currentPlayer.getCostOfAbilityEntry(abilityEntry.name, curLevelIndex) == undefined);
-                    //if (currentPlayer.playerClass.canExpAbilityEntry(abilityEntry, curLevelIndex)) {
-                    if (false) {
+                    /*
+                    if (currentPlayer.playerClass.canExpAbilityEntry(abilityEntry, curLevelIndex)) {
                         document.getElementById("exp " + abilityEntry.name + " @ " + curLevelIndex).style.visibility = "visible";
                         if (currentPlayer.expAbilities.indexOf(abilityEntry) == -1) {
-                            //document.getElementById("exp " + abilityEntry.name + " @ " + curLevelIndex).disabled = (currentPlayer.expAbilities.length == currentPlayer.getCountOfAbilityName("Experienced"));
+                            document.getElementById("exp " + abilityEntry.name + " @ " + curLevelIndex).disabled = (currentPlayer.expAbilities.length == currentPlayer.getCountOfAbilityName("Experienced"));
                             document.getElementById("exp " + abilityEntry.name + " @ " + curLevelIndex).innerHTML = "+";
                         } else {
                             document.getElementById("exp " + abilityEntry.name + " @ " + curLevelIndex).innerHTML = "&#8210;";
@@ -244,11 +253,10 @@ function update() {
                     } else {
                         document.getElementById("exp " + abilityEntry.name + " @ " + curLevelIndex).style.visibility = "hidden";
                     }
+                    */
                 }
             } else {
-                document.getElementById("rem " + abilityEntry.name + " @ " + curLevelIndex).style.visibility = "hidden";
-                document.getElementById("add " + abilityEntry.name + " @ " + curLevelIndex).style.visibility = "hidden";
-                document.getElementById("exp " + abilityEntry.name + " @ " + curLevelIndex).style.visibility = "hidden";
+                //document.getElementById("exp " + abilityEntry.name + " @ " + curLevelIndex).style.visibility = "hidden";
             }
         });
     });
@@ -257,7 +265,7 @@ function update() {
 function Player(playerClassName, level) {
     this.playerClass = allDefaultClasses.get(playerClassName);
     this.level = Number(level);
-    this.hasLookThePart = true;
+    this.hasLookThePart = false;
     
     this.hasLevelIndex = function Player_hasLevelIndex(levelIndex) {
         return levelIndex <= this.level || (levelIndex == 6 && this.hasLookThePart == true);
@@ -283,7 +291,7 @@ function Player(playerClassName, level) {
         }
     }
     this.allAvailableAbilityEntries.sort(sortByName);
-        
+    
     this.hasAbilityEntry = function Player_hasAbilityEntry(abilityEntry, levelIndex) {
         return this.points.has(abilityEntry) && (levelIndex == undefined || this.playerClass.levels[levelIndex].hasAbilityEntry(abilityEntry));
     };
@@ -662,59 +670,77 @@ function joinAbilityEntries(firstAbilityEntry, secondAbilityEntry) {
     }
 }
 
-function DefaultAbility(name, type, school, range, newEquipment) {
+function DefaultAbility(name, type, school, range, newEquipment, incantation, effect, limitations, notes) {
     this.name = String(name);
-    this.uniqueName = this.name.toLowerCase().replace(new RegExp(" ", "g"), "").replace(new RegExp(",","g"), "").replace(new RegExp(":","g"), "");
+    if (this.name == "Look the Part") {
+        this.description = "<b>Look the Part:</b> This is an extra Ability that is available to a player only if they actively role-play or portray their class. Examples would be acting consistently in character in battlegames, having good class-specific garb, and meaningfully  contributing to the atmosphere of the game. This ability need not meet a cookie-cutter definition of the class; any dedicated behavior consistent with a backstory can work. Barbarian, for example, could be played as a refined Samurai rather than a raging viking and still qualify for the bonus. Look The Part abilities are available at first level and are in addition to all other class abilities. Example: A player has a Look The Part ability of Scavenge 1/Life and a normal class ability of Scavenge 1/Life would have Scavenge 2/life. Who qualifies for Look The Part is game-by-game bonus awarded by the group monarch or joint decision of the game reeve and the guildmaster for the class.";
+    } else {
+        this.description = "<div style=\"font-size:20px;font-weight:bold;font-variant:small-caps;\">" + this.name + "</div>";
+    }
+    
     this.type = String(type);
-    this.school = String(school);
+    this.description += "<b>T:</b> " + this.type + "<br>";
+    
+    if (school == undefined) {
+        this.school = "&#8210;";
+    } else {
+        this.school = String(school);
+        this.description += "<b>S:</b> " + this.school + "<br>";
+    }
+    
     if (range == undefined) {
         this.range = "&#8210;";
     } else {
         this.range = String(range);
+        this.description += "<b>R:</b> " + this.range + "<br>";
     }
-    this.equipment = new Map();
-    if (newEquipment != undefined && newEquipment.length > 0 && newEquipment != "No strip required") {
+    
+    this.materials = new Map();
+    if (newEquipment != undefined && newEquipment.length > 0 && newEquipment != ["No strip required"]) {
         newEquipment.sort();
-        for (var i = 0; i < newEquipment.length; i++) {
-            if (this.equipment.has(newEquipment[i])) {
-                this.equipment.set(newEquipment[i], this.equipment.get(newEquipment[i]) + 1);
+        for (var curEquipmentIndex in newEquipment) {
+            if (this.materials.has(newEquipment[curEquipmentIndex])) {
+                this.materials.set(newEquipment[curEquipmentIndex], this.materials.get(newEquipment[curEquipmentIndex]) + 1);
             } else {
-                this.equipment.set(newEquipment[i], 1);
+                this.materials.set(newEquipment[curEquipmentIndex], 1);
             }
         }
     }
+    if (this.materials.size > 0) {
+        this.description += "<b>M:</b> ";
+        for (var i = 0; i < allMaterials.length; i++) {
+            if (this.materials.has(allMaterials[i])) {
+                this.description += allMaterials[i];
+                if (this.materials.get(allMaterials[i]) > 1) {
+                    this.description += " x" + this.materials.get(allMaterials[i]);
+                }
+                this.description += ", ";
+            } else {
+                console.log(allMaterials[i]);
+            }
+        }
+        this.description = this.description.substr(0, this.description.length - 2);
+        this.description += "<br>";
+    }
     
-    this.toString = function() {
-        if (this.name == "Look the Part") {
-            return "<b>Look the Part:</b> This is an extra Ability that is available to a player only if they actively role-play or portray their class. Examples would be acting consistently in character in battlegames, having good class-specific garb, and meaningfully  contributing to the atmosphere of the game. This ability need not meet a cookie-cutter definition of the class; any dedicated behavior consistent with a backstory can work. Barbarian, for example, could be played as a refined Samurai rather than a raging viking and still qualify for the bonus. Look The Part abilities are available at first level and are in addition to all other class abilities. Example: A player has a Look The Part ability of Scavenge 1/Life and a normal class ability of Scavenge 1/Life would have Scavenge 2/life. Who qualifies for Look The Part is game-by-game bonus awarded by the group monarch or joint decision of the game reeve and the guildmaster for the class.";
-        }
-        var out = "";
-        out += "<div style=\"font-size:20px;font-weight:bold;font-variant:small-caps;\">" + abilitiesJSON[this.uniqueName].name + "</div>";
-        if (abilitiesJSON[this.uniqueName].t != undefined) {
-            out += "<b>T:</b> " + abilitiesJSON[this.uniqueName].t + "<br>";
-        }
-        if (abilitiesJSON[this.uniqueName].s != undefined) {
-            out += "<b>S:</b> " + abilitiesJSON[this.uniqueName].s + "<br>";
-        }
-        if (abilitiesJSON[this.uniqueName].r != undefined) {
-            out += "<b>R:</b> " + abilitiesJSON[this.uniqueName].r + "<br>";
-        }
-        if (abilitiesJSON[this.uniqueName].i != undefined) {
-            out += "<b>I:</b> " + abilitiesJSON[this.uniqueName].i + "<br>";
-        }
-        if (abilitiesJSON[this.uniqueName].m != undefined) {
-            out += "<b>M:</b> " + abilitiesJSON[this.uniqueName].m + "<br>";
-        }
-        if (abilitiesJSON[this.uniqueName].e != undefined) {
-            out += "<b>E:</b> " + abilitiesJSON[this.uniqueName].e + "<br>";
-        }
-        if (abilitiesJSON[this.uniqueName].l != undefined) {
-            out += "<b>L:</b> " + abilitiesJSON[this.uniqueName].l + "<br>";
-        }
-        if (abilitiesJSON[this.uniqueName].n != undefined) {
-            out += "<b>N:</b> " + abilitiesJSON[this.uniqueName].n + "<br>";
-        }
-        return String(out);
+    if (incantation != undefined) {
+        this.incantation = String(incantation);
+        this.description += "<b>I:</b> " + this.incantation + "<br>";
+    }
+    
+    if (effect != undefined) {
+        this.effect = String(effect);
+        this.description += "<b>E:</b> " + this.effect + "<br>";
+    }
+    
+    if (limitations != undefined) {
+        this.limitations = String(limitations);
+        this.description += "<b>L:</b> " + this.limitations + "<br>";
+    }
+    
+    if (notes != undefined) {
+        this.notes = String(notes);
+        this.description += "<b>N:</b> " + this.notes + "<br>";
     }
 }
 
@@ -849,26 +875,26 @@ function preInit() {
 
     request.onreadystatechange = function() {
         if (request.readyState == 4) {
-            console.log("Connected...");
+            print("Connected...");
             if (request.status >= 200 && request.status < 400){
-                if (abilitiesJSON == undefined) {
-                    abilitiesJSON = JSON.parse(request.responseText);
+                if (allDefaultAbilities == undefined) {
+                    initAbilities(JSON.parse(request.responseText));
                     request.open('GET', "https://jkat718.github.io/Spell-Sheets-By-Gor/classes.json", true);
                     request.send();
                 } else {
-                    classesJSON = JSON.parse(request.responseText);
-                    init();
+                    initClasses(JSON.parse(request.responseText));
+                    unlock();
                 }
             } else {
-                console.warn("Server reached, returned error code " + request.status);
+                print("Server reached, returned error code " + request.status, true);
             }
         } else {
-            console.log("Waiting...");
+            print("Waiting...");
         }
     };
     
     request.onerror = function() {
-        console.warn("Connection error");
+        print("Connection error", true);
     };
     
     request.send();

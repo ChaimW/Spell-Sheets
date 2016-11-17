@@ -6,6 +6,10 @@ body {
     float: left;
 }
 
+select option[disabled] {
+    display: none;
+}
+
 #display-player {
     float: left;
 }
@@ -111,7 +115,7 @@ ul {
 
 /* Rem/Count/Add */
 #class-list tr > :nth-child(8) {
-    min-width: 5em;
+    min-width: 6em;
     text-align: center;
 }
 
