@@ -7,21 +7,7 @@ var currentPlayer;
 var abilitiesJSON;
 var classesJSON;
 
-function getXMLDoc(file) {
-    var xmlDoc;
-    if (window.DOMParser) {
-        var parser = new DOMParser();
-        xmlDoc = parser.parseFromString(file, "text/xml");
-    } else {
-        xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
-        xmlDoc.async = false;
-        xmlDoc.loadXML(file);
-    }
-    return xmlDoc;
-}
-
 function init() {
-    preInit();
     allDefaultAbilities = new Map();
     allDefaultClasses = new Map();
     
@@ -32,12 +18,13 @@ function init() {
         var newDefaultAbility = new DefaultAbility(jsonEntry["name"], jsonEntry["t"], jsonEntry["s"], jsonEntry["r"], jsonEntry["m"]);
         allDefaultAbilities.set(abilitiesJSON[uniqueName]["name"], newDefaultAbility);
     }
+    
     allDefaultEquipment = [
-        "Arrow, Gray",
-        "Arrow, Green",
-        "Arrow, Purple",
-        "Arrow, Red",
-        "Arrow, Yellow",
+        "Arrow, Gray (Phase)",
+        "Arrow, Green (Poison)",
+        "Arrow, Purple (Suppression)",
+        "Arrow, Red (Destruction)",
+        "Arrow, Yellow (Pinning)",
         "Magic Ball, Black",
         "Magic Ball, Blue",
         "Magic Ball, Brown",
@@ -83,6 +70,8 @@ function init() {
         curClass.addAbilityEntry(6, "*Look the Part*", "Look the Part", 0, 1, 1, "&#8210;", 0);
         allDefaultClasses.set(jsonEntry["name"], curClass);
     }
+    
+    loadClass();
 }
 
 function loadClass() {
@@ -102,7 +91,7 @@ function loadClass() {
 
 var unimplementedAbilityNames = ["Avatar of Nature", "Battlemage", "Dervish", "Evoker", "Experienced", "Legend", "Necromancer", "Priest", "Ranger", "Sniper", "Summoner", "Warder", "Warlock"]
 function update() {
-    //console.clear();
+    console.clear();
     console.dir(allDefaultClasses);
     currentPlayer.updatePoints();
     console.dir(currentPlayer);
@@ -137,11 +126,12 @@ function update() {
             }
         }
     });
+    var currentAbilityText;
     currentAbilities.forEach(function(newAbilityEntry, abilityEntryName) {
         if (newAbilityEntry.name == "Look the Part") {
             document.getElementById("current-abilities").innerHTML = "<li>*Look the Part*</li>" + document.getElementById("current-abilities").innerHTML;
         } else {
-            var currentAbilityText = "<li>";
+            currentAbilityText = "<li>";
             currentAbilityText += newAbilityEntry.name;
             if (newAbilityEntry.per != "&#8210;") {
                 currentAbilityText += " (";
@@ -160,15 +150,18 @@ function update() {
     
 //update Current Equipment
     document.getElementById("current-equipment").innerHTML = "";
+    var currentEquipmentCount, currentEquipmentText;
     allDefaultEquipment.forEach(function(curEquipment) {
-        var currentEquipmentCount = 0;
+        currentEquipmentCount = 0;
         currentAbilities.forEach(function(newAbilityEntry) {
             if (newAbilityEntry.ability.equipment.has(curEquipment)) {
                 currentEquipmentCount += newAbilityEntry.ability.equipment.get(curEquipment) * newAbilityEntry.count;
+            } else {
+                console.log(newAbilityEntry.name, curEquipment);
             }
         });
         if (currentEquipmentCount > 0) {
-            var currentEquipmentText = "";
+            currentEquipmentText = "";
             currentEquipmentText += "<li>";
             currentEquipmentText += curEquipment;
             if (currentEquipmentCount > 1) {
@@ -853,62 +846,32 @@ function formatPointArray(preLabel, pointArray, postLabel) {
 }
 
 function preInit() {
-    abilitiesRequest = new XMLHttpRequest();
-    abilitiesRequest.open('GET', "https://jkat718.github.io/Spell-Sheets-By-Gor/abilities.json", true);
+    var request = new XMLHttpRequest();
+    request.open('GET', "https://jkat718.github.io/Spell-Sheets-By-Gor/abilities.json", true);
 
-    abilitiesRequest.onload = function() {
-        if (abilitiesRequest.status >= 200 && abilitiesRequest.status < 400){
-            abilitiesJSON = JSON.parse(abilitiesRequest.responseText);
+    request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+            console.log("Connected...");
+            if (request.status >= 200 && request.status < 400){
+                if (abilitiesJSON == undefined) {
+                    abilitiesJSON = JSON.parse(request.responseText);
+                    request.open('GET', "https://jkat718.github.io/Spell-Sheets-By-Gor/classes.json", true);
+                    request.send();
+                } else {
+                    classesJSON = JSON.parse(request.responseText);
+                    init();
+                }
+            } else {
+                console.warn("Server reached, returned error code " + request.status);
+            }
         } else {
-            console.warn("Server reached, returned error code " + abilitiesRequest.status + " when requesting abilities");
+            console.log("Waiting...");
         }
     };
     
-    abilitiesRequest.send();
-    if (false) {
-    //if (abilitiesJSON == undefined) {
-        abilitiesJSON = JSON.parse(`
-        {
-            "placeholderability": {
-                "e": "Hold a place",
-                "i": "I am a placeholder x3",
-                "m": ["Magic Ball, Gray"],
-                "name": "Placeholder Ability",
-                "r": "Self",
-                "s": "Neutral",
-                "t": "Neutral"
-            }
-        }`);
-    }
-    
-    classesRequest = new XMLHttpRequest();
-    classesRequest.open('GET', "https://jkat718.github.io/Spell-Sheets-By-Gor/classes.json", true);
-
-    classesRequest.onload = function() {
-        if (classesRequest.status >= 200 && classesRequest.status < 400){
-            classesJSON = JSON.parse(classesRequest.responseText);
-        } else {
-            console.warn("Server reached, returned error code " + classesRequest.status + " when requesting classes");
-        }
+    request.onerror = function() {
+        console.warn("Connection error");
     };
     
-    classesRequest.send();
-    if (false) {
-    //if (classesJSON == undefined) {
-        classesJSON = JSON.parse(`
-        [
-            {
-                "name": "Archer",
-                "levels": [
-                    {
-                        "abilityEntries": [
-                            {
-                                "abilityName": "Placeholder Ability"
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]`);
-    }
+    request.send();
 }
