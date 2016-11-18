@@ -138,8 +138,6 @@ function update() {
             currentAbilityText += newAbilityEntry.name;
             if (newAbilityEntry.per != "&#8210;") {
                 currentAbilityText += " (";
-                currentAbilityText += newAbilityEntry.count;
-                currentAbilityText += " ";
                 currentAbilityText += newAbilityEntry.shortFrequency();
                 if (newAbilityEntry.ability.range != "&#8210;") {
                     currentAbilityText += "@" + newAbilityEntry.ability.range;
@@ -167,7 +165,7 @@ function update() {
             currentEquipmentText += curEquipment;
             if (currentEquipmentCount > 1) {
                 currentEquipmentText += " (x";
-                currentEquipmentText += formatNumber(currentEquipmentCount).substr(-2);
+                currentEquipmentText += currentEquipmentCount;
                 currentEquipmentText += ")"
             }
             currentEquipmentText += "</li>";
@@ -194,8 +192,8 @@ function update() {
         classList += "</td></tr>";
         curLevel.abilityEntries.forEach(function(abilityEntry) {
             classList += "<tr><td class=\"tooltip\">&nbsp;&nbsp;" + abilityEntry.name;
-            classList += "<span class=\"tooltiptext\" id=\"tip " + abilityEntry.name + " @ " + curLevelIndex + "\">" + abilityEntry.ability.description + "</span>";
-            classList += "</td><td>" + abilityEntry.cost + "</td><td>";
+            classList += "<span class=\"tooltiptext\">" + abilityEntry.ability.description + "</span>";
+            classList += "</td><td id=\"cost " + abilityEntry.name + " @ " + curLevelIndex + "\">" + abilityEntry.cost + "</td><td id=\"max " + abilityEntry.name + " @ " + curLevelIndex + "\">";
             if (abilityEntry.max == -1) {
                 classList += "&#8210;";
             } else {
@@ -207,41 +205,53 @@ function update() {
             } else {
                 classList += abilityEntry.longFrequency();
             }
-            classList += "</td><td>" + abilityEntry.ability.type + "</td><td>" + abilityEntry.ability.school + "</td><td>" + abilityEntry.ability.range + "</td><td>";
-            if (currentPlayer.hasLevelIndex(curLevelIndex) || abilityEntry.ability.name == "Look the Part") {
-                classList += "<button type=\"button\" id=\"rem " + abilityEntry.name + " @ " + curLevelIndex + "\" onclick=\"currentPlayer.remAbilityEntry('" + abilityEntry.name + "', '" + curLevelIndex + "'); update()\">&#8210;</button>";
+            classList += "</td><td id=\"type " + abilityEntry.name + " @ " + curLevelIndex + "\">" + abilityEntry.ability.type + "</td><td>" + abilityEntry.ability.school + "</td><td>" + abilityEntry.ability.range + "</td><td>";
+            if (abilityEntry.ability.name == "Look the Part") {
+                if (currentPlayer.hasLookThePart) {
+                    classList += "<button type=\"button\" id=\"rem " + abilityEntry.name + " @ " + curLevelIndex + "\" onclick=\"currentPlayer.hasLookThePart = false; update()\">&#8210;</button>";
+                } else {
+                    classList += "<button type=\"button\" id=\"rem " + abilityEntry.name + " @ " + curLevelIndex + "\" disabled>&#8210;</button>";
+                }
+            } else if (currentPlayer.hasLevelIndex(curLevelIndex) && (abilityEntry.cost != 0 || currentPlayer.playerClass.isMagicUser)) {
+                if (currentPlayer.getCountOfAbilityEntry(abilityEntry) == 0) {
+                    classList += "<button type=\"button\" id=\"rem " + abilityEntry.name + " @ " + curLevelIndex + "\" disabled>&#8210;</button>";
+                } else {
+                    classList += "<button type=\"button\" id=\"rem " + abilityEntry.name + " @ " + curLevelIndex + "\" onclick=\"currentPlayer.remAbilityEntry('" + abilityEntry.name + "', '" + curLevelIndex + "'); update()\">&#8210;</button>";
+                }
             }
             classList += "<span id=\"num " + abilityEntry.name + " @ " + curLevelIndex + "\" style=\"font-family:monospace\">&nbsp;" + formatNumber(currentPlayer.getCountOfAbilityEntry(abilityEntry)) + "&nbsp;</span>";
-            if (currentPlayer.hasLevelIndex(curLevelIndex) || abilityEntry.ability.name == "Look the Part") {
-                classList += "<button type=\"button\" id=\"add " + abilityEntry.name + " @ " + curLevelIndex + "\" onclick=\"currentPlayer.addAbilityEntry('" + abilityEntry.name + "','" + curLevelIndex + "'); update()\">+</button>";
+            if (abilityEntry.ability.name == "Look the Part") {
+                if (currentPlayer.hasLookThePart) {
+                    classList += "<button type=\"button\" id=\"add " + abilityEntry.name + " @ " + curLevelIndex + "\" disabled>+</button>";
+                } else {
+                    classList += "<button type=\"button\" id=\"add " + abilityEntry.name + " @ " + curLevelIndex + "\" onclick=\"currentPlayer.hasLookThePart = true; update()\">+</button>";
+                }
+            } else if (currentPlayer.hasLevelIndex(curLevelIndex) && (abilityEntry.cost != 0 || currentPlayer.playerClass.isMagicUser)) {
+                if (unimplementedAbilityNames.indexOf(abilityEntry.ability.name) == -1) {
+                    if (currentPlayer.getCostOfAbilityEntry(abilityEntry.name, curLevelIndex) == undefined) {
+                        classList += "<button type=\"button\" id=\"add " + abilityEntry.name + " @ " + curLevelIndex + "\" disabled>+</button>";
+                    } else {
+                        classList += "<button type=\"button\" id=\"add " + abilityEntry.name + " @ " + curLevelIndex + "\" onclick=\"currentPlayer.addAbilityEntry('" + abilityEntry.name + "', '" + curLevelIndex + "'); update()\">+</button>";
+                    }
+                } else {
+                    classList += "<button type=\"button\" id=\"add " + abilityEntry.name + " @ " + curLevelIndex + "\" disabled>?</button>";
+                }
             }
             classList += "</td><td>";
-            //classList += "<button type=\"button\" id=\"exp " + abilityEntry.name + " @ " + curLevelIndex + "\" onclick=\"currentPlayer.expAbilityEntry('" + abilityEntry.name + "','" + curLevelIndex + "'); update()\"></button>";
+            /*
+            if (currentPlayer.playerClass.canExpAbilityEntry(abilityEntry, curLevelIndex)) {
+                classList += "<button type=\"button\" id=\"exp " + abilityEntry.name + " @ " + curLevelIndex + "\" onclick=\"currentPlayer.expAbilityEntry('" + abilityEntry.name + "','" + curLevelIndex + "'); update()\"></button>";
+            }
+            */
             classList += "</td></tr>";
         });
         bod.innerHTML = classList;
         document.getElementById("class-list").appendChild(bod);
         
+        /*
         curLevel.abilityEntries.forEach(function(abilityEntry) {
-            if (abilityEntry.ability.name == "Look the Part") {
-                document.getElementById("rem " + abilityEntry.name + " @ " + curLevelIndex).disabled = !currentPlayer.hasLookThePart;
-                document.getElementById("rem " + abilityEntry.name + " @ " + curLevelIndex).onclick = function(){currentPlayer.hasLookThePart = false; update()};
-                
-                document.getElementById("add " + abilityEntry.name + " @ " + curLevelIndex).disabled = currentPlayer.hasLookThePart
-                document.getElementById("add " + abilityEntry.name + " @ " + curLevelIndex).onclick = function(){currentPlayer.hasLookThePart = true; update()};
-                
-                //document.getElementById("exp " + abilityEntry.name + " @ " + curLevelIndex).style.visibility = "hidden";
-            } else if (currentPlayer.hasLevelIndex(curLevelIndex) && (abilityEntry.cost != 0 || currentPlayer.playerClass.isMagicUser)) {
-                if (unimplementedAbilityNames.indexOf(abilityEntry.ability.name) != -1) {
-                    document.getElementById("rem " + abilityEntry.name + " @ " + curLevelIndex).innerHTML = "?";
-                    document.getElementById("rem " + abilityEntry.name + " @ " + curLevelIndex).disabled = true;
-                    
-                    document.getElementById("add " + abilityEntry.name + " @ " + curLevelIndex).innerHTML = "?";
-                    document.getElementById("add " + abilityEntry.name + " @ " + curLevelIndex).disabled = true;
-                } else  {
-                    document.getElementById("rem " + abilityEntry.name + " @ " + curLevelIndex).disabled = (currentPlayer.getCountOfAbilityEntry(abilityEntry) == 0);
-                    document.getElementById("add " + abilityEntry.name + " @ " + curLevelIndex).disabled = (currentPlayer.getCostOfAbilityEntry(abilityEntry.name, curLevelIndex) == undefined);
-                    /*
+            if (currentPlayer.hasLevelIndex(curLevelIndex) && (abilityEntry.cost != 0 || currentPlayer.playerClass.isMagicUser)) {
+                if (unimplementedAbilityNames.indexOf(abilityEntry.ability.name) == -1) {
                     if (currentPlayer.playerClass.canExpAbilityEntry(abilityEntry, curLevelIndex)) {
                         document.getElementById("exp " + abilityEntry.name + " @ " + curLevelIndex).style.visibility = "visible";
                         if (currentPlayer.expAbilities.indexOf(abilityEntry) == -1) {
@@ -253,12 +263,10 @@ function update() {
                     } else {
                         document.getElementById("exp " + abilityEntry.name + " @ " + curLevelIndex).style.visibility = "hidden";
                     }
-                    */
                 }
-            } else {
-                //document.getElementById("exp " + abilityEntry.name + " @ " + curLevelIndex).style.visibility = "hidden";
             }
         });
+        */
     });
 }
 
@@ -567,14 +575,16 @@ function DefaultClass(name, isMagicUser) {
     };
     
     this.canExpAbilityEntry = function DefaultClass_canExpAbilityEntry(abilityEntry, levelIndex) {
-        if (levelIndex < 4) {
-            if (this.hasAbilityEntry(abilityEntry, levelIndex)) {
-                if (abilityEntry.ability.type == "Verbal" && (abilityEntry.per == "Life" || abilityEntry.per == "Refresh") && abilityEntry.charge == 0) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        return (
+            levelIndex < 4 &&
+            this.hasAbilityEntry(abilityEntry, levelIndex) &&
+            abilityEntry.ability.type == "Verbal" &&
+            (
+                abilityEntry.per == "Life" ||
+                abilityEntry.per == "Refresh"
+            ) &&
+            abilityEntry.charge == 0
+        )
     }
 }
 
@@ -715,8 +725,6 @@ function DefaultAbility(name, type, school, range, newEquipment, incantation, ef
                     this.description += " x" + this.materials.get(allMaterials[i]);
                 }
                 this.description += ", ";
-            } else {
-                console.log(allMaterials[i]);
             }
         }
         this.description = this.description.substr(0, this.description.length - 2);
@@ -871,7 +879,7 @@ function formatPointArray(preLabel, pointArray, postLabel) {
 
 function preInit() {
     var request = new XMLHttpRequest();
-    request.open('GET', "https://jkat718.github.io/Spell-Sheets-By-Gor/abilities.json", true);
+    request.open('GET', "https://jkat718.github.io/docs/Spell-Sheets-By-Gor/abilities.json", true);
 
     request.onreadystatechange = function() {
         if (request.readyState == 4) {
@@ -879,7 +887,7 @@ function preInit() {
             if (request.status >= 200 && request.status < 400){
                 if (allDefaultAbilities == undefined) {
                     initAbilities(JSON.parse(request.responseText));
-                    request.open('GET', "https://jkat718.github.io/Spell-Sheets-By-Gor/classes.json", true);
+                    request.open('GET', "https://jkat718.github.io/docs/Spell-Sheets-By-Gor/classes.json", true);
                     request.send();
                 } else {
                     initClasses(JSON.parse(request.responseText));
