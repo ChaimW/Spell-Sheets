@@ -68,7 +68,7 @@ body {
 
 /* Name */
 #class-list tr > :nth-child(1) {
-    min-width: 12em;
+    min-width: 13em;
 }
 /* Cost */
 #class-list tr > :nth-child(2) {

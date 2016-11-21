@@ -53,7 +53,7 @@
         "r": "Self",
         "i": "&quot;Adrenaline&quot;",
         "e": "Player heals a wound",
-        "l": "May only be used within 30 seconds of killing an enemy in melee combat or causing the activation of any effects which allow the player struck to avoid death such as Undead Minion, Song of Survival, or other similar magic and abilities. May not be used within 10’ of a living enemy",
+        "l": "May only be used within 30 seconds of killing an enemy in melee combat or causing the activation of any effects which allow the player struck to avoid death such as Undead Minion, Song of Survival, or other similar magic and abilities. May not be used within 10&#39; of a living enemy",
         "n": "May only be used by the player striking the final blow and only once per kill per eligible enemy"
     },
 
@@ -322,8 +322,8 @@
         "s": "Sorcery",
         "r": "Self",
         "i": "&quot;I vanish from sight&quot;",
-        "e": "Player becomes Insubstantial and can move to any location within 50’ from their starting point",
-        "l": "Caster may not end State within 10’ of a living enemy"
+        "e": "Player becomes Insubstantial and can move to any location within 50&#39; from their starting point",
+        "l": "Caster may not end State within 10&#39; of a living enemy"
     },
 
     "bloodandthunder": {
@@ -337,7 +337,7 @@
         "r": "Self",
         "i": "&quot;Blood and Thunder!&quot;",
         "e": "Player gains Blessing Against Wounds",
-        "l": "May only be used within 30 seconds of killing an enemy in melee combat or causing the activation of any effects which allow the player struck to avoid death such as Undead Minion, Song of Survival, or other similar magic and abilities. May not be used within 10’ of a living enemy",
+        "l": "May only be used within 30 seconds of killing an enemy in melee combat or causing the activation of any effects which allow the player struck to avoid death such as Undead Minion, Song of Survival, or other similar magic and abilities. May not be used within 10&#39; of a living enemy",
         "n": "May only be used by the player striking the final blow and only once per kill per eligible enemy. Player must still wear a white strip to denote Blessing Against Wounds"
     },
 
@@ -1052,7 +1052,7 @@
         "r": "Touch",
         "i": "<br>&quot;Flesh rots, bones break, skulls sigh, spirits take let the power of my will descend on thee<br>let the power of my will restore thy spirit<br>let the power of my will knit thy corpse<br>let the power of my will give thee direction<br>let the power of my will cheat thy death<br>by the power of my will, arise my greater minion!&quot;",
         "m": ["Strip, Yellow"],
-        "e": "<br>1. Bearer does not die or respawn as normal<br>2. Bearer is Cursed and Suppressed<br>3. When the bearer would normally die, they instead become Insubstantial and return to the caster as soon as possible. Insubstantial players may not move more than 10’ from the caster and may not speak. The caster may touch the player and then Incant “Rise and fight again” x5 to end this Insubstantial State and remove all Wounds from the player so long as no living enemies are within 10’ of the bearer<br>4. If Insubstantial is removed from the Bearer in any other manner than outlined in item 3 (or prevented entirely) this Enchantment is removed<br>5. If the caster dies, this Enchantment is removed the next time the bearer returns to the caster<br>6. If the Enchantment is removed, the bearer dies<br>7. For the duration of the Enchantment, the Caster is considered the players respawn<br>8. Dead players may be targeted by Greater Undead Minion and are immediately returned to life with all Wounds removed and the Insubstantial State applied",
+        "e": "<br>1. Bearer does not die or respawn as normal<br>2. Bearer is Cursed and Suppressed<br>3. When the bearer would normally die, they instead become Insubstantial and return to the caster as soon as possible. Insubstantial players may not move more than 10&#39; from the caster and may not speak. The caster may touch the player and then Incant &quot;Rise and fight again&quot; x5 to end this Insubstantial State and remove all Wounds from the player so long as no living enemies are within 10&#39; of the bearer<br>4. If Insubstantial is removed from the Bearer in any other manner than outlined in item 3 (or prevented entirely) this Enchantment is removed<br>5. If the caster dies, this Enchantment is removed the next time the bearer returns to the caster<br>6. If the Enchantment is removed, the bearer dies<br>7. For the duration of the Enchantment, the Caster is considered the players respawn<br>8. Dead players may be targeted by Greater Undead Minion and are immediately returned to life with all Wounds removed and the Insubstantial State applied",
         "l": "<br>1. The Insubstantial State imposed by Greater Undead Minion can be removed or prevented by any Magic or Ability which would normally be capable of removing Insubstantial or preventing Insubstantial such as Tracking, Planar Grounding, Release, or similar Magic and Abilities<br>2. This Enchantment is removed by Banish and Dimensional Rift if used on the player while they are Insubstantial<br>3. The caster may not have more than three active Greater Undead Minion and Undead Minion Enchantments combined"
     },
 
@@ -1607,7 +1607,7 @@
         "i": "&quot;I grant thee the power of regeneration&quot; x3",
         "m": ["Strip, Yellow"],
         "e": "Bearer gains unlimited use of Swift Heal (self-only)",
-        "l": "The Heal granted by Regeneration may not be used within 10’ of a living enemy"
+        "l": "The Heal granted by Regeneration may not be used within 10&#39; of a living enemy"
     },
 
     "release": {
@@ -1699,7 +1699,7 @@
         "r": "Self",
         "i": "&quot;Scavenge&quot;",
         "e": "Repair one point of armor in one location, a shield, or a weapon",
-        "l": "May only be used within 30 seconds of killing an enemy in melee combat or causing the activation of any effects which allow the player struck to avoid death such as Undead Minion, Song of Survival, or other similar magic and abilities. May not be used within 10’ of a living enemy",
+        "l": "May only be used within 30 seconds of killing an enemy in melee combat or causing the activation of any effects which allow the player struck to avoid death such as Undead Minion, Song of Survival, or other similar magic and abilities. May not be used within 10&#39; of a living enemy",
         "n": "May only be used by the player striking the final blow and only once per kill per eligible enemy"
     },
 
@@ -2123,7 +2123,7 @@
         "s": "Death",
         "r": "20",
         "i": "&quot;Death makes thee terrified&quot; x3",
-        "e": "Target may not attack or cast magic at the caster. Target must remain at least 50’ away from the caster unless forced there by another Magic or Ability. Lasts 30 seconds",
+        "e": "Target may not attack or cast magic at the caster. Target must remain at least 50&#39; away from the caster unless forced there by another Magic or Ability. Lasts 30 seconds",
         "n": "If the caster attacks or begins casting another magic at the target, this spell’s effect is negated"
     },
 
@@ -2137,7 +2137,7 @@
         "s": "Sorcery",
         "r": "20",
         "i": "&quot;My power throws thee&quot; x3",
-        "e": "Target player is moved back 50’. Works on Stopped players"
+        "e": "Target player is moved back 50&#39;. Works on Stopped players"
     },
 
     "tracking": {
@@ -2193,7 +2193,7 @@
         "r": "Touch",
         "i": "<br>Flesh rots, bones break, skulls sigh, spirits take let the power of my will descend on thee<br>let the power of my will restore thy spirit<br>let the power of my will knit thy corpse<br>let the power of my will give thee direction<br>let the power of my will cheat thy death<br>by the power of my will, arise my minion!",
         "m": ["Strip, Yellow"],
-        "e": "<br>1. Bearer does not die or respawn as normal<br>2. Bearer is Cursed, Fragile, and Suppressed<br>3. When the bearer would normally die, they instead become Insubstantial and return to the caster as soon as possible. Insubstantial players may not move more than 10’ from the caster and may not speak. The caster may touch the player and then Incant “Rise and fight again” x10 to end this Insubstantial State and remove all Wounds from the player so long as no living enemies are within 10’ of the bearer<br>4. If Insubstantial is removed from the Bearer in any other manner than outlined in item 3 (or prevented entirely) this Enchantment is removed<br>5. If the caster dies, this Enchantment is removed the next time the bearer returns to the caster<br>6. If the Enchantment is removed, the bearer dies<br>7. For the duration of the Enchantment, the Caster is considered the players respawn<br>8. Dead players may be targeted by Undead Minion and are immediately returned to life with all Wounds removed and the Insubstantial State applied",
+        "e": "<br>1. Bearer does not die or respawn as normal<br>2. Bearer is Cursed, Fragile, and Suppressed<br>3. When the bearer would normally die, they instead become Insubstantial and return to the caster as soon as possible. Insubstantial players may not move more than 10&#39; from the caster and may not speak. The caster may touch the player and then Incant &quot;Rise and fight again&quot; x10 to end this Insubstantial State and remove all Wounds from the player so long as no living enemies are within 10&#39; of the bearer<br>4. If Insubstantial is removed from the Bearer in any other manner than outlined in item 3 (or prevented entirely) this Enchantment is removed<br>5. If the caster dies, this Enchantment is removed the next time the bearer returns to the caster<br>6. If the Enchantment is removed, the bearer dies<br>7. For the duration of the Enchantment, the Caster is considered the players respawn<br>8. Dead players may be targeted by Undead Minion and are immediately returned to life with all Wounds removed and the Insubstantial State applied",
         "l": "<br>1. The Insubstantial State imposed by Undead Minion can be removed or prevented by any Magic or Ability which would normally be capable of removing Insubstantial or preventing Insubstantial such as Tracking, Planar Grounding, Release, or similar Magic and Abilities<br>2. This Enchantment is removed by Banish and Dimensional Rift if used on the player while they are Insubstantial<br>3. The caster may not have more than three active Greater Undead Minion and Undead Minion Enchantments combined"
     },
 

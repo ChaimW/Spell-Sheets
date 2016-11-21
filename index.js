@@ -203,7 +203,7 @@ function update() {
             document.getElementById("points" + curLevelIndex).innerHTML = "";
         }
         curLevel.abilityEntries.forEach(function(abilityEntry) {
-            classList = "<tr><td onmouseover=\"setCurrentAbility(\'" + abilityEntry.ability.name + "\')\" onmouseout=\"setCurrentAbility()\">&nbsp;&nbsp;" + abilityEntry.name + "</td>";
+            classList = "<tr><td onmouseover=\"setCurrentAbility(\'" + abilityEntry.ability.name + "\')\">&nbsp;&nbsp;" + abilityEntry.name + "</td>";
             classList += "<td id=\"cost " + abilityEntry.name + " @ " + curLevelIndex + "\">" + abilityEntry.cost + "</td><td id=\"max " + abilityEntry.name + " @ " + curLevelIndex + "\">";
             if (abilityEntry.max == -1) {
                 classList += "&#8210;";
@@ -574,7 +574,7 @@ function DefaultClass(name, isMagicUser) {
             }
             this.levels[levelIndex].abilityEntries.unshift(abilityEntry);
             this.levels[levelIndex].abilityEntries.sort(sortByName);
-            console.log(abilityEntry);
+            printObj(abilityEntry);
         }
     };
 
@@ -760,9 +760,9 @@ function DefaultAbility(name, type, school, range, newEquipment, incantation, ef
         this.description += "<b>E:</b> " + effect[0];
         for (var i = 1; i < effect.length; i++) {
             if (i % 2 == 0) {
-                this.description += effect[i] + "&quot;</i>";
+                this.description += effect[i];
             } else {
-                this.description += "<i>&qout;" + effect[i];
+                this.description += "<i>&quot;" + effect[i] + "&quot;</i>";
             }
         }
         this.description += "<br>";
@@ -814,7 +814,7 @@ function sum(arrayObj) {
     );
 }
 
-var outputMessagesFrom = ["update", "!Player_getCostOfAbilityEntry", "!Player_getPointsRemainingAtLevelIndex", "!Player_getPointsSpentOnAbilityEntry", "!Player_addAbilityEntry", "DefaultClass_addAbilityEntry"];
+var outputMessagesFrom = ["update", "!Player_getCostOfAbilityEntry", "!Player_getPointsRemainingAtLevelIndex", "!Player_getPointsSpentOnAbilityEntry", "!Player_addAbilityEntry", "!DefaultClass_addAbilityEntry"];
 
 function doBeVerbose() {
     var returnVal = (outputMessagesFrom.indexOf(doBeVerbose.caller.caller.name) != -1);
