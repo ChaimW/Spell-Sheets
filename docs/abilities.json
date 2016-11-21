@@ -67,7 +67,7 @@
         "s": "Command",
         "r": "20",
         "i": "&quot;I command thee to be alone&quot; x3",
-        "e": "Target must remain at least 20’ away from all other players unless forced there by another Magic or Ability. Lasts 30 seconds."
+        "e": "Target must remain at least 20&#39; away from all other players unless forced there by another Magic or Ability. Lasts 30 seconds."
     },
 
     "amplification": {
@@ -182,7 +182,7 @@
         "s": "Command",
         "r": "20",
         "i": "&quot;I command thee awed&quot; x3",
-        "e": "Target may not attack or cast magic at the caster. Target must remain at least 20’ away from the caster unless forced there by another Magic or Ability. Lasts 30 seconds",
+        "e": "Target may not attack or cast magic at the caster. Target must remain at least 20&#39; away from the caster unless forced there by another Magic or Ability. Lasts 30 seconds",
         "n": "If the caster attacks or begins casting another magic at the target, this spell’s effect is negated"
     },
 
@@ -435,7 +435,7 @@
         "r": "Touch",
         "i": "&quot;My power grants thee confidence&quot;",
         "e": "Target player may instantly Charge a single Magic or Ability",
-        "l": "May not be used on self. May not be used within 20’ of a living enemy"
+        "l": "May not be used on self. May not be used within 20&#39; of a living enemy"
     },
 
     "contagion": {
@@ -1102,7 +1102,7 @@
         "i": "&quot;Let all those who oppose the hive feel the wrath of the swarm&quot; x3",
         "m": ["Strip, Yellow"],
         "e": "Bearer is Stopped. Any player on the bearer’s team may use the bearer as their respawn point as per the normal game rules. Players respawning at the caster do so by announcing &quot;My life for the swarm.&quot;",
-        "l": "Players can not respawn at the bearer if there are living enemy players or a game objective within 20’ of the bearer"
+        "l": "Players can not respawn at the bearer if there are living enemy players or a game objective within 20&#39; of the bearer"
     },
 
     "heatweapon": {
@@ -1683,9 +1683,9 @@
         "s": "Protection",
         "r": "Self",
         "i": "State &quot;Sanctuary&quot; without any weapons in hand",
-        "e": "Player and their equipment is unaffected by hostile actions originating from within 20’. Must Chant &quot;sanctuary&quot;",
-        "l": "Player may not carry any weapons in hand during Sanctuary. Cannot carry nor affect game items or game objectives while in Sanctuary. Players in Sanctuary may not impede the play of other people in any manner, and must immediately remove themselves from any such situations they find themselves in. May not come within 20’ of a non-friendly base",
-        "n": "If the player is voluntarily touching (other than blocking) or carrying weapons in any fashion (tucked under arms, tied to thongs, etc) at any point during Sanctuary then they may only end Sanctuary within 20’ of a friendly base. Player is still susceptible to Phase Bolt and Phase Arrow"
+        "e": "Player and their equipment is unaffected by hostile actions originating from within 20&#39;. Must Chant &quot;sanctuary&quot;",
+        "l": "Player may not carry any weapons in hand during Sanctuary. Cannot carry nor affect game items or game objectives while in Sanctuary. Players in Sanctuary may not impede the play of other people in any manner, and must immediately remove themselves from any such situations they find themselves in. May not come within 20&#39; of a non-friendly base",
+        "n": "If the player is voluntarily touching (other than blocking) or carrying weapons in any fashion (tucked under arms, tied to thongs, etc) at any point during Sanctuary then they may only end Sanctuary within 20&#39; of a friendly base. Player is still susceptible to Phase Bolt and Phase Arrow"
     },
 
     "scavenge": {
@@ -1781,7 +1781,7 @@
         "s": "Sorcery",
         "r": "20",
         "i": "&quot;My power shoves thee&quot; x3",
-        "e": "Target player is moved back 20’. Works on Stopped players"
+        "e": "Target player is moved back 20&#39;. Works on Stopped players"
     },
 
     "silvertongue": {
@@ -1906,7 +1906,7 @@
         "r": "Self",
         "i": "&quot;I sing to inspire my brothers-in-arms&quot;",
         "m": "No strip required",
-        "e": "Friendly players within 20’ of the bearer have their Charging Incantation repetitions divided by 2, rounded down. Bearer is Stopped. Bearer must Chant &quot;Song of Power&quot; or sing an inspiring song. Singing in place of the normal Chant is still a Chant and must follow all Chant rules"
+        "e": "Friendly players within 20&#39; of the bearer have their Charging Incantation repetitions divided by 2, rounded down. Bearer is Stopped. Bearer must Chant &quot;Song of Power&quot; or sing an inspiring song. Singing in place of the normal Chant is still a Chant and must follow all Chant rules"
     },  
 
 
@@ -2275,7 +2275,7 @@
         "r": "Touch",
         "i": "&quot;Spedoinkle&quot;",
         "e": "All equipment carried by target player is repaired. All armor worn by target player is restored to full value",
-        "l": "May not be cast within 20’ of a living enemy"
+        "l": "May not be cast within 20&#39; of a living enemy"
     },
 
     "wounding": {

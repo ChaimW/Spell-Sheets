@@ -298,12 +298,13 @@
             },
             {
                 "abilityEntries": [
+                    
                 ]
             },
             {
                 "abilityEntries": [
                     {
-                        "name": "Sanctuary",
+                        "abilityName": "Sanctuary",
                         "count": "1",
                         "per": "Life",
                         "charge": "5",
@@ -316,7 +317,7 @@
             {
                 "abilityEntries": [
                     {
-                        "name": "Heal",
+                        "abilityName": "Heal",
                         "count": "1",
                         "per": "Life",
                         "charge": "3",
@@ -329,7 +330,7 @@
             {
                 "abilityEntries": [
                     {
-                        "name": "Resurrect",
+                        "abilityName": "Resurrect",
                         "count": "1",
                         "per": "Refresh",
                         "charge": "10"
@@ -346,7 +347,7 @@
             {
                 "abilityEntries": [
                     {
-                        "name": "Heal",
+                        "abilityName": "Heal",
                         "count": "1",
                         "per": "Life",
                         "tags": [

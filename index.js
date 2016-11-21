@@ -63,7 +63,7 @@ function initClasses(classesJSON) {
             jsonEntry["levels"][levelIndex]["abilityEntries"].forEach(function(abilityObj) {
                 curClass.addAbilityEntry(
                     levelIndex,
-                    abilityObj["abilityName"],
+                    abilityObj["name"],
                     abilityObj["abilityName"],
                     abilityObj["cost"],
                     abilityObj["max"],
@@ -109,6 +109,7 @@ function loadClass() {
 var unimplementedAbilityNames = ["Avatar of Nature", "Battlemage", "Dervish", "Evoker", "Experienced", "Legend", "Necromancer", "Priest", "Ranger", "Sniper", "Summoner", "Warder", "Warlock"]
 function update() {
     //console.clear();
+    console.dir(allDefaultAbilities);
     console.dir(allDefaultClasses);
     currentPlayer.updatePoints();
     console.dir(currentPlayer);
@@ -573,6 +574,7 @@ function DefaultClass(name, isMagicUser) {
             }
             this.levels[levelIndex].abilityEntries.unshift(abilityEntry);
             this.levels[levelIndex].abilityEntries.sort(sortByName);
+            console.log(abilityEntry);
         }
     };
 
@@ -699,11 +701,7 @@ function joinAbilityEntries(firstAbilityEntry, secondAbilityEntry) {
 
 function DefaultAbility(name, type, school, range, newEquipment, incantation, effect, limitations, notes) {
     this.name = String(name);
-    if (this.name == "Look the Part") {
-        this.description = "<b>Look the Part:</b> This is an extra Ability that is available to a player only if they actively role-play or portray their class. Examples would be acting consistently in character in battlegames, having good class-specific garb, and meaningfully  contributing to the atmosphere of the game. This ability need not meet a cookie-cutter definition of the class; any dedicated behavior consistent with a backstory can work. Barbarian, for example, could be played as a refined Samurai rather than a raging viking and still qualify for the bonus. Look The Part abilities are available at first level and are in addition to all other class abilities. Example: A player has a Look The Part ability of Scavenge 1/Life and a normal class ability of Scavenge 1/Life would have Scavenge 2/life. Who qualifies for Look The Part is game-by-game bonus awarded by the group monarch or joint decision of the game reeve and the guildmaster for the class.";
-    } else {
-        this.description = "<div style=\"font-size:20px;font-weight:bold;font-variant:small-caps;\">" + this.name + "</div>";
-    }
+    this.description = "<div style=\"font-size:20px;font-weight:bold;font-variant:small-caps;\">" + this.name + "</div>";
     
     this.type = String(type);
     this.description += "<b>T:</b> " + this.type + "&nbsp;&nbsp;&nbsp;&nbsp;";
@@ -753,12 +751,21 @@ function DefaultAbility(name, type, school, range, newEquipment, incantation, ef
     if (incantation != undefined) {
         this.incantation = String(incantation);
         incantation = incantation.split("&quot;");
-        this.description += "<b>I:</b> <i>&quot;" + incantation[1] + "&quot;</i> " + incantation[2] + "<br>";
+        this.description += "<b>I:</b> " + incantation[0] + "<i>&quot;" + incantation[1] + "&quot;</i> " + incantation[2] + "<br>";
     }
     
     if (effect != undefined) {
         this.effect = String(effect);
-        this.description += "<b>E:</b> " + this.effect + "<br>";
+        effect = effect.split("&quot;");
+        this.description += "<b>E:</b> " + effect[0];
+        for (var i = 1; i < effect.length; i++) {
+            if (i % 2 == 0) {
+                this.description += effect[i] + "&quot;</i>";
+            } else {
+                this.description += "<i>&qout;" + effect[i];
+            }
+        }
+        this.description += "<br>";
     }
     
     if (limitations != undefined) {
@@ -769,6 +776,10 @@ function DefaultAbility(name, type, school, range, newEquipment, incantation, ef
     if (notes != undefined) {
         this.notes = String(notes);
         this.description += "<b>N:</b> " + this.notes + "<br>";
+    }
+
+    if (this.name == "Look the Part") {
+        this.description = "<b>Look the Part:</b> This is an extra Ability that is available to a player only if they actively role-play or portray their class. Examples would be acting consistently in character in battlegames, having good class-specific garb, and meaningfully  contributing to the atmosphere of the game. This ability need not meet a cookie-cutter definition of the class; any dedicated behavior consistent with a backstory can work. Barbarian, for example, could be played as a refined Samurai rather than a raging viking and still qualify for the bonus. Look The Part abilities are available at first level and are in addition to all other class abilities. Example: A player has a Look The Part ability of Scavenge 1/Life and a normal class ability of Scavenge 1/Life would have Scavenge 2/life. Who qualifies for Look The Part is game-by-game bonus awarded by the group monarch or joint decision of the game reeve and the guildmaster for the class.";
     }
 }
 

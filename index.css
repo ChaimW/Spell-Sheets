@@ -115,6 +115,7 @@ body {
 }
 
 #ability-info {
+    position: fixed;
     padding-right: 14em;
 }
 
