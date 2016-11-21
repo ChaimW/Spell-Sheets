@@ -4,45 +4,45 @@
     <link rel="stylesheet" type="text/css" href="index.css"></link>
     <script type="text/javascript" src="index.js"></script>
 </head>
-<body onload="preInit()">
+<body class="table" onload="preInit()">
     <div class="row">
-        <form id="select-player" class="cell">
-            <select id="select-className">
-                <optgroup label="Martials">
-                    <option>Archer</option>
-                    <option>Assassin</option>
-                    <option>Barbarian</option>
-                    <option>Monk</option>
-                    <option>Scout</option>
-                    <option>Warrior</option>
-                </optgroup>
-                <optgroup label="Magic-Users">
-                    <option>Bard</option>
-                    <option>Druid</option>
-                    <option>Healer</option>
-                    <option>Wizard</option>
-                </optgroup>
-                <optgroup label="Knights">
-                    <option>Anti-Paladin</option>
-                    <option>Paladin</option>
-                </optgroup>
-            <select>
-            <select id="select-level">
-                <option value="1st Level">1st Level</option>
-                <option value="2nd Level">2nd Level</option>
-                <option value="3rd Level">3rd Level</option>
-                <option value="4th Level">4th Level</option>
-                <option value="5th Level">5th Level</option>
-                <option value="6th Level">6th Level</option>
-            </select>
-            <br>
-            <button type="button" id="refresh-button" onclick="loadClass()" disabled>Load Class</button>
-        </form>
+        <span class="cell">
+            <form id="select-player">
+                <select id="select-className">
+                    <optgroup label="Martials">
+                        <option>Archer</option>
+                        <option>Assassin</option>
+                        <option>Barbarian</option>
+                        <option>Monk</option>
+                        <option>Scout</option>
+                        <option>Warrior</option>
+                    </optgroup>
+                    <optgroup label="Magic-Users">
+                        <option>Bard</option>
+                        <option>Druid</option>
+                        <option>Healer</option>
+                        <option>Wizard</option>
+                    </optgroup>
+                    <optgroup label="Knights">
+                        <option>Anti-Paladin</option>
+                        <option>Paladin</option>
+                    </optgroup>
+                <select>
+                <select id="select-level">
+                    <option value="1st Level">1st Level</option>
+                    <option value="2nd Level">2nd Level</option>
+                    <option value="3rd Level">3rd Level</option>
+                    <option value="4th Level">4th Level</option>
+                    <option value="5th Level">5th Level</option>
+                    <option value="6th Level">6th Level</option>
+                </select>
+                <br>
+                <button type="button" id="refresh-button" onclick="loadClass()" disabled>Load Class</button>
+            </form>
+        </span>
         <span id="info-box" class="cell">
-            Loading...
         </span>
     </div>
-    <hr>
     <div class="row">
         <span id="select-abilities" class="cell">
             <table id="class-list">
@@ -62,7 +62,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td colspan="9"><b>1st Level: </b><span id="points1=0"></span></td>
+                        <td colspan="9">&nbsp;<b>1st Level: </b><span id="points0"></span></td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
@@ -70,7 +70,7 @@
                 </tbody>
                 <tbody>
                     <tr>
-                        <td colspan="9"><b>2nd Level: </b><span id="points1"></span></td>
+                        <td colspan="9">&nbsp;<b>2nd Level: </b><span id="points1"></span></td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
@@ -78,7 +78,7 @@
                 </tbody>
                 <tbody>
                     <tr>
-                        <td colspan="9"><b>3rd Level: </b><span id="points2"></span></td>
+                        <td colspan="9">&nbsp;<b>3rd Level: </b><span id="points2"></span></td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
@@ -86,7 +86,7 @@
                 </tbody>
                 <tbody>
                     <tr>
-                        <td colspan="9"><b>4th Level: </b><span id="points3"></span></td>
+                        <td colspan="9">&nbsp;<b>4th Level: </b><span id="points3"></span></td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
@@ -94,7 +94,7 @@
                 </tbody>
                 <tbody>
                     <tr>
-                        <td colspan="9"><b>5th Level: </b><span id="points4"></span></td>
+                        <td colspan="9">&nbsp;<b>5th Level: </b><span id="points4"></span></td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
@@ -102,7 +102,7 @@
                 </tbody>
                 <tbody>
                     <tr>
-                        <td colspan="9"><b>6th Level: </b><span id="points5"></span></td>
+                        <td colspan="9">&nbsp;<b>6th Level: </b><span id="points5"></span></td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
@@ -110,7 +110,7 @@
                 </tbody>
                 <tbody>
                     <tr>
-                        <td colspan="9"><b>Look the Part: </b><span id="points6"></span></td>
+                        <td colspan="9">&nbsp;<b>Look the Part: </b><span id="points6"></span></td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
@@ -122,6 +122,14 @@
             <label for="current-abilities"><b>Current Abilities:</b><ul id="current-abilities"></ul></label>
             <br>
             <label for="current-equipment"><b>Current Equipment:</b><ul id="current-equipment"></ul></label>
+            <div id="ability-info"></div>
+        </span>
+    </span>
+    <span class="row">
+    </div>
+    <div class="row">
+        <span id="status-box" class="cell">
+            Loading...
         </span>
     </div>
 </body>

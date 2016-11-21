@@ -21,6 +21,7 @@ var allMaterials = [
 ];
 
 var currentPlayer;
+var currentAbility;
 var request = new XMLHttpRequest();
 
 function initAbilities(abilitiesJSON) {
@@ -87,13 +88,14 @@ function unlock() {
     request.onreadystatechange = function() {
         if (request.readyState == 4) {
             print("Connected...");
-            document.getElementById("info-box").innerHTML = request.responseText;
+            document.getElementById("status-box").innerHTML = request.responseText;
         } else {
             print("Waiting...");
         }
     };
     
     request.send();
+    document.getElementById("status-box").innerHTML = "Ready!";
 }
 
 function loadClass() {
@@ -188,24 +190,20 @@ function update() {
 //update Class Name
     document.getElementById("class-name").innerHTML = currentPlayer.playerClass.name + ", level " + (currentPlayer.level + 1);
 //update Class List
-    var classList, bod;
-    toArray(document.getElementById("class-list").getElementsByTagName("tbody")).forEach(function(body) {
-        document.getElementById("class-list").removeChild(body);
-    });
-    
-    currentPlayer.playerClass.levels.forEach(function(curLevel, curLevelIndex) {
-        bod = document.createElement("tbody");
-        classList = "<tr><td colspan=\"9\"><b>" + curLevel.levelName;
-        if (curLevel.points > 0 && currentPlayer.hasLevelIndex(curLevelIndex)) {
-            classList += ": </b>" + currentPlayer.getPointsRemainingAtLevelIndex(curLevelIndex) + "/" + curLevel.points;
-        } else {
-            classList += "</b>";
+    var classList, curLevel;
+    toArray(document.getElementById("class-list").getElementsByTagName("tbody")).forEach(function(curTBody, curLevelIndex) {
+        curLevel = currentPlayer.playerClass.levels[curLevelIndex];
+        while(curTBody.children.length > 1) {
+            curTBody.removeChild(curTBody.lastChild);
         }
-        classList += "</td></tr>";
+        if (curLevel.points > 0 && currentPlayer.hasLevelIndex(curLevelIndex)) {
+            document.getElementById("points" + curLevelIndex).innerHTML = currentPlayer.getPointsRemainingAtLevelIndex(curLevelIndex) + "/" + curLevel.points;
+        } else {
+            document.getElementById("points" + curLevelIndex).innerHTML = "";
+        }
         curLevel.abilityEntries.forEach(function(abilityEntry) {
-            classList += "<tr><td class=\"tooltip\">&nbsp;&nbsp;" + abilityEntry.name;
-            //classList += "<span class=\"tooltiptext\">" + abilityEntry.ability.description + "</span>";
-            classList += "</td><td id=\"cost " + abilityEntry.name + " @ " + curLevelIndex + "\">" + abilityEntry.cost + "</td><td id=\"max " + abilityEntry.name + " @ " + curLevelIndex + "\">";
+            classList = "<tr><td onmouseover=\"setCurrentAbility(\'" + abilityEntry.ability.name + "\')\" onmouseout=\"setCurrentAbility()\">&nbsp;&nbsp;" + abilityEntry.name + "</td>";
+            classList += "<td id=\"cost " + abilityEntry.name + " @ " + curLevelIndex + "\">" + abilityEntry.cost + "</td><td id=\"max " + abilityEntry.name + " @ " + curLevelIndex + "\">";
             if (abilityEntry.max == -1) {
                 classList += "&#8210;";
             } else {
@@ -256,9 +254,8 @@ function update() {
             }
             */
             classList += "</td></tr>";
+            curTBody.innerHTML += classList;
         });
-        bod.innerHTML = classList;
-        document.getElementById("class-list").appendChild(bod);
         
         /*
         curLevel.abilityEntries.forEach(function(abilityEntry) {
@@ -280,6 +277,14 @@ function update() {
         });
         */
     });
+}
+
+function setCurrentAbility(abilityName) {
+    if (allDefaultAbilities.get(abilityName) == undefined) {
+        document.getElementById("ability-info").innerHTML = "";
+    } else {
+        document.getElementById("ability-info").innerHTML = "<hr>" + allDefaultAbilities.get(abilityName).description;
+    }
 }
 
 function Player(playerClassName, level) {
@@ -701,21 +706,23 @@ function DefaultAbility(name, type, school, range, newEquipment, incantation, ef
     }
     
     this.type = String(type);
-    this.description += "<b>T:</b> " + this.type + "<br>";
+    this.description += "<b>T:</b> " + this.type + "&nbsp;&nbsp;&nbsp;&nbsp;";
     
     if (school == undefined) {
         this.school = "&#8210;";
     } else {
         this.school = String(school);
-        this.description += "<b>S:</b> " + this.school + "<br>";
+        this.description += "<b>S:</b> " + this.school + "&nbsp;&nbsp;&nbsp;&nbsp;";
     }
     
     if (range == undefined) {
         this.range = "&#8210;";
     } else {
         this.range = String(range);
-        this.description += "<b>R:</b> " + this.range + "<br>";
+        this.description += "<b>R:</b> " + this.range;
     }
+    
+    this.description += "<br>";
     
     this.materials = new Map();
     if (newEquipment != undefined && newEquipment.length > 0 && newEquipment != ["No strip required"]) {
@@ -745,7 +752,8 @@ function DefaultAbility(name, type, school, range, newEquipment, incantation, ef
     
     if (incantation != undefined) {
         this.incantation = String(incantation);
-        this.description += "<b>I:</b> " + this.incantation + "<br>";
+        incantation = incantation.split("&quot;");
+        this.description += "<b>I:</b> <i>&quot;" + incantation[1] + "&quot;</i> " + incantation[2] + "<br>";
     }
     
     if (effect != undefined) {

@@ -1,14 +1,12 @@
-body {
-    overflow-y: scroll;
-}
-
 ul {
     margin-top: 0em;
-    margin-bottom: 1em;
+    margin-bottom: 0em;
 }
 
-select option[disabled] {
-    display: none;
+body {
+    overflow-y: scroll;
+    display: table;
+    border-collapse: collapse;
 }
 
 .row {
@@ -17,43 +15,43 @@ select option[disabled] {
 
 .cell {
     display: table-cell;
-    padding-right: 1em;
+    padding: 0.5em;
+    border-style: solid none;
+    border-width: 1px;
+}
+
+.row:first-child .cell {
+    border-top: none;
+}
+
+.row:last-child .cell {
+    border-bottom: none;
+}
+
+.cell:first-child {
+    width: 1%;
+}
+
+#select-player {
+    
 }
 
 #info-box {
     
 }
 
+#select-abilities {
+    
+}
+
 #class-list {
     background: rgb(223, 223, 223);
-    border-collapse: collapse;;
+    border-collapse: collapse;
 }
 
 #class-name {
     font-variant: small-caps;
     font-size: 200%;
-}
-
-<!--
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 24em;
-    background-color: rgb(159, 159, 159);
-    color: #fff;
-    padding: 5px 5px;
-    position: absolute;
-    z-index: 1;
-    margin-left: -60px;
-    opacity: 0;
-    transition: opacity 1s;
-    top: -5px;
-    bottom: auto;
-    right: 111.5%;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
 }
 
 #class-list tbody tr:first-child > td {
@@ -69,12 +67,12 @@ select option[disabled] {
 }
 
 /* Name */
-#class-list tr > :first-child {
+#class-list tr > :nth-child(1) {
     min-width: 12em;
 }
 /* Cost */
 #class-list tr > :nth-child(2) {
-    min-width: 3em;
+    min-min-width: 3em;
     text-align: center;
 }
 
@@ -112,11 +110,14 @@ select option[disabled] {
 
 /* Exp */
 #class-list tr > :nth-child(9) {
-    min-width: 2em;
+    min-width: 3em;
     text-align: center;
 }
 
-#class-list tr > :nth-child(10) {
-    min-width: 2em;
-    text-align: center;
+#ability-info {
+    padding-right: 14em;
+}
+
+#status-box {
+    
 }
