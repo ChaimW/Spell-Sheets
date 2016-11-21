@@ -1,66 +1,40 @@
 body {
-    overflow-y:scroll;
+    overflow-y: scroll;
 }
 
-#select-player {
-    float: left;
+ul {
+    margin-top: 0em;
+    margin-bottom: 1em;
 }
 
 select option[disabled] {
     display: none;
 }
 
-#display-player {
-    float: left;
+.row {
+    display: table-row;
 }
 
-
-#player-class {
-    float: right;
+.cell {
+    display: table-cell;
+    padding-right: 1em;
 }
 
-#current-magic-points {
-    font-weight: normal;
-}
-
-#current-abilities {
-    font-weight: normal;
-}
-
-#current-equipment {
-    font-weight: normal;
-}
-
-label[for^=current] {
-    font-weight: bold;
-}
-
-ul {
-    margin-top: 0em;
-    margin-bottom: 0em;
+#info-box {
+    
 }
 
 #class-list {
     background: rgb(223, 223, 223);
-    border-collapse: collapse;
+    border-collapse: collapse;;
 }
 
-#class-list tbody tr:first-child > td {
-    border-bottom: 1px solid rgb(143, 143, 143);
+#class-name {
+    font-variant: small-caps;
+    font-size: 200%;
 }
 
-#class-list tbody tr:not(:first-child) > td {
-    border-bottom: 1px solid rgb(191, 191, 191);
-}
-
-#class-list tbody {
-    border-bottom: 1px solid rgb(191, 191, 191);
-}
-
-.tooltip {
-    position: relative;
-}
-
+<!--
 .tooltip .tooltiptext {
     visibility: hidden;
     width: 24em;
@@ -80,6 +54,18 @@ ul {
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+}
+
+#class-list tbody tr:first-child > td {
+    border-bottom: 1px solid rgb(143, 143, 143);
+}
+
+#class-list tbody tr:not(:first-child) > td {
+    border-bottom: 1px solid rgb(191, 191, 191);
+}
+
+#class-list tbody {
+    border-bottom: 1px solid rgb(191, 191, 191);
 }
 
 /* Name */
@@ -133,9 +119,4 @@ ul {
 #class-list tr > :nth-child(10) {
     min-width: 2em;
     text-align: center;
-}
-
-#class-name {
-    font-variant: small-caps;
-    font-size: 200%;
 }

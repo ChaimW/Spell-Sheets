@@ -1,0 +1,6 @@
+To be implemented:
+<ul>
+    <li>Equipment (Armor, Shields, & Weapons)</li>
+    <li>Class Archetypes</li>
+    <li><i>Experienced</i></li>
+</ul>

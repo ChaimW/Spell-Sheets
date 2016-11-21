@@ -21,6 +21,7 @@ var allMaterials = [
 ];
 
 var currentPlayer;
+var request = new XMLHttpRequest();
 
 function initAbilities(abilitiesJSON) {
     allDefaultAbilities = new Map();
@@ -81,7 +82,8 @@ function initClasses(classesJSON) {
 
 function unlock() {
     document.getElementById("refresh-button").disabled = false;
-    document.getElementById("class-name").innerHTML = "Select Class and Level";
+    request.open('GET', "https://jkat718.github.io/Spell-Sheets-By-Gor/docs/info.txt", true);
+    document.getElementById("info-box").innerHTML = request.responseText;
 }
 
 function loadClass() {
@@ -192,7 +194,7 @@ function update() {
         classList += "</td></tr>";
         curLevel.abilityEntries.forEach(function(abilityEntry) {
             classList += "<tr><td class=\"tooltip\">&nbsp;&nbsp;" + abilityEntry.name;
-            classList += "<span class=\"tooltiptext\">" + abilityEntry.ability.description + "</span>";
+            //classList += "<span class=\"tooltiptext\">" + abilityEntry.ability.description + "</span>";
             classList += "</td><td id=\"cost " + abilityEntry.name + " @ " + curLevelIndex + "\">" + abilityEntry.cost + "</td><td id=\"max " + abilityEntry.name + " @ " + curLevelIndex + "\">";
             if (abilityEntry.max == -1) {
                 classList += "&#8210;";
@@ -878,7 +880,6 @@ function formatPointArray(preLabel, pointArray, postLabel) {
 }
 
 function preInit() {
-    var request = new XMLHttpRequest();
     request.open('GET', "https://jkat718.github.io/Spell-Sheets-By-Gor/docs/abilities.json", true);
 
     request.onreadystatechange = function() {
