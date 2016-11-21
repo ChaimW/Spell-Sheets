@@ -83,7 +83,17 @@ function initClasses(classesJSON) {
 function unlock() {
     document.getElementById("refresh-button").disabled = false;
     request.open('GET', "https://jkat718.github.io/Spell-Sheets-By-Gor/docs/info.txt", true);
-    document.getElementById("info-box").innerHTML = request.responseText;
+    
+    request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+            print("Connected...");
+            document.getElementById("info-box").innerHTML = request.responseText;
+        } else {
+            print("Waiting...");
+        }
+    };
+    
+    request.send();
 }
 
 function loadClass() {
