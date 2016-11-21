@@ -16,8 +16,8 @@ body {
 .cell {
     display: table-cell;
     padding: 0.5em;
-    border-style: solid none;
-    border-width: 1px;
+    border-style: inset none;
+    border-width: 2px;
 }
 
 .row:first-child .cell {
@@ -115,8 +115,8 @@ body {
 }
 
 #ability-info {
-    position: fixed;
-    padding-right: 14em;
+    display: block;
+    width: 24em;
 }
 
 #status-box {

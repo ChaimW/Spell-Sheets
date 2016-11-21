@@ -163,6 +163,9 @@ function update() {
             document.getElementById("current-abilities").innerHTML += currentAbilityText;
         }
     });
+    if (document.getElementById("current-abilities").innerHTML == "") {
+        document.getElementById("current-abilities").innerHTML = "<li>&nbsp;</li>";
+    }
     
 //update Current Equipment
     document.getElementById("current-equipment").innerHTML = "";
@@ -187,6 +190,9 @@ function update() {
             document.getElementById("current-equipment").innerHTML += currentEquipmentText;
         }
     });
+    if (document.getElementById("current-equipment").innerHTML == "") {
+        document.getElementById("current-equipment").innerHTML = "<li>&nbsp;</li>";
+    }
     
 //update Class Name
     document.getElementById("class-name").innerHTML = currentPlayer.playerClass.name + ", level " + (currentPlayer.level + 1);
@@ -203,7 +209,7 @@ function update() {
             document.getElementById("points" + curLevelIndex).innerHTML = "";
         }
         curLevel.abilityEntries.forEach(function(abilityEntry) {
-            classList = "<tr><td onmouseover=\"setCurrentAbility(\'" + abilityEntry.ability.name + "\')\">&nbsp;&nbsp;" + abilityEntry.name + "</td>";
+            classList = "<tr><td onclick=\"setCurrentAbility(\'" + abilityEntry.ability.name + "\')\">&nbsp;&nbsp;" + abilityEntry.name + "</td>";
             classList += "<td id=\"cost " + abilityEntry.name + " @ " + curLevelIndex + "\">" + abilityEntry.cost + "</td><td id=\"max " + abilityEntry.name + " @ " + curLevelIndex + "\">";
             if (abilityEntry.max == -1) {
                 classList += "&#8210;";
@@ -282,9 +288,9 @@ function update() {
 
 function setCurrentAbility(abilityName) {
     if (allDefaultAbilities.get(abilityName) == undefined) {
-        document.getElementById("ability-info").innerHTML = "";
+        document.getElementById("ability-info").innerHTML = "Click an ability for more information!";
     } else {
-        document.getElementById("ability-info").innerHTML = "<hr>" + allDefaultAbilities.get(abilityName).description;
+        document.getElementById("ability-info").innerHTML = allDefaultAbilities.get(abilityName).description;
     }
 }
 
@@ -701,7 +707,7 @@ function joinAbilityEntries(firstAbilityEntry, secondAbilityEntry) {
 
 function DefaultAbility(name, type, school, range, newEquipment, incantation, effect, limitations, notes) {
     this.name = String(name);
-    this.description = "<div style=\"font-size:20px;font-weight:bold;font-variant:small-caps;\">" + this.name + "</div>";
+    this.description = "<span style=\"font-size:20px;font-weight:bold;font-variant:small-caps;\">" + this.name + "</span><br>";
     
     this.type = String(type);
     this.description += "<b>T:</b> " + this.type + "&nbsp;&nbsp;&nbsp;&nbsp;";
@@ -756,6 +762,7 @@ function DefaultAbility(name, type, school, range, newEquipment, incantation, ef
     
     if (effect != undefined) {
         this.effect = String(effect);
+        effect.replace("<br>", "BREAKHOLDER");
         effect = effect.split("&quot;");
         this.description += "<b>E:</b> " + effect[0];
         for (var i = 1; i < effect.length; i++) {
@@ -766,6 +773,7 @@ function DefaultAbility(name, type, school, range, newEquipment, incantation, ef
             }
         }
         this.description += "<br>";
+        this.description.replace("BREAKHOLDER", "<br>");
     }
     
     if (limitations != undefined) {
