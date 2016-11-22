@@ -45,7 +45,6 @@ body {
 }
 
 #class-list {
-    background: rgb(223, 223, 223);
     border-collapse: collapse;
 }
 
@@ -55,6 +54,8 @@ body {
 }
 
 #class-list tbody tr:first-child > td {
+    background: rgb(239, 239, 239);
+    padding-top: 1em;
     border-bottom: 1px solid rgb(143, 143, 143);
 }
 
@@ -62,7 +63,12 @@ body {
     border-bottom: 1px solid rgb(191, 191, 191);
 }
 
+#class-list tbody tr:not(:first-child):nth-child(odd) {
+    background: rgb(223, 223, 223);
+}
+
 #class-list tbody {
+    background: rgb(207, 207, 207);
     border-bottom: 1px solid rgb(191, 191, 191);
 }
 
