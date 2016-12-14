@@ -1,0 +1,75 @@
+{
+	"name": "Monk",
+	"levels": [
+		{
+			"abilityEntries": [
+				{
+					"abilityName": "Enlightened Soul"
+				},
+				{
+					"abilityName": "Missile Block"
+				}
+			]
+		},
+		{
+			"abilityEntries": [
+				
+			]
+		},
+		{
+			"abilityEntries": [
+				{
+					"abilityName": "Sanctuary",
+					"count": "1",
+					"per": "Life",
+					"charge": "5",
+					"tags": [
+						"Ambulant"
+					]
+				}
+			]
+		},
+		{
+			"abilityEntries": [
+				{
+					"abilityName": "Heal",
+					"count": "1",
+					"per": "Life",
+					"charge": "3",
+					"tags": [
+						"Self-Only"
+					]
+				}
+			]
+		},
+		{
+			"abilityEntries": [
+				{
+					"abilityName": "Resurrect",
+					"count": "1",
+					"per": "Refresh",
+					"charge": "10"
+				}
+			]
+		},
+		{
+			"abilityEntries": [
+				{
+					"abilityName": "Magic Ball Block"
+				}
+			]
+		},
+		{
+			"abilityEntries": [
+				{
+					"abilityName": "Heal",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"Self-Only"
+					]
+				}
+			]
+		}
+	]
+}

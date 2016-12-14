@@ -1,0 +1,299 @@
+{
+	"name": "Bard",
+	"magic-user": "true",
+	"levels": [
+		{
+			"points": "5",
+			"abilityEntries": [
+				{
+					"abilityName": "Cancel",
+					"cost": "0",
+					"max": "1",
+					"per": "Unlimited"
+				},
+				{
+					"abilityName": "Confidence",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"charge": "5"
+				},
+				{
+					"abilityName": "Equipment: Weapon, Short",
+					"cost": "2",
+					"max": "2"
+				},
+				{
+					"abilityName": "Experienced",
+					"cost": "2",
+					"max": "2"
+				},
+				{
+					"abilityName": "Insult",
+					"cost": "1",
+					"count": "1",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Release",
+					"cost": "1",
+					"count": "1",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Shove",
+					"cost": "1",
+					"count": "1",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Song of Determination",
+					"cost": "1",
+					"max": "1",
+					"per": "Unlimited"
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilityEntries": [
+				{
+					"abilityName": "Empower",
+					"cost": "1",
+					"count": "2",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Equipment: Armor, 1 Point",
+					"cost": "4",
+					"max": "1"
+				},
+				{
+					"abilityName": "Greater Release",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Innate",
+					"cost": "1",
+					"max": "4",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Mend",
+					"cost": "1",
+					"count": "1",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Song of Battle",
+					"cost": "1",
+					"max": "1",
+					"per": "Unlimited"
+				},
+				{
+					"abilityName": "Song of Visit",
+					"cost": "1",
+					"max": "1",
+					"per": "Unlimited"
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilityEntries": [
+				{
+					"abilityName": "Awe",
+					"cost": "1",
+					"count": "1",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Battlefield Triage",
+					"cost": "1",
+					"max": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Break Concentration",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Extension",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Equipment: Shield, Small",
+					"cost": "2",
+					"max": "1"
+				},
+				{
+					"abilityName": "Song of Freedom",
+					"cost": "1",
+					"max": "1",
+					"per": "Unlimited"
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilityEntries": [
+				{
+					"abilityName": "Amplification",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Equipment: Weapon, Long",
+					"cost": "3",
+					"max": "1"
+				},
+				{
+					"abilityName": "Restoration",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Sleight of Mind",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Song of Deflection",
+					"cost": "1",
+					"max": "1",
+					"per": "Unlimited"
+				},
+				{
+					"abilityName": "Song of Power",
+					"cost": "1",
+					"max": "1",
+					"per": "Unlimited"
+				},
+				{
+					"abilityName": "Suppress Aura",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Swift",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Terror",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilityEntries": [
+				{
+					"abilityName": "Agoraphobia",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Ambulant",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Discordia",
+					"cost": "1",
+					"max": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Equipment: Shield, Medium",
+					"cost": "3",
+					"max": "1"
+				},
+				{
+					"abilityName": "Heart of the Swarm",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Lost",
+					"cost": "1",
+					"count": "1",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Song of Survival",
+					"cost": "1",
+					"max": "1",
+					"per": "Unlimited"
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilityEntries": [
+				{
+					"abilityName": "Combat Caster",
+					"cost": "2",
+					"max": "1"
+				},
+				{
+					"abilityName": "Dervish",
+					"cost": "2",
+					"max": "1"
+				},
+				{
+					"abilityName": "Equipment: Armor, 1 Point",
+					"cost": "2",
+					"max": "1"
+				},
+				{
+					"abilityName": "Legend",
+					"cost": "1",
+					"max": "1"
+				},
+				{
+					"abilityName": "Silver Tongue",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Song of Interference",
+					"cost": "1",
+					"max": "1",
+					"count": "1",
+					"per": "Refresh",
+					"charge": "5"
+				},
+				{
+					"abilityName": "Stun",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,120 @@
+{
+	"name": "Archer",
+	"levels": [
+		{
+			"points": "2",
+			"abilityEntries": [
+				{
+					"abilityName": "Reload",
+					"per": "Refresh",
+					"charge": 3
+				},
+				{
+					"abilityName": "Destruction Arrow",
+					"cost": "1",
+					"per": "Arrow"
+				},
+				{
+					"abilityName": "Pinning Arrow",
+					"cost": "1",
+					"per": "Arrow"
+				},
+				{
+					"abilityName": "Poison Arrow",
+					"cost": "1",
+					"per": "Arrow"
+				}
+			]
+		},
+		{
+			"abilityEntries": [
+				{
+					"abilityName": "Mend",
+					"per": "Life"
+				}
+			]
+		},
+		{
+			"points": "2",
+			"abilityEntries": [
+				{
+					"abilityName": "Destruction Arrow",
+					"cost": "1",
+					"per": "Arrow"
+				},
+				{
+					"abilityName": "Pinning Arrow",
+					"cost": "1",
+					"per": "Arrow"
+				},
+				{
+					"abilityName": "Poison Arrow",
+					"cost": "1",
+					"per": "Arrow"
+				}
+			]
+		},
+		{
+			"abilityEntries": [
+				{
+					"abilityName": "Suppression Arrow",
+					"per": "Arrow"
+				}
+			]
+		},
+		{
+			"points": "2",
+			"abilityEntries": [
+				{
+					"abilityName": "Destruction Arrow",
+					"cost": "1",
+					"per": "Arrow"
+				},
+				{
+					"abilityName": "Pinning Arrow",
+					"cost": "1",
+					"per": "Arrow"
+				},
+				{
+					"abilityName": "Poison Arrow",
+					"cost": "1",
+					"per": "Arrow"
+				}
+			]
+		},
+		{
+			"points": "1",
+			"abilityEntries": [
+				{
+					"abilityName": "Phase Arrow",
+					"per": "Arrow"
+				},
+				{
+					"abilityName": "Sniper",
+					"cost": "1",
+					"max": "1"
+				}
+			]
+		},
+		{
+			"points": "1",
+			"abilityEntries": [
+				{
+					"abilityName": "Destruction Arrow",
+					"cost": "1",
+					"per": "Arrow"
+				},
+				{
+					"abilityName": "Pinning Arrow",
+					"cost": "1",
+					"per": "Arrow"
+				},
+				{
+					"abilityName": "Poison Arrow",
+					"cost": "1",
+					"per": "Arrow"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,368 @@
+{
+	"name": "Wizard",
+	"magic-user": "true",
+	"levels": [
+		{
+			"points": "5",
+			"abilityEntries": [
+				{
+					"abilityName": "Banish",
+					"cost": "1",
+					"count": "1",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Cancel",
+					"cost": "0",
+					"max": "1",
+					"per": "Unlimited"
+				},
+				{
+					"abilityName": "Equipment: Weapon, Short",
+					"cost": "2",
+					"max": "1"
+				},
+				{
+					"abilityName": "Experienced",
+					"cost": "2",
+					"max": "2"
+				},
+				{
+					"abilityName": "Force Barrier",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Force Bolt",
+					"cost": "1",
+					"max": "4",
+					"count": "3",
+					"per": "Ball"
+				},
+				{
+					"abilityName": "Heat Weapon",
+					"cost": "1",
+					"count": "1",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Mend",
+					"cost": "1",
+					"count": "1",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Shove",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"charge": "3"
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilityEntries": [
+				{
+					"abilityName": "Astral Intervention",
+					"cost": "1",
+					"count": "1",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Break Concentration",
+					"cost": "1",
+					"count": "1",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Entangle",
+					"cost": "1",
+					"max": "3",
+					"count": "2",
+					"per": "Ball"
+				},
+				{
+					"abilityName": "Innate",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Planar Grounding",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Release",
+					"cost": "1",
+					"count": "1",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Suppression Bolt",
+					"cost": "1",
+					"max": "3",
+					"count": "1",
+					"per": "Ball"
+				},
+				{
+					"abilityName": "Teleport",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life"
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilityEntries": [
+				{
+					"abilityName": "Dispel Magic",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"charge": "3"
+				},
+				{
+					"abilityName": "Dragged Below",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Extension",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Greater Mend",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Hold Person",
+					"cost": "1",
+					"count": "1",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Iceball",
+					"cost": "1",
+					"max": "3",
+					"count": "2",
+					"per": "Ball"
+				},
+				{
+					"abilityName": "Lightning Bolt",
+					"cost": "1",
+					"max": "4",
+					"count": "1",
+					"per": "Ball"
+				},
+				{
+					"abilityName": "Ravage",
+					"cost": "1",
+					"count": "2",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Shatter Weapon",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Throw",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilityEntries": [
+				{
+					"abilityName": "Destroy Armor",
+					"cost": "1",
+					"count": "2",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Dimensional Rift",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Fireball",
+					"cost": "1",
+					"max": "4",
+					"count": "1",
+					"per": "Ball"
+				},
+				{
+					"abilityName": "Icy Blast",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Shatter",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Suppress Aura",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Swift",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Vampirism",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Wounding",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"charge": "3"
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilityEntries": [
+				{
+					"abilityName": "Ambulant",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Contagion",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Equipment: Weapon, Long",
+					"cost": "4",
+					"max": "1"
+				},
+				{
+					"abilityName": "Phase Bolt",
+					"cost": "1",
+					"max": "4",
+					"count": "1",
+					"per": "Ball"
+				},
+				{
+					"abilityName": "Pyrotechnics",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Steal Life Essence",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life"
+				},
+				{
+					"abilityName": "Void Touched",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Ward Self",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh"
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilityEntries": [
+				{
+					"abilityName": "Battlemage",
+					"cost": "2",
+					"max": "1"
+				},
+				{
+					"abilityName": "Elemental Barrage",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Evoker",
+					"cost": "2",
+					"max": "1"
+				},
+				{
+					"abilityName": "Finger of Death",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Persistent",
+					"cost": "2",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Protection from Magic",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				},
+				{
+					"abilityName": "Sphere of Annihilation",
+					"cost": "2",
+					"max": "1",
+					"count": "1",
+					"per": "Ball"
+				},
+				{
+					"abilityName": "Warlock",
+					"cost": "2",
+					"max": "1"
+				},
+				{
+					"abilityName": "Word of Mending",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh"
+				}
+			]
+		}
+	]
+}

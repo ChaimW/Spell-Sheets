@@ -1,0 +1,70 @@
+{
+	"name": "Anti-Paladin",
+	"levels": [
+		{
+			"abilityEntries": [
+			]
+		},
+		{
+			"abilityEntries": [
+				{
+					"abilityName": "Poison",
+					"count": "1",
+					"per": "Refresh",
+					"charge": "3",
+					"tags": [
+						"Self-Only"
+					]
+				}
+			]
+		},
+		{
+			"abilityEntries": [
+				{
+					"abilityName": "Steal Life Essence",
+					"count": "1",
+					"per": "Life"
+				}
+			]
+		},
+		{
+			"abilityEntries": [
+				{
+					"abilityName": "Brutal Strike",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"Ambulant"
+					]
+				}
+			]
+		},
+		{
+			"abilityEntries": [
+				{
+					"abilityName": "Awe",
+					"count": "1",
+					"per": "Life"
+				}
+			]
+		},
+		{
+			"abilityEntries": [
+				{
+					"abilityName": "Undead Minion",
+					"count": "2",
+					"per": "Refresh"
+				}
+			]
+		},
+		{
+			"abilityEntries": [
+				{
+					"abilityName": "Awe",
+					"count": "1",
+					"per": "Life"
+				}
+			]
+		}
+	]
+}
