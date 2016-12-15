@@ -1,0 +1,9 @@
+{
+	"name": "Bear Strength",
+	"t": "Enchantment",
+	"s": "Sorcery",
+	"r": "Touch",
+	"i": "&quot;I enchant thee with the strength of the bear&quot; x3",
+	"m": ["Strip, Red"],
+	"e": "Bearer’s melee weapons are Shield Crushing"
+}
