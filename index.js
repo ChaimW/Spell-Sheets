@@ -18,8 +18,6 @@ function mountLib(url) {
 			} else {
 				setStatus("Could not load library. Server reached, returned status code " + libRequest.status + ".");
 			}
-		} else {
-			setStatus("Loading library, stand by...");
 		}
 	};
 	
@@ -55,28 +53,33 @@ function loadAbility(url, abilityName) {
 	abilityRequest.onreadystatechange = function() {
 		if (abilityRequest.readyState == 4) {
 			if (abilityRequest.status >= 200 && abilityRequest.status < 400){
-				setStatus("Ability " + abilityName + " loaded!");
-				console.log(abilityRequest.responseText);
-				var abilityJSON = JSON.parse(abilityRequest.responseText);
-				allAbilities.set(
-					abilityName,
-					new DefaultAbility(
-						abilityJSON["name"],
-						abilityJSON["t"],
-						abilityJSON["s"],
-						abilityJSON["r"],
-						abilityJSON["m"],
-						abilityJSON["i"],
-						abilityJSON["e"],
-						abilityJSON["l"],
-						abilityJSON["n"]
+				try {
+					var abilityJSON = JSON.parse(abilityRequest.responseText);
+					allAbilities.set(
+						abilityName,
+						new DefaultAbility(
+							abilityJSON["name"],
+							abilityJSON["t"],
+							abilityJSON["s"],
+							abilityJSON["r"],
+							abilityJSON["m"],
+							abilityJSON["i"],
+							abilityJSON["e"],
+							abilityJSON["l"],
+							abilityJSON["n"]
+						)
 					)
-				)
+					setStatus("Ability " + abilityName + " loaded!");
+					console.dir(allAbilities[abilityName]);
+				} catch (e) {
+					if (e instanceof SyntaxError) {
+						setStatus("Could not load ability " + abilityName + ". Directory file formatted improperly.");
+					}
+					throw e;
+				}
 			} else {
 				setStatus("Could not load ability " + abilityName + ". Server reached, returned status code " + abilityRequest.status + ".");
 			}
-		} else {
-			setStatus("Loading ability " + abilityName + ", stand by...");
 		}
 	};
 	
