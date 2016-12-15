@@ -14,6 +14,7 @@ function mountLib(url) {
 		if (libRequest.readyState == 4) {
 			if (libRequest.status >= 200 && libRequest.status < 400){
 				setStatus("Library loaded!");
+				console.dir(libRequest.responseText);
 				addLib(JSON.parse(libRequest.responseText));
 			} else {
 				setStatus("Could not load library. Server reached, returned status code " + libRequest.status + ".");
@@ -31,7 +32,7 @@ function mountLib(url) {
 }
 
 function addLib(libJSON) {
-	
+	console.dir(libJSON);
 }
 
 function loadAbilities() {
@@ -977,6 +978,6 @@ function formatPointArray(preLabel, pointArray, postLabel) {
 
 function preInit() {
 	libraries = new Map();
-	mountLib(
-	loadAbilities();
+	mountLib('https://jkat718.github.io/Spell-Sheets-By-Gor/docs/rules_of_play/lib.json');
+	//loadAbilities();
 }
