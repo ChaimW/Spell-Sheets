@@ -8,14 +8,13 @@ var currentAbility;
 
 function mountLib(url) {
 	libRequest = new XMLHttpRequest();
-	libRequest.open('GET', url, true);
+	libRequest.open('GET', url + "/lib.json", true);
 	
 	libRequest.onreadystatechange = function() {
 		if (libRequest.readyState == 4) {
 			if (libRequest.status >= 200 && libRequest.status < 400){
 				setStatus("Library loaded!");
-				console.dir(libRequest.responseText);
-				addLib(JSON.parse(libRequest.responseText));
+				addLib(url, JSON.parse(libRequest.responseText));
 			} else {
 				setStatus("Could not load library. Server reached, returned status code " + libRequest.status + ".");
 			}
@@ -31,8 +30,52 @@ function mountLib(url) {
 	libRequest.send();
 }
 
-function addLib(libJSON) {
-	console.dir(libJSON);
+function addLib(url, lib) {
+	printObj(lib);
+	if (lib["abilities"] != null && lib["abilities"].length > 0) {
+		for(i in lib["abilities"]) {
+			loadAbility(url, lib["abilities"][i]);
+		}
+	}
+}
+
+function loadAbility(url, abilityName) {
+	abilityRequest = new XMLHttpRequest();
+	abilityRequest.open('GET', url + "/abilities/" + abilityName + ".json", true);
+	
+	abilityRequest.onreadystatechange = function() {
+		if (abilityRequest.readyState == 4) {
+			if (abilityRequest.status >= 200 && abilityRequest.status < 400){
+				setStatus("Ability " + abilityName + " loaded!");
+				var abilityJSON = JSON.parse(abilityRequest.responseText);
+				allDefaultAbilities.set(
+					abilityName,
+					new DefaultAbility(
+						abilityJSON["name"],
+						abilityJSON["t"],
+						abilityJSON["s"],
+						abilityJSON["r"],
+						abilityJSON["m"],
+						abilityJSON["i"],
+						abilityJSON["e"],
+						abilityJSON["l"],
+						abilityJSON["n"]
+					)
+				)
+				console.dir(allDefaultAbilities.get(abilityName));
+			} else {
+				setStatus("Could not load ability " + abilityName + ". Server reached, returned status code " + abilityRequest.status + ".");
+			}
+		} else {
+			setStatus("Loading ability " + abilityName + ", stand by...");
+		}
+	};
+	
+	abilityRequest.onerror = function() {
+		setStatus("Could not load ability. Server not reached.", true);
+	};
+	
+	abilityRequest.send();
 }
 
 function loadAbilities() {
@@ -882,7 +925,7 @@ function setStatus(infoText) {
 	document.getElementById("status-box").innerHTML = infoText;
 }
 
-var outputMessagesFrom = ["update", "!Player_getCostOfAbilityEntry", "!Player_getPointsRemainingAtLevelIndex", "!Player_getPointsSpentOnAbilityEntry", "!Player_addAbilityEntry", "!DefaultClass_addAbilityEntry"];
+var outputMessagesFrom = ["addLib", "update", "!Player_getCostOfAbilityEntry", "!Player_getPointsRemainingAtLevelIndex", "!Player_getPointsSpentOnAbilityEntry", "!Player_addAbilityEntry", "!DefaultClass_addAbilityEntry"];
 
 function doBeVerbose() {
 	var returnVal = (outputMessagesFrom.indexOf(doBeVerbose.caller.caller.name) != -1);
@@ -978,6 +1021,7 @@ function formatPointArray(preLabel, pointArray, postLabel) {
 
 function preInit() {
 	libraries = new Map();
-	mountLib('https://jkat718.github.io/Spell-Sheets-By-Gor/docs/rules_of_play/lib.json');
-	//loadAbilities();
+	allDefaultAbilities = new Map();
+	allDefaultClasses = new Map();
+	mountLib('https://jkat718.github.io/Spell-Sheets-By-Gor/docs/rules_of_play');
 }
