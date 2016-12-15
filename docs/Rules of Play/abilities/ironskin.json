@@ -1,0 +1,9 @@
+{
+	"name": "Ironskin",
+	"t": "Enchantment",
+	"s": "Protection",
+	"r": "Touch",
+	"i": "&quot;I enchant thee with Ironskin&quot; x3",
+	"m": ["Strip, White"],
+	"e": "Bearer is Immune to Flame and gains two points Magic Armor affected as per Ancestral Armor"
+}

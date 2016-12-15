@@ -1,0 +1,84 @@
+{
+	"name": "Paladin",
+	"levels": [
+		{
+			"abilities": [
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "heal",
+					"count": "1",
+					"per": "Refresh",
+					"charge": "3",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "extend_immunities",
+					"count": "1",
+					"per": "Refresh",
+					"charge": "5",
+					"tags": [
+						"ability_ex"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "resurrect",
+					"count": "2",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "awe",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "protection_from_magic",
+					"count": "2",
+					"per": "Refresh",
+					"tags": [
+						"ability_m",
+						"range_add_self"
+					]
+				}
+			]
+		}
+	]
+	"lookthepart": {
+		"abilities": [
+			{
+				"name": "awe",
+				"count": "1",
+				"per": "Life",
+				"tags": [
+					"ability_m"
+				]
+			}
+		]
+	}
+}

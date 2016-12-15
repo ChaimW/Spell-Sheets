@@ -1,0 +1,9 @@
+{
+	"name": "Amplification",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "Touch",
+	"i": "&quot;My power amplifies thine&quot;",
+	"e": "Target player’s next Verbal magic is affected as per Extension",
+	"l": "May not be used on the caster"
+}

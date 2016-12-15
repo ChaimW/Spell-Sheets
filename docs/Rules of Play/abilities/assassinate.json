@@ -1,0 +1,8 @@
+[
+	"name": "Assassinate",
+	"t": "Verbal",
+	"s": "Death",
+	"r": "20",
+	"i": "Say the word &quot;Assassinate&quot; immediately upon killing a person.",
+	"e": "The victim is Cursed"
+}

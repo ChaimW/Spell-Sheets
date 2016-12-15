@@ -1,0 +1,9 @@
+{
+	"name": "Suppression Bolt",
+	"t": "Magic Ball",
+	"s": "Subdual",
+	"r": "Ball",
+	"i": "&quot;The strength of suppression is mine to evoke&quot; x3",
+	"m": ["Magic Ball, Purple"],
+	"e": "Target is Suppressed for 60 seconds. Engulfing"
+}

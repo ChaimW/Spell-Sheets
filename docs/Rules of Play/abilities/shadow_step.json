@@ -1,0 +1,8 @@
+{
+	"name": "Shadow Step",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "Self",
+	"i": "&quot;I step into the shadows&quot;",
+	"e": "Player becomes Insubstantial"
+}

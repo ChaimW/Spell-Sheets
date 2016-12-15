@@ -1,0 +1,22 @@
+{
+	"name": "Dervish",
+	"filters": [
+		{
+			"in_name": "equipment",
+			"type": [
+				"Neutral"
+			],
+			"addTags": [
+				"cost_double"
+			]
+		},
+		{
+			"type": [
+				"Verbal"
+			],
+			"addTags":	[
+				"frequency_count_double"
+			]
+		}
+	]
+}

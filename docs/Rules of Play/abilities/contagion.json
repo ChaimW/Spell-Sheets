@@ -1,0 +1,9 @@
+{
+	"name": "Contagion",
+	"t": "Enchantment",
+	"s": "Death",
+	"r": "Touch",
+	"i": "&quot;May thou bear this plague to all&quot; x3",
+	"m": ["Strip, Red"],
+	"e": "All melee weapons wielded by player are Wounds Kill. Bearer is Fragile"
+}

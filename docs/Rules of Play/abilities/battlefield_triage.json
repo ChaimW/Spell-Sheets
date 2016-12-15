@@ -1,0 +1,10 @@
+{
+	"name": "Battlefield Triage",
+	"t": "Enchantment",
+	"s": "Spirit",
+	"r": "Self or Touch",
+	"i": "&quot;Be a bastion of healing&quot; x3",
+	"m": ["Strip, Yellow", "Strip, Yellow", "Strip, Yellow", "Strip, Yellow"],
+	"e": "Bearer is Stopped. Bearer may cast Greater Heal by announcing &quot;[Player] thou art made whole&quot;. Bearer must remove an Enchantment strip after each use of Greater Heal",
+	"n": "Battlefield Triage is removed when the last strip is removed"
+}

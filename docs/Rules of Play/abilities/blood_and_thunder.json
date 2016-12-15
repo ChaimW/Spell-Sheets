@@ -1,0 +1,10 @@
+{
+	"name": "Blood and Thunder",
+	"t": "Verbal",
+	"s": "Spirit",
+	"r": "Self",
+	"i": "&quot;Blood and Thunder!&quot;",
+	"e": "Player gains Blessing Against Wounds",
+	"l": "May only be used within 30 seconds of killing an enemy in melee combat or causing the activation of any effects which allow the player struck to avoid death such as Undead Minion, Song of Survival, or other similar magic and abilities. May not be used within 10&#39; of a living enemy",
+	"n": "May only be used by the player striking the final blow and only once per kill per eligible enemy. Player must still wear a white strip to denote Blessing Against Wounds"
+}

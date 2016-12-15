@@ -1,0 +1,9 @@
+{
+	"name": "Dispel Magic",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "20",
+	"i": "&quot;By my power I dispel that magic&quot; x3",
+	"e": "All Enchantments on target are removed",
+	"n": "Will work through Protection from Magic, Enlightened Soul, and similar magics and abilities. Will work on players that are Frozen or Insubstantial"
+}

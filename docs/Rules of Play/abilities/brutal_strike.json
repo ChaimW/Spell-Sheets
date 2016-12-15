@@ -1,0 +1,9 @@
+{
+	"name": "Brutal Strike",
+	"t": "Verbal",
+	"s": "Death",
+	"r": "Unlimited",
+	"i": "&quot;And stay down!&quot;",
+	"e": "Victim is Cursed. Victim is also Suppressed for 30 seconds",
+	"l": "Must be used immediately upon the caster dealing a Wound to the victim in melee combat"
+}

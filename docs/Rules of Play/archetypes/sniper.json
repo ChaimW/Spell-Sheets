@@ -1,0 +1,15 @@
+{
+	"name": "Sniper",
+	"filters": [
+		{
+			"type": [
+				"Specialty Arrow"
+			],
+			"addTags": [
+				"frequency_charge_three",
+				"frequency_count_one",
+				"frequency_per_life"
+			]
+		}
+	]
+}

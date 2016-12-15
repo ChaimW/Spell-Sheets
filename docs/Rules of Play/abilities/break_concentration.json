@@ -1,0 +1,8 @@
+{
+	"name": "Break Concentration",
+	"t": "Verbal",
+	"s": "Command",
+	"r": "20",
+	"i": "&quot;I command thee suppressed&quot;",
+	"e": "Target player is suppressed for 10 seconds"
+}

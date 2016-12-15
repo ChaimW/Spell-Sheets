@@ -1,0 +1,8 @@
+{
+	"name": "Greater Mend",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "Touch",
+	"i": "&quot;Return this [object name] to its former glory&quot; x5",
+	"e": "Will repair a destroyed item or restore all armor points in one location"
+}

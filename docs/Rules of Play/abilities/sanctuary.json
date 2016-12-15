@@ -1,0 +1,10 @@
+{
+	"name": "Sanctuary",
+	"t": "Verbal",
+	"s": "Protection",
+	"r": "Self",
+	"i": "State &quot;Sanctuary&quot; without any weapons in hand",
+	"e": "Player and their equipment is unaffected by hostile actions originating from within 20&#39;. Must Chant &quot;sanctuary&quot;",
+	"l": "Player may not carry any weapons in hand during Sanctuary. Cannot carry nor affect game items or game objectives while in Sanctuary. Players in Sanctuary may not impede the play of other people in any manner, and must immediately remove themselves from any such situations they find themselves in. May not come within 20&#39; of a non-friendly base",
+	"n": "If the player is voluntarily touching (other than blocking) or carrying weapons in any fashion (tucked under arms, tied to thongs, etc) at any point during Sanctuary then they may only end Sanctuary within 20&#39; of a friendly base. Player is still susceptible to Phase Bolt and Phase Arrow"
+}

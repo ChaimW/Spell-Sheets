@@ -1,0 +1,9 @@
+{
+	"name": "Fireball",
+	"t": "Magic Ball",
+	"s": "Flame",
+	"r": "Ball",
+	"i": "&quot;The flame of fire is mine to evoke&quot; x3",
+	"m": ["Magic Ball, Red"],
+	"e": "Fireball will have one of the following effects on the object first struck:<br>1. A weapon hit is destroyed<br>2. A shield hit is subject to Shield Destroying<br>3. Armor hit with Armor Points remaining is subject to Armor Destroying<br>4. A player hit receives a Wounds Kill Wound to that hit location"
+}

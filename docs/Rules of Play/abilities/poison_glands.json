@@ -1,0 +1,9 @@
+{
+	"name": "Poison Glands",
+	"t": "Enchantment",
+	"s": "Death",
+	"r": "Touch",
+	"i": "&quot;Thou shalt secrete poison from thy venemous glands&quot; x3",
+	"m": ["Strip, Red"],
+	"e": "Bearer gains self-only Poison (ex) 1/Refresh Charge x3"
+}

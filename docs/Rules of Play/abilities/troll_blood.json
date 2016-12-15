@@ -1,0 +1,10 @@
+{
+	"name": "Troll Blood",
+	"t": "Enchantment",
+	"s": "Protection",
+	"r": "Touch",
+	"i": "&quot;The blood of the trolls sustains thee&quot; x3",
+	"m": ["Strip, White", "Strip, White", "Strip, White"],
+	"e": "Enchanted player does not die as normal. When the player would otherwise die they instead ignore the triggering effect as though it had not occurred, remove a strip, and become Frozen for 30 seconds. The bearer is treated as though they have the effects of Regeneration in addition to the above",
+	"n": "Troll Blood is removed when the last strip is removed"
+}

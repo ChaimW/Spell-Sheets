@@ -1,0 +1,10 @@
+{
+	"name": "Essence Graft",
+	"t": "Enchantment",
+	"s": "Sorcery",
+	"r": "Touch",
+	"i": "&quot;Open up and receive my power&quot; x3",
+	"m": ["Strip, Yellow"],
+	"e": "Bearer may wear up to three additional Enchantments. Essence Graft does not count towards the bearer’s Enchantment limit",
+	"l": "Bearer may only wear Enchantments from the caster of Essence Graft. This ability may not be used in conjunction with any other similar ability or magic"
+}

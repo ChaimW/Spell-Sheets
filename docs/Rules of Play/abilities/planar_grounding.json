@@ -1,0 +1,9 @@
+{
+	"name": "Planar Grounding",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "20",
+	"i": "&quot;My power closes the aether to you&quot; x3",
+	"e": "Target player has their Insubstantial State removed and may not become Insubstantial for 30 seconds. May be cast on players who are not currently Insubstantial",
+	"n": "Planar Grounding causes Enchantments that automatically render their bearer Insubstantial, such as Undead Minion, to fail and be removed if they activate while Planar Grounding is in effect"
+}

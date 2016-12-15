@@ -1,0 +1,10 @@
+{
+	"name": "Empower",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "Touch",
+	"i": "&quot;I empower thee&quot;",
+	"e": "Target player regains one use of any per-life Ability or Magic they have expended",
+	"l": "Does not function on Empower, Confidence, Restoration, or similar Magic and Abilities. May not be used on the caster",
+	"n": "Does not allow a player to have more than his maximum uses of a Magic or Ability."
+}

@@ -1,0 +1,9 @@
+{
+	"name": "Terror",
+	"t": "Verbal",
+	"s": "Death",
+	"r": "20",
+	"i": "&quot;Death makes thee terrified&quot; x3",
+	"e": "Target may not attack or cast magic at the caster. Target must remain at least 50&#39; away from the caster unless forced there by another Magic or Ability. Lasts 30 seconds",
+	"n": "If the caster attacks or begins casting another magic at the target, this spell’s effect is negated"
+}

@@ -1,0 +1,9 @@
+{
+	"name": "Steal Life Essence",
+	"t": "Verbal",
+	"s": "Death",
+	"r": "Touch",
+	"i": "&quot;Steal Life&quot;",
+	"e": "Caster may heal a Wound or instantly Charge an ability",
+	"l": "May only be used on a dead player. That player is Cursed. Does not work on Cursed players"
+}

@@ -1,0 +1,8 @@
+{
+	"name": "Mend",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "Touch",
+	"i": "&quot;I make this item whole again&quot; x5",
+	"e": "Destroyed item is repaired. One point of armor in one location is repaired"
+}

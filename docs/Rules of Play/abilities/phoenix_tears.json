@@ -1,0 +1,10 @@
+{
+	"name": "Phoenix Tears",
+	"t": "Enchantment",
+	"s": "Spirit",
+	"r": "Touch",
+	"i": "&quot;May the tears of the phoenix wash over thee&quot; x3",
+	"m": ["Strip, White", "Strip, White"],
+	"e": "Enchanted player does not die as normal. When the player would otherwise die they instead remove a strip and become Frozen for 30 seconds. When the Frozen State is ended the bearer has:<br>1. All Wounds removed<br>2. All States removed that are removed by Death or Respawning<br>3. All ongoing effects with a timer are expired<br>4. All of their equipment is fully repaired<br>5. All enchantments, except those which are Persistent, are removed<br>Additionally Phoenix Tears allows you to wear an extra Enchantment from the Protection School. This extra enchantment is considered Persistent as long as Phoenix Tears is present. The additional Enchantment is not removed once Phoenix Tears is removed",
+	"n": "Phoenix Tears is removed when the last strip is removed"
+}

@@ -1,0 +1,10 @@
+{
+	"name": "Imbue Armor",
+	"t": "Enchantment",
+	"s": "Protection",
+	"r": "Touch",
+	"i": "&quot;I enchant thee with Imbued Armor&quot; x3",
+	"m": ["Strip, White"],
+	"e": "All armor worn by the bearer gains +1 up to the bearer’s class maximum",
+	"n": "Does not apply to magic armor. A player may only benefit from one instance of Imbue Armor, or similar magic and abilities that increase Armor Points, at a time"
+}

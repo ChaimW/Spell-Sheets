@@ -1,0 +1,8 @@
+{
+	"name": "Ambulant",
+	"t": "Meta-Magic",
+	"s": "Neutral",
+	"i": "&quot;Ambulant&quot;",
+	"e": "An incantation may be said while moving. May be cast while moving",
+	"l": "May not be used on the Charge incantation"
+}

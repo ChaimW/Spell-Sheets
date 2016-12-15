@@ -1,0 +1,9 @@
+{
+	"name": "Lycanthropy",
+	"t": "Enchantment",
+	"s": "Death",
+	"r": "Touch",
+	"i": "&quot;Stalked in the forest, too close to hide, I’ll be upon thee by the moonlight side&quot; x3",
+	"m": ["Strip, Red", "Strip, White"],
+	"e": "Bearer gains two points of magic armor. Bearer’s melee weapons are Shield Crushing. Bearer is Immune to Command"
+}

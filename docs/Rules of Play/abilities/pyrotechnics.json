@@ -1,0 +1,9 @@
+{
+	"name": "Pyrotechnics",
+	"t": "Verbal",
+	"s": "Flame",
+	"r": "50",
+	"i": "&quot;I call upon the element of flame to destroy thy belongings&quot; x3",
+	"e": "All shields and weapons carried or worn by the target player are destroyed",
+	"l": "Only affects shields and weapons carried or worn when the Verbal is completed"
+}

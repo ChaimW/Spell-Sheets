@@ -1,0 +1,26 @@
+{
+	"name": "Evoker",
+	"filters": [
+		{
+			"type": [
+				"Verbal"
+			],
+			"range": [
+				"20",
+				"50",
+				"Unlimited"
+			]
+			"addTags": [
+				"_disabled"
+			]
+		},
+		{
+			"name": [
+				"elemental_barrage"
+			],
+			"addTags": [
+				"frequency_charge_ten",
+			]
+		}
+	]
+}

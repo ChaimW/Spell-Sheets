@@ -1,0 +1,9 @@
+{
+	"name": "Restoration",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "Touch",
+	"i": "&quot;I restore thee to thy full potency&quot;",
+	"e": "Player has all uses of their per-life Magic and Abilities restored",
+	"l": "Does not function on Empower, Confidence, Restoration, or similar Magic and Abilities. May not be used on the caster"
+}

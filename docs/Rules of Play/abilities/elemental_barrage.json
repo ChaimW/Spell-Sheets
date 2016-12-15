@@ -1,0 +1,9 @@
+{
+	"name": "Elemental Barrage",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "Self",
+	"i": "&quot;I am filled with the power of magic&quot;",
+	"e": "Caster may use Magic Balls they are currently carrying by stating the name of the Magic Ball immediately prior to throwing the ball in place of the incantation",
+	"l": "This magic ends if the caster picks up any additional Magic Balls or begins casting any new magic"
+}

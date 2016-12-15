@@ -1,0 +1,8 @@
+{
+	"name": "Greater Heal",
+	"t": "Verbal",
+	"s": "Spirit",
+	"r": "Touch",
+	"i": "&quot;By the grace of the divine thou art healed&quot; x5",
+	"e": "All wounds are healed. Ignores the Cursed State"
+}

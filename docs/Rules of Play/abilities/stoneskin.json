@@ -1,0 +1,9 @@
+{
+	"name": "Stoneskin",
+	"t": "Enchantment",
+	"s": "Protection",
+	"r": "Touch",
+	"i": "&quot;May nature protect thee from all forms of attack&quot; x3",
+	"m": ["Strip, White"],
+	"e": "Bearer gains 2 points of Magic armor affected as per Ancestral Armor"
+}

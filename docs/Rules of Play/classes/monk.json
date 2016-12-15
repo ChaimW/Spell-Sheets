@@ -1,0 +1,90 @@
+{
+	"name": "Monk",
+	"levels": [
+		{
+			"abilities": [
+				{
+					"name": "enlightened_soul",
+					"tags": [
+						"ability_t"
+					]
+				},
+				{
+					"name": "missile_block",
+					"tags": [
+						"ability_T"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "sanctuary",
+					"count": "1",
+					"per": "Life",
+					"charge": "5",
+					"tags": [
+						"ability_ex",
+						"metamagic_ambulant"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "heal",
+					"count": "1",
+					"per": "Life",
+					"charge": "3",
+					"tags": [
+						"ability_ex",
+						"_self_only"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "resurrect",
+					"count": "1",
+					"per": "Refresh",
+					"charge": "10",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "magic ball block",
+					"tags": [
+						"ability_t"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "heal",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_ex",
+						"_self_only"
+					]
+				}
+			]
+		}
+	]
+}

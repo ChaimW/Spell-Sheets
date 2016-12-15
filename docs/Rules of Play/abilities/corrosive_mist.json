@@ -1,0 +1,10 @@
+{
+	"name": "Corrosive Mist",
+	"t": "Enchantment",
+	"s": "Death",
+	"r": "Self or Touch",
+	"i": "&quot;The mists of corrosion surround thee&quot; x3",
+	"m": ["Strip, Red", "Strip, Red", "Strip, Red", "Strip, Red", "Strip, Red"],
+	"e": "Bearer is Stopped. Bearer may cast Destroy Armor by announcing &quot;[Player] the mists of corrosion destroy your [armor location] armor&quot;. Bearer must remove a strip after each use of Destroy Armor",
+	"n": "Corrosive Mist is removed when the last strip is removed"
+}

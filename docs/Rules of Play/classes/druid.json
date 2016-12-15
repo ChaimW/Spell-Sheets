@@ -1,0 +1,515 @@
+{
+	"name": "Druid",
+	"magic-user": true,
+	"levels": [
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "barkskin",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "cancel",
+					"cost": "0",
+					"max": "1",
+					"per": "Unlimited",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "corrosive_mist",
+					"cost": "1",
+					"max": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "entangle",
+					"cost": "1",
+					"max": "2",
+					"count": "2",
+					"per": "Ball",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "equipment_weapon_short",
+					"cost": "2",
+					"max": "2",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "experienced",
+					"cost": "2",
+					"max": "0",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "heat_weapon",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"charge": "3",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "imbue_armor",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "mend",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "equipment_shield_small",
+					"cost": "4",
+					"max": "1",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "gift_of_earth",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "heal",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "iceball",
+					"cost": "1",
+					"max": "2",
+					"count": "2",
+					"per": "Ball",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "innate",
+					"cost": "1",
+					"max": "4",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					
+					"name": "poison",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "release",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "stoneform",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"charge": "3",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "attuned",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "bear_strength",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "dispel_magic",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "extension",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "gift_of_fire",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "greater_mend",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "icy_blast",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "regeneration",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "stoneskin",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "equipment_weapon_long",
+					"cost": "4",
+					"max": "1",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "flame_blade",
+					"cost": "2",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "force_bolt",
+					"cost": "1",
+					"max": "2",
+					"count": "2",
+					"per": "Ball",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "gift_of_water",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "golem",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "lycanthropy",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "swift",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "teleport",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "ambulant",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "equipment_weapon_great",
+					"cost": "5",
+					"max": "1",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "essence_graft",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "gift_of_air",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "heart_of_the_swarm",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "ironskin",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "poison_glands",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "resurrect",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "troll_blood",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "avatar_of_nature",
+					"cost": "1",
+					"max": "1",
+					"tags": [
+						"_archetype",
+						"ability_m"
+					]
+				},
+				{
+					"name": "call_lightning",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "grasping_tentacles",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "imbue_weapon",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "naturalize_magic",
+					"cost": "1",
+					"max": "2",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "ranger",
+					"cost": "2",
+					"max": "1",
+					"tags": [
+						"_archetype",
+						"ability_m"
+					]
+				},
+				{
+					"name": "summoner",
+					"cost": "2",
+					"max": "1",
+					"tags": [
+						"_archetype",
+						"ability_m"
+					]
+				},
+				{
+					"name": "word_of_mending",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		}
+	]
+}

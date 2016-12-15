@@ -1,0 +1,8 @@
+{
+	"name": "Insult",
+	"t": "Verbal",
+	"s": "Command",
+	"r": "20",
+	"i": "&quot;I command thy attention sirrah&quot; x3",
+	"e": "Victim is unable to attack or cast magic at anyone other than the caster for 30 seconds. If the victim of insult is attacked or has magic cast on them by someone other than the caster, the victim of Insult becomes able to choose to attack the offending party as well"
+}

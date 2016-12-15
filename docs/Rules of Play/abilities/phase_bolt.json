@@ -1,0 +1,10 @@
+{
+	"name": "Phase Bolt",
+	"t": "Magic Ball",
+	"s": "Sorcery",
+	"r": "Ball",
+	"i": "&quot;The power of sorcery is mine to evoke&quot; x3",
+	"m": ["Magic Ball, Gray"],
+	"e": "This Magic Ball does not interact with other ongoing Magic or Abilities. Example: This Magic Ball is not stopped by Stoneskin, Protection from Projectiles, and does not trigger the effects of Troll Blood, Undead Minion, Magic Ball Block, or similar Magic or Abilities. Will have one of the following effects:<br>1. A weapon hit is destroyed<br>2. Armor hit with Armor Points remaining is subject to Armor Breaking<br>3. A player hit receives a Wound in that hit location",
+	"n": "Does not supercede the Frozen, Insubstantial, or Out of Game States"
+}

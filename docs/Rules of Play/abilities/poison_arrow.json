@@ -1,0 +1,8 @@
+{
+	"name": "Poison Arrow",
+	"t": "Specialty Arrow",
+	"s": "Death",
+	"i": "&quot;Poison Arrow&quot;",
+	"m": ["Arrow, Green (Poison)"],
+	"e": "This arrow is Wounds Kill"
+}

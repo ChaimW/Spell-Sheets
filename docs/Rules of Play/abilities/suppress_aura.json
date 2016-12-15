@@ -1,0 +1,8 @@
+{
+	"name": "Suppress Aura",
+	"t": "Verbal",
+	"s": "Command",
+	"r": "50",
+	"i": "&quot;I command thee powerless&quot; x3",
+	"e": "Target is Suppressed for 30 seconds"
+}

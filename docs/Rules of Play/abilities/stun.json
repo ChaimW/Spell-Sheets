@@ -1,0 +1,8 @@
+{
+	"name": "Stun",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "20",
+	"i": "&quot;By the power of white light I stun thee&quot; x3",
+	"e": "Target player is Stunned for 30 seconds"
+}

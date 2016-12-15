@@ -1,0 +1,8 @@
+{
+	"name": "Ravage",
+	"t": "Verbal",
+	"s": "Death",
+	"r": "20",
+	"i": "&quot;Death shall ravage thy flesh and make thee fragile&quot; x3",
+	"e": "Target player is Fragile"
+}

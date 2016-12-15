@@ -1,0 +1,94 @@
+{
+	"name": "Warrior",
+	"levels": [
+		{
+			"abilities": [
+				{
+					"name": "scavange",
+					"per": "Unlimited",
+					"tags": [
+						"ability_ex"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "harden",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"_self_only",
+						"ability_ex"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "true_grit",
+					"count": "2",
+					"per": "Refresh",
+					"tags": [
+						"ability_ex"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "insult",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m",
+						"metamagic_ambulant"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "shake_it_off",
+					"count": "1",
+					"per": "Refresh",
+					"charge": "3",
+					"tags": [
+						"ability_ex"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "ancestral_armor",
+					"count": "3",
+					"per": "Refresh",
+					"tags": [
+						"_self_only",
+						"ability_ex",
+						"metamagic_swift"
+					]
+				}
+			]
+		}
+	]
+	"lookthepart": {
+		"abilities": [
+			{
+				"name": "insult",
+				"count": "1",
+				"per": "Life",
+				"tags": [
+					"ability_m",
+					"metamagic_ambulant"
+				]
+			}
+		]
+	}
+}

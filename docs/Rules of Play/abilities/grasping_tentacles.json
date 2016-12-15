@@ -1,0 +1,10 @@
+{
+	"name": "Grasping Tentacles",
+	"t": "Enchantment",
+	"s": "Command",
+	"r": "Self",
+	"i": "&quot;The hands of the earth rise to your bidding&quot; x3",
+	"m": ["Strip, Red", "Strip, Red", "Strip, Red", "Strip, Red", "Strip, Red"],
+	"e": "Bearer is Stopped. Bearer may cast Hold Person by announcing &quot;[Player] stop at my command.&quot; Bearer must remove an Enchantment strip after each use of Hold Person",
+	"n": "Grasping Tentacles is removed when the last strip is removed"
+}

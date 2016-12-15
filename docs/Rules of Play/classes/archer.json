@@ -1,0 +1,162 @@
+{
+	"name": "Archer",
+	"levels": [
+		{
+			"points": "2",
+			"abilities": [
+				{
+					"name": "reload",
+					"per": "Refresh",
+					"charge": "3",
+					"tags": [
+						"ability_ex"
+					]
+				},
+				{
+					"name": "destruction_arrow",
+					"cost": "1",
+					"per": "Arrow",
+					"tags": [
+						"ability_ex"
+					]
+				},
+				{
+					"name": "pinning_arrow",
+					"cost": "1",
+					"per": "Arrow",
+					"tags": [
+						"ability_ex"
+					]
+				},
+				{
+					"name": "poison_arrow",
+					"cost": "1",
+					"per": "Arrow",
+					"tags": [
+						"ability_ex"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "mend",
+					"per": "Life",
+					"tags": [
+						"ability_ex"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "destruction_arrow",
+					"cost": "1",
+					"per": "Arrow",
+					"tags": [
+						"ability_ex"
+					]
+				},
+				{
+					"name": "pinning_arrow",
+					"cost": "1",
+					"per": "Arrow",
+					"tags": [
+						"ability_ex"
+					]
+				},
+				{
+					"name": "poison_arrow",
+					"cost": "1",
+					"per": "Arrow",
+					"tags": [
+						"ability_ex"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "suppression_arrow",
+					"per": "Arrow",
+					"tags": [
+						"ability_ex"
+					]
+				}
+			]
+		},
+		{
+			"points": "2",
+			"abilities": [
+				{
+					"name": "destruction_arrow",
+					"cost": "1",
+					"per": "Arrow",
+					"tags": [
+						"ability_ex"
+					]
+				},
+				{
+					"name": "pinning_arrow",
+					"cost": "1",
+					"per": "Arrow",
+					"tags": [
+						"ability_ex"
+					]
+				},
+				{
+					"name": "poison_arrow",
+					"cost": "1",
+					"per": "Arrow",
+					"tags": [
+						"ability_ex"
+					]
+				}
+			]
+		},
+		{
+			"points": "1",
+			"abilities": [
+				{
+					"name": "phase_arrow",
+					"per": "Arrow",
+					"tags": [
+						"ability_ex"
+					]
+				},
+				{
+					"name": "sniper",
+					"cost": "1",
+					"max": "1",
+					"tags": [
+						"ability_ex",
+						"_archetype"
+					]
+				}
+			]
+		},
+		{
+			"points": "1",
+			"abilities": [
+				{
+					"name": "destruction arrow",
+					"cost": "1",
+					"per": "Arrow"
+				},
+				{
+					"name": "pinning arrow",
+					"cost": "1",
+					"per": "Arrow"
+				},
+				{
+					"name": "poison arrow",
+					"cost": "1",
+					"per": "Arrow"
+				}
+			]
+		}
+	]
+}

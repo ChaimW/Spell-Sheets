@@ -1,0 +1,9 @@
+{
+	"name": "Pinning Arrow",
+	"t": "Specialty Arrow",
+	"s": "Sorcery",
+	"i": "&quot;Pinning Arrow&quot;",
+	"m": ["Arrow, Yellow (Pinning)"],
+	"e": "A player struck by this arrow is Stopped for 30 seconds",
+	"n": "Engulfing"
+}

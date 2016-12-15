@@ -1,0 +1,9 @@
+{
+	"name": "Word of Mending",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "Touch",
+	"i": "&quot;Spedoinkle&quot;",
+	"e": "All equipment carried by target player is repaired. All armor worn by target player is restored to full value",
+	"l": "May not be cast within 20&#39; of a living enemy"
+}

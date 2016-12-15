@@ -1,0 +1,89 @@
+{
+	"name": "Barbarian",
+	"levels": [
+		{
+			"abilities": [
+				{
+					"name": "berserk",
+					"tags": [
+						"ability_t"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "fight_after_death",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_ex",
+						"metamagic_ambulant"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "adrenaline",
+					"per": "Unlimited",
+					"tags": [
+						"ability_ex"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "fight_after_death",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_ex",
+						"metamagic_ambulant"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "brutal_strike",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_ex",
+						"metamagic_ambulant"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "blood_and_thunder",
+					"count": "2",
+					"per": "Refresh",
+					"tags": [
+						"ability_ex"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "blood_and_thunder",
+					"count": "2",
+					"per": "Refresh",
+					"tags": [
+						"ability_ex"
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,9 @@
+{
+	"name": "Lost",
+	"t": "Verbal",
+	"s": "Command",
+	"r": "20",
+	"i": "&quot;I command thee to be lost&quot; x3",
+	"e": "Player becomes Insubstantial and must move directly to their base. Player must end their Insubstantial State as per normal once they reach their base",
+	"n": "If the Insubstantial State is ended before reaching the base, the rest of the effect is ended as well"
+}

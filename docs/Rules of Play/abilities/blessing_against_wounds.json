@@ -1,0 +1,10 @@
+{
+	"name": "Blessing Against Wounds",
+	"t": "Enchantment",
+	"s": "Protection",
+	"r": "Touch",
+	"i": "&quot;I enchant thee against wounds&quot; x3",
+	"m": ["Strip, White"],
+	"e": "Resistant to Wounds. Does not count towards a players Enchantment limit",
+	"l": "May not be worn with any other Enchantments from the Protection School"
+}

@@ -1,0 +1,10 @@
+{
+	"name": "Reload",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "Self",
+	"i": "&quot;I nocked my arrows to my bow, I let them fly, my quiver is low. Now I pause to go reload.&quot; x3",
+	"e": "Player becomes Out of Game and may move about the field retrieving their arrows",
+	"l": "Must stay at least 10&#39; away from other players at all times. The player may only remove their Out of Game state in the location they started by stating, &quot;I return with a full quiver&quot; x3",
+	"n": "May ask reeve for assistance in retrieving arrows that are within 10&#39; of other players"
+}

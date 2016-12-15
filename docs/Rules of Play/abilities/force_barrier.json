@@ -1,0 +1,8 @@
+{
+	"name": "Force Barrier",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "Self",
+	"i": "&quot;I shall not be harmed&quot;",
+	"e": "Player is Frozen for 30 seconds"
+}

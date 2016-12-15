@@ -1,0 +1,107 @@
+{
+	"name": "Scout",
+	"levels": [
+		{
+			"abilities": [
+				{
+					"name": "tracking",
+					"count": "2",
+					"per": "Life",
+					"charge": "3",
+					"tags": [
+						"ability_ex"
+						"metamagic_ambulant"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "heal",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_ex"
+					]
+				},
+				{
+					"name": "release",
+					"count": "1",
+					"per": "Life",
+					"charge": "3",
+					"tags": [
+						"ability_ex"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "shadow_step",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_ex"
+					]
+				},
+				{
+					"name": "dispel_magic",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_ex"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "evolution",
+					"tags": [
+						"ability_t"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "hold_person",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "adaptive_blessing",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_ex",
+						"_self_only"
+					]
+				}
+			]
+		}
+	]
+	"lookthepart": {
+		"abilities": [
+			{
+				"name": "heal",
+				"count": "1",
+				"per": "Life",
+				"tags": [
+					"ability_ex"
+				]
+			}
+		]
+	]
+}

@@ -1,0 +1,9 @@
+{
+	"name": "Teleport",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "Touch",
+	"i": "&quot;I travel through the aether&quot; x5",
+	"e": "Player becomes Insubstantial and moves directly to a location chosen at the time of casting by the caster. Upon arrival, they must immediately end the effect as per Insubstantial",
+	"n": "If the player’s Insubstantial state is removed before they have reached their destination, the effects of Teleport end"
+}

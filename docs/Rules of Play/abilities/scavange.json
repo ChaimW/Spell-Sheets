@@ -1,0 +1,10 @@
+{
+	"name": "Scavenge",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "Self",
+	"i": "&quot;Scavenge&quot;",
+	"e": "Repair one point of armor in one location, a shield, or a weapon",
+	"l": "May only be used within 30 seconds of killing an enemy in melee combat or causing the activation of any effects which allow the player struck to avoid death such as Undead Minion, Song of Survival, or other similar magic and abilities. May not be used within 10&#39; of a living enemy",
+	"n": "May only be used by the player striking the final blow and only once per kill per eligible enemy"
+}

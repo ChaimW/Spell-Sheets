@@ -1,0 +1,84 @@
+{
+	"name": "Anti-Paladin",
+	"levels": [
+		{
+			"abilities": [
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "poison",
+					"count": "1",
+					"per": "Refresh",
+					"charge": "3",
+					"tags": [
+						"ability_ex",
+						"_self_only"	
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "steal life essence",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "brutal strike",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_ex",
+						"metamagic_ambulant"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "awe",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "undead minion",
+					"count": "2",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		}
+	]
+	"lookthepart": {
+		"abilities": [
+			{
+				"name": "awe",
+				"count": "1",
+				"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+			}
+		]
+	}
+}

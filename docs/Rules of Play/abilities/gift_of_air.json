@@ -1,0 +1,11 @@
+{
+	"name": "Gift of Air",
+	"t": "Enchantment",
+	"s": "Protection",
+	"r": "Touch",
+	"i": "&quot;I grant thee a gift of the air&quot; x3",
+	"m": ["Strip, White"],
+	"e": "When struck by a melee weapon or projectile the bearer instead announces &quot;Gift of Air&quot; and becomes Insubstantial. The bearer treats the triggering event as though it had no effect on them other than triggering Gift of Air. Bearer may choose to return directly to their respawn location immediately after Gift of Air activates. Melee weapons with the Armor Breaking, Armor Destroying, Shield Crushing, or Shield Destroying Special Effects will wound the bearer as normal and do not trigger Gift of Air",
+	"l": "Bearer may not wield weapons or shields",
+	"n": "Bearer may end the Insubstantial state caused by Gift of Air at any time with the standard Incantation"
+}

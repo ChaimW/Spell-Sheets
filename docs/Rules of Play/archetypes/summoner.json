@@ -1,0 +1,26 @@
+{
+	"name": "Summoner",
+	"filters": [
+		{
+			"type": [
+				"Enchantment"
+			],
+			"addTags": [
+				"frequency_count_double"
+			]
+		},
+		{
+			"type": [
+				"Verbal"
+			],
+			"range": [
+				"20",
+				"50",
+				"Unlimited"
+			],
+			"addTags": [
+				"_disabled"
+			]
+		}
+	]
+}

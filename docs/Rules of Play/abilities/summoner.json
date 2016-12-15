@@ -1,0 +1,7 @@
+{
+	"name": "Summoner",
+	"t": "Neutral",
+	"s": "Neutral",
+	"e": "Each Enchantment purchased gives double the uses. Example: 1/Life Charge x3 becomes 2/life Charge x3, 2/ life becomes 4/life",
+	"l": "May not purchase Verbals with a range other than Touch or Self. May not purchase equipment beyond 2nd level"
+}

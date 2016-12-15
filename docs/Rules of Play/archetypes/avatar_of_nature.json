@@ -1,0 +1,23 @@
+{
+	"name": "Avatar of Nature",
+	"filters": [
+		{
+			"not_name": [
+				"golem"
+			],
+			"level": [
+				"1",
+				"2",
+				"3",
+				"4"
+			],
+			"type": [
+				"Enchantment"
+			],
+			"addTags": [
+				"_self_only",
+				"range_only_self"
+			]
+		}
+	]
+}

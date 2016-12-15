@@ -1,0 +1,9 @@
+{
+	"name": "Summon Dead",
+	"keywords": "healer verbal spirit",
+	"t": "Verbal",
+	"s": "Spirit",
+	"r": "50",
+	"i": "&quot;I summon thy corpse&quot; x5",
+	"e": "Target dead player may choose to go to the caster and then counts as though they had not moved from where they died. May be used on a dead player who has not moved from where they died or who is at their respawn location"
+}

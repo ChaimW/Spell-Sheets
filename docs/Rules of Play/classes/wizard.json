@@ -1,0 +1,527 @@
+{
+	"name": "Wizard",
+	"magic-user": true,
+	"levels": [
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "banish",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "cancel",
+					"cost": "0",
+					"max": "1",
+					"per": "Unlimited",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "equipment_weapon_short",
+					"cost": "2",
+					"max": "1",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "experienced",
+					"cost": "2",
+					"max": "2",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "force_barrier",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "force_bolt",
+					"cost": "1",
+					"max": "4",
+					"count": "3",
+					"per": "Ball",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "heat_weapon",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "mend",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "shove",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"charge": "3",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "astral_intervention",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "break concentration",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "entangle",
+					"cost": "1",
+					"max": "3",
+					"count": "2",
+					"per": "Ball",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "innate",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "planar grounding",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "release",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "suppression bolt",
+					"cost": "1",
+					"max": "3",
+					"count": "1",
+					"per": "Ball",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "teleport",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "dispel magic",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"charge": "3",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "dragged below",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "extension",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "greater mend",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "hold person",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "iceball",
+					"cost": "1",
+					"max": "3",
+					"count": "2",
+					"per": "Ball",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "lightning bolt",
+					"cost": "1",
+					"max": "4",
+					"count": "1",
+					"per": "Ball",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "ravage",
+					"cost": "1",
+					"count": "2",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "shatter weapon",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "throw",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "destroy armor",
+					"cost": "1",
+					"count": "2",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "dimensional rift",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "fireball",
+					"cost": "1",
+					"max": "4",
+					"count": "1",
+					"per": "Ball",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "icy blast",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "shatter",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "suppress aura",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "swift",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "vampirism",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "wounding",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"charge": "3",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "ambulant",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "contagion",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "equipment: weapon, long",
+					"cost": "4",
+					"max": "1",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "phase bolt",
+					"cost": "1",
+					"max": "4",
+					"count": "1",
+					"per": "Ball",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "pyrotechnics",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "steal life essence",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "void touched",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "ward self",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "battlemage",
+					"cost": "2",
+					"max": "1",
+					"tags": [
+						"_archetype",
+						"ability_m"
+					]
+				},
+				{
+					"name": "elemental barrage",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "evoker",
+					"cost": "2",
+					"max": "1",
+					"tags": [
+						"_archetype",
+						"ability_m"
+					]
+				},
+				{
+					"name": "finger of death",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "persistent",
+					"cost": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "protection from magic",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "sphere of annihilation",
+					"cost": "2",
+					"max": "1",
+					"count": "1",
+					"per": "Ball"
+				},
+				{
+					"name": "warlock",
+					"cost": "2",
+					"max": "1",
+					"tags": [
+						"_archetype",
+						"ability_m"
+					]
+				},
+				{
+					"name": "word of mending",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		}
+	]
+}

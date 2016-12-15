@@ -1,0 +1,9 @@
+{
+	"name": "Greater Release",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "20",
+	"i": "&quot;From all thine afflictions thou art released&quot; x2",
+	"e": "All ongoing effects and States are removed from the target. The caster may choose to leave some States or effects in place",
+	"n": "Greater Release may target Dead players"
+}

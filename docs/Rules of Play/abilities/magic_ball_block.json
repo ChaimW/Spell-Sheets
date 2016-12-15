@@ -1,0 +1,8 @@
+{
+	"name": "Magic Ball Block",
+	"t": "Enchantment",
+	"s": "Protection",
+	"r": "Self",
+	"e": "layer is allowed to block Magic Balls with their weapons and hands without penalty. Any Magic Ball in motion touched by a weapon wielded or by the hand of the player is nullified",
+	"n": "Engulfing effects from blocked Magic Balls do not activate"
+}

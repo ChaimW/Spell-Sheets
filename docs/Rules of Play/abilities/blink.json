@@ -1,0 +1,9 @@
+{
+	"name": "Blink",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "Self",
+	"i": "&quot;I vanish from sight&quot;",
+	"e": "Player becomes Insubstantial and can move to any location within 50&#39; from their starting point",
+	"l": "Caster may not end State within 10&#39; of a living enemy"
+}

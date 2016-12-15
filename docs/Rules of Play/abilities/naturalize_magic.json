@@ -1,0 +1,9 @@
+{
+	"name": "Naturalize Magic",
+	"t": "Enchantment",
+	"s": "Sorcery",
+	"r": "Self",
+	"i": "&quot;I shall restore the balance&quot; x3",
+	"m": ["Strip, Red", "Strip, Red", "Strip, Red", "Strip, Red", "Strip, Red"],
+	"e": "Bearer may cast Dispel Magic by announcing &quot;[Player] thou art dispelled.&quot; Bearer must remove an Enchantment strip after each use of Dispel Magic and the Enchantment is removed when the last strip is removed"
+}

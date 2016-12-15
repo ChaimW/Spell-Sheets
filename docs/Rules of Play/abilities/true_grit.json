@@ -1,0 +1,8 @@
+{
+	"name": "True Grit",
+	"t": "Verbal",
+	"s": "Spirit",
+	"r": "Self",
+	"i": "&quot;The wicked flee when I pursue&quot; immediately after dying",
+	"e": "Player returns to life with their Wounds healed and is immediately Frozen for 30 seconds. Non-Persistent Enchantments on the player are removed before the player returns to life"
+}

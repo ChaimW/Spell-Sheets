@@ -1,0 +1,8 @@
+{
+	"name": "Agoraphobia",
+	"t": "Verbal",
+	"s": "Command",
+	"r": "20",
+	"i": "&quot;I command thee to be alone&quot; x3",
+	"e": "Target must remain at least 20&#39; away from all other players unless forced there by another Magic or Ability. Lasts 30 seconds."
+}

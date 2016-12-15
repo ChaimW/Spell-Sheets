@@ -1,0 +1,434 @@
+{
+	"name": "bard",
+	"magic-user": true,
+	"levels": [
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "cancel",
+					"cost": "0",
+					"max": "1",
+					"per": "Unlimited",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "confidence",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"charge": "5",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "equipment_weapon_short",
+					"cost": "2",
+					"max": "2",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "experienced",
+					"cost": "2",
+					"max": "2",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "insult",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "release",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "shove",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "song_of_determination",
+					"cost": "1",
+					"max": "1",
+					"per": "Unlimited",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "empower",
+					"cost": "1",
+					"count": "2",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "equipment_armor_1_point",
+					"cost": "4",
+					"max": "1",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "greater_release",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "innate",
+					"cost": "1",
+					"max": "4",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "mend",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "song_of_battle",
+					"cost": "1",
+					"max": "1",
+					"per": "Unlimited",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "song_of_visit",
+					"cost": "1",
+					"max": "1",
+					"per": "Unlimited",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "awe",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "battlefield_triage",
+					"cost": "1",
+					"max": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "break_concentration",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "extension",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "equipment_shield_small",
+					"cost": "2",
+					"max": "1",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "song_of_freedom",
+					"cost": "1",
+					"max": "1",
+					"per": "Unlimited",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "amplification",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "equipment_weapon_long",
+					"cost": "3",
+					"max": "1",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "restoration",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "sleight of mind",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "song_of_deflection",
+					"cost": "1",
+					"max": "1",
+					"per": "Unlimited",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "song_of_power",
+					"cost": "1",
+					"max": "1",
+					"per": "Unlimited",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "suppress_aura",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "swift",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "terror",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "agoraphobia",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "ambulant",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "discordia",
+					"cost": "1",
+					"max": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "equipment_shield_medium",
+					"cost": "3",
+					"max": "1",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "heart_of_the_swarm",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "lost",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "song_of_survival",
+					"cost": "1",
+					"max": "1",
+					"per": "Unlimited",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "combat_caster",
+					"cost": "2",
+					"max": "1",
+					"tags": [
+						"_archetype",
+						"ability_m"
+					]
+				},
+				{
+					"name": "dervish",
+					"cost": "2",
+					"max": "1",
+					"tags": [
+						"_archetype",
+						"ability_m"
+					]
+				},
+				{
+					"name": "equipment_armor_1_point",
+					"cost": "2",
+					"max": "1",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "legend",
+					"cost": "1",
+					"max": "1",
+					"tags": [
+						"_archetype",
+						"ability_m"
+					]
+				},
+				{
+					"name": "silver_tongue",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "song_of_interference",
+					"cost": "1",
+					"max": "1",
+					"count": "1",
+					"per": "Refresh",
+					"charge": "5",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "stun",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		}
+	]
+}

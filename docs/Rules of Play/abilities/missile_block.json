@@ -1,0 +1,8 @@
+{
+	"name": "Missile Block",
+	"t": "Enchantment",
+	"s": "Protection",
+	"r": "Self",
+	"e": "Player is allowed to block arrows and projectiles with their weapons and hands without penalty. Any arrow or projectile in motion touched by a weapon wielded or by the hand of the player is nullified",
+	"n": "Engulfing effects from blocked arrows and projectiles do not activate"
+}

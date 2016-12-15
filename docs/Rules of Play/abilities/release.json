@@ -1,0 +1,9 @@
+{
+	"name": "Release",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "Touch",
+	"i": "&quot;From thy bindings thou art released&quot; x5",
+	"e": "A single ongoing effect or State is removed from the target. Casters choice",
+	"l": "Cannot remove Cursed"
+}

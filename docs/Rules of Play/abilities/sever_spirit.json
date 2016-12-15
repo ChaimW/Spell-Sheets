@@ -1,0 +1,8 @@
+{
+	"name": "Sever Spirit",
+	"t": "Verbal",
+	"s": "Spirit",
+	"r": "20",
+	"i": "&quot;The spirits lay a curse on thee.&quot; x3",
+	"e": "May only target dead players. Player is Cursed. Any Enchantments on the player are removed"
+}

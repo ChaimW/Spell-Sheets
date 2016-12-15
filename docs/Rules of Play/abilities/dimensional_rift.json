@@ -1,0 +1,8 @@
+{
+	"name": "Dimensional Rift",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "20",
+	"i": "&quot;The power of the aether consumes thee&quot; x3",
+	"e": "Target Insubstantial player dies"
+}

@@ -1,0 +1,22 @@
+{
+	"name": "Battlemage",
+	"filters": [
+		{
+			"name": [
+				"ambulant"
+			],
+			"addTags": [
+				"frequency_count_unlimited",
+			]
+		},
+		{
+			"type": [
+				"Enchantment",
+				"Magic Ball"
+			],
+			"addTags": [
+				"_disabled"
+			]
+		}
+	]
+}

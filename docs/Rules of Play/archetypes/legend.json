@@ -1,0 +1,21 @@
+{
+	"name": "Legend",
+	"filters": [
+		{
+			"name": [
+				"extension"
+			],
+			"addTags": [
+				"frequency_count_double"
+			]
+		},
+		{
+			"name": [
+				"swift"
+			],
+			"addTags": [
+				"_disabled"
+			]
+		}
+	]
+}

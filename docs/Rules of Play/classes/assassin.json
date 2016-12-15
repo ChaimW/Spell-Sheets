@@ -1,0 +1,103 @@
+{
+	"name": "Assassin",
+	"levels": [
+		{
+			"abilities": [
+				{
+					"name": "shadow_step",
+					"count": "2",
+					"per": "Life",
+					"tags": [
+						"ability_ex",
+						"metamagic_ambulant"
+					]
+				},
+				{
+					"name": "assassinate",
+					"per": "Unlimited",
+					"tags": [
+						"ability_ex",
+						"metamagic_ambulant"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "poison",
+					"count": "1",
+					"per": "Life",
+					"charge": "3",
+					"tags": [
+						"ability_ex",
+						"_self_only"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "blink",
+					"count": "2",
+					"per": "Life",
+					"tags": [
+						"ability_ex",
+						"metamagic_ambulant"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "hold person",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "teleport",
+					"count": "2",
+					"per": "Life",
+					"tags": [
+						"ability_ex",
+						"_self_only"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "coup de grace",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"name": "poison",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_ex",
+						"_self_only"
+					]
+				}
+			]
+		}
+	]
+}

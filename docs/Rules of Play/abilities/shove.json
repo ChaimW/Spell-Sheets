@@ -1,0 +1,8 @@
+{
+	"name": "Shove",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "20",
+	"i": "&quot;My power shoves thee&quot; x3",
+	"e": "Target player is moved back 20&#39;. Works on Stopped players"
+}

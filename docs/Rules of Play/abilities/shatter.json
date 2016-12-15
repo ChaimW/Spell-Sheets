@@ -1,0 +1,8 @@
+{
+	"name": "Shatter",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "20",
+	"i": "&quot;My power shatters thy body&quot; x3",
+	"e": "Target Frozen player dies"
+}

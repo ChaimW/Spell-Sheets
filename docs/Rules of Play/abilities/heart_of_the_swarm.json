@@ -1,0 +1,10 @@
+{
+	"name": "Heart of the Swarm",
+	"t": "Enchantment",
+	"s": "Spirit",
+	"r": "Self",
+	"i": "&quot;Let all those who oppose the hive feel the wrath of the swarm&quot; x3",
+	"m": ["Strip, Yellow"],
+	"e": "Bearer is Stopped. Any player on the bearer’s team may use the bearer as their respawn point as per the normal game rules. Players respawning at the caster do so by announcing &quot;My life for the swarm.&quot;",
+	"l": "Players can not respawn at the bearer if there are living enemy players or a game objective within 20&#39; of the bearer"
+}

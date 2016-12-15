@@ -1,0 +1,8 @@
+{
+	"name": "Heat Weapon",
+	"t": "Verbal",
+	"s": "Flame",
+	"r": "20",
+	"i": "&quot;I call upon flame to heat that [type of weapon]&quot; x3",
+	"e": "Target weapon may not be wielded for 30 seconds. Players who are Immune to Flame may continue to wield the weapon"
+}

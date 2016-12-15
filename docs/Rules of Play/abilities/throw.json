@@ -1,0 +1,8 @@
+{
+	"name": "Throw",
+	"t": "Verbal",
+	"s": "Sorcery",
+	"r": "20",
+	"i": "&quot;My power throws thee&quot; x3",
+	"e": "Target player is moved back 50&#39;. Works on Stopped players"
+}

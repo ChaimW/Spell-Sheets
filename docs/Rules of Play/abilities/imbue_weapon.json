@@ -1,0 +1,9 @@
+{
+	"name": "Imbue Weapon",
+	"t": "Enchantment",
+	"s": "Death",
+	"r": "Touch",
+	"i": "&quot;I enchant thee to slay all foes&quot; x3",
+	"m": ["Strip, Red"],
+	"e": "Melee weapons wielded by the bearer are Wounds Kill"
+}

@@ -1,0 +1,7 @@
+{
+	"name": "Warder",
+	"t": "Neutral",
+	"s": "Neutral",
+	"e": "Each Enchantment purchased in the Protection School gives double the uses. Example: 1/Life Charge x3 becomes 2/life Charge x3, 2/life becomes 4/life",
+	"l": "Player may not purchase any magic from the Death, Command, or Subdual Schools"
+}

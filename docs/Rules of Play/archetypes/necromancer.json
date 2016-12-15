@@ -1,0 +1,30 @@
+{
+	"name": "Necromancer",
+	"filters": [
+		{
+			"school": [
+				"Neutral"
+			],
+			"type": [
+				"Meta-Magic"
+			],
+			"tag": [
+				"ability_m"
+			],
+			"addTags": [
+				"frequency_charge_three"
+			]
+		},
+		{
+			"type": [
+				"Enchantment"
+			],
+			"school": [
+				"Protection"
+			],
+			"addTags": [
+				"_disabled"
+			]
+		}
+	]
+}

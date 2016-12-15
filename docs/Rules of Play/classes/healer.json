@@ -1,0 +1,509 @@
+{
+	"name": "healer",
+	"magic-user": true,
+	"levels": [
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "banish",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "blessing_against_wounds",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "cancel",
+					"cost": "0",
+					"max": "1",
+					"per": "Unlimited",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "equipment_shield_small",
+					"cost": "2",
+					"max": "1",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "equipment_weapon_short",
+					"cost": "3",
+					"max": "2",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "experienced",
+					"cost": "2",
+					"max": "2",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "harden",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "heal",
+					"cost": "1",
+					"max": "1",
+					"per": "Unlimited",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "release",
+					"cost": "1",
+					"count": "2",
+					"per": "Refresh",
+					"charge": "3",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "adaptive_blessing",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "entangle",
+					"cost": "1",
+					"max": "4",
+					"count": "2",
+					"per": "Ball",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "equipment_weapon_hinged",
+					"cost": "3",
+					"max": "1",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "greater_release",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "hold_person",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"charge": "3",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "innate",
+					"cost": "2",
+					"max": "2",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "sever_spirit",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"charge": "3",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "shove",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "summon_dead",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"charge": "3",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "adaptive_protection",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "astral_intervention",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"charge": "3",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "equipment_shield_medium",
+					"cost": "2",
+					"max": "1",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "extension",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "greater_harden",
+					"cost": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "iceball",
+					"cost": "1",
+					"max": "2",
+					"count": "2",
+					"per": "Ball",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "mend",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "resurrect",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"charge": "5",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "undead_minion",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "blessing_against_harm",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "circle_of_protection",
+					"cost": "1",
+					"max": "1",
+					"count": "1",
+					"per": "Refresh",
+					"charge": "10",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "greater_heal",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "imbue_shield",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "protection_from_projectiles",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "swift",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "teleport",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "abeyance",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Ball",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "ambulant",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "blessed_aura",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "dispel_magic",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "enlightened_soul",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "greater_resurrect",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "greater_undead_minion",
+					"cost": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "steal_life_essence",
+					"cost": "1",
+					"max": "2",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				}
+			]
+		},
+		{
+			"points": "5",
+			"abilities": [
+				{
+					"name": "ancestral_armor",
+					"cost": "2",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "mass_healing",
+					"cost": "1",
+					"max": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "necromancer",
+					"cost": "1",
+					"max": "1",
+					"tags": [
+						"_archetype",
+						"ability_m"
+					]
+				},
+				{
+					"name": "persistent",
+					"cost": "1",
+					"count": "1",
+					"per": "Life",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "phoenix_tears",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "priest",
+					"cost": "1",
+					"max": "1",
+					"tags": [
+						"_archetype",
+						"ability_m"
+					]
+				},
+				{
+					"name": "protection_from_magic",
+					"cost": "1",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "stun",
+					"cost": "1",
+					"max": "4",
+					"count": "1",
+					"per": "Refresh",
+					"tags": [
+						"ability_m"
+					]
+				},
+				{
+					"name": "warder",
+					"cost": "2",
+					"max": "1",
+					"tags": [
+						"_archetype",
+						"ability_m"
+					]
+				}
+			]
+		}
+	]
+}

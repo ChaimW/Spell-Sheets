@@ -1,0 +1,7 @@
+{
+	"name": "Sniper",
+	"t": "Neutral",
+	"s": "Sorcery",
+	"e": "Player may physically carry any number of Specialty Arrows of each type. The frequency of each type of Specialty Arrow Ability becomes 1/Life Charge x3",
+	"l": "May not fire normal arrows. Only one type of Specialty Arrow may be charged at any given time"
+}

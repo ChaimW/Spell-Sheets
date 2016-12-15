@@ -1,0 +1,9 @@
+{
+	"name": "Gift of Earth",
+	"t": "Enchantment",
+	"s": "Protection",
+	"r": "Touch",
+	"i": "&quot;I grant thee a gift of the earth&quot; x3",
+	"m": ["Strip, White"],
+	"e": "Bearer gains two points of magic armor and is affected as per Greater Harden. Bearer is Suppressed"
+}

@@ -1,0 +1,8 @@
+{
+	"name": "Cancel",
+	"t": "Neutral",
+	"s": "Neutral",
+	"r": "Touch",
+	"i": "&quot;My work shall be undone&quot; x3",
+	"e": "Remove an Enchantment cast by the caster"
+}

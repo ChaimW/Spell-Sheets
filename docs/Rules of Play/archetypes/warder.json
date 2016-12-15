@@ -1,0 +1,26 @@
+{
+	"name": "Warder",
+	"filters": [
+		{
+			"type": [
+				"Enchantment"
+			],
+			"school": [
+				"Protection"
+			]
+			"addTags": [
+				"frequency_count_double",
+			]
+		},
+		{
+			"school": [
+				"Death",
+				"Command",
+				"Subdual"
+			],
+			"addTags": [
+				"_disabled"
+			]
+		}
+	]
+}

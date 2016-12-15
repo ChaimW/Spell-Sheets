@@ -1,0 +1,8 @@
+{
+	"name": "Berserk",
+	"t": "Enchantment",
+	"s": "Sorcery",
+	"r": "Self",
+	"m": ["Strip, Red"],
+	"e": "All weapons wielded in melee are Armor Breaking"
+}

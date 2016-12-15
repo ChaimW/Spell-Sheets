@@ -1,0 +1,26 @@
+{
+	"name": "Priest",
+	"filters": [
+		{
+			"type": [
+				"Meta-Magic"
+			],
+			"school": [
+				"Neutral"
+			]
+			"addTags": [
+				"frequency_charge_3",
+				"frequency_count_one",
+				"frequency_per_life"
+			]
+		},
+		{
+			"name": [
+				"heal"
+			],
+			"addTags": [
+				"cost_free"
+			]
+		}
+	]
+}

@@ -1,0 +1,9 @@
+{
+	"name": "Circle of Protection",
+	"t": "Enchantment",
+	"s": "Protection",
+	"r": "Self",
+	"i": "&quot;Circle of Protection&quot; x3",
+	"e": "The caster and up to five willing players in physical contact with the caster become Insubstantial. The caster may end Circle of Protection at any time by ending his Insubstantial State with the standard Incantation. If the caster stops being Insubstantial by any means, the Enchantment ends. Players under the effect of Circle of Protection may use magic and abilities on players under the effect of the same Circle of Protection as though they were not Insubstantial",
+	"n": "Effects which would normally remove the Insubstantial State (Tracking, Release, etc) will remove this Enchantment"
+}

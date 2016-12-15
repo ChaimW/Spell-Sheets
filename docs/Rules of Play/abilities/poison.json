@@ -1,0 +1,9 @@
+{
+	"name": "Poison",
+	"t": "Enchantment",
+	"s": "Death",
+	"m": ["Strip, Red"],
+	"r": "Touch",
+	"i": "(Assassins and Anti-Paladins must hold weapon in both hands) &quot;I coat these weapons with a deadly poison&quot; x 2",
+	"e": "The next Wound dealt by the bearer in melee is Wounds Kill"
+}

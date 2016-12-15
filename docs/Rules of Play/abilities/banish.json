@@ -1,0 +1,9 @@
+{
+	"name": "Banish",
+	"t": "Verbal",
+	"s": "Spirit",
+	"r": "20",
+	"i": "&quot;The Spirits banish thee from this place&quot; x3",
+	"e": "Target Insubstantial player must return to their respawn location where their Insubstantial State immediately ends",
+	"n": "A player bearing Undead Minion or Greater Undead Minion who is currently Insubstantial has their Enchantment removed"
+}

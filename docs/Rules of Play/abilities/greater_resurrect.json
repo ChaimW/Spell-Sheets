@@ -1,0 +1,8 @@
+{
+	"name": "Greater Resurrect",
+	"t": "Verbal",
+	"s": "Spirit",
+	"r": "Touch",
+	"i": "&quot;By the grace of the divine thou art resurrected&quot; x5",
+	"e": "Target Dead player is returned to life. Enchantments on the player are retained. Any wounds on the player are healed. Works regardless of any States on the target"
+}

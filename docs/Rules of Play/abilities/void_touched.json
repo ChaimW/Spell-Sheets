@@ -1,0 +1,9 @@
+{
+	"name": "Void Touched",
+	"t": "Enchantment",
+	"s": "Sorcery",
+	"r": "Touch",
+	"i": "&quot;Embrace the old ones and surrender thyself&quot; x3",
+	"m": ["Strip, Red", "Strip, White"],
+	"e": "Melee weapons wielded by bearer are Armor Breaking. Bearer may use Shadow Step 1/Refresh Charge x30 (ex), Steal Life Essence unlimited (ex), and is Immune to magic from the Sorcery, Spirit, and Death Schools. May still benefit from their own Steal Life Essence. Player is Cursed"
+}

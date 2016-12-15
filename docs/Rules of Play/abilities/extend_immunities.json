@@ -1,0 +1,10 @@
+{
+	"name": "Extend Immunities",
+	"t": "Enchantment",
+	"s": "Protection",
+	"r": "Touch",
+	"i": "Tie strip on target: &quot;May the blessing of my god protect thee&quot; x3",
+	"m": ["Strip, White"],
+	"e": "The target player gains either Resistant to Command or Resistant to Death",
+	"l": "Type of Ability must be chosen at the time of casting and may not be changed. The caster may only have one instance of Extend Immunities active at a time"
+}

@@ -1,0 +1,8 @@
+{
+	"name": "Astral Intervention",
+	"t": "Verbal",
+	"s": "Command",
+	"r": "20",
+	"i": "&quot;I command thee to retreat into the aether&quot; x 3",
+	"e": "Target player becomes Insubstantial for 30 seconds"
+}

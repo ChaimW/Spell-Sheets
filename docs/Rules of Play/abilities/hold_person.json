@@ -1,0 +1,8 @@
+{
+	"name": "Hold Person",
+	"t": "Verbal",
+	"s": "Command",
+	"r": "20",
+	"i": "&quot;I command thee to stop&quot; x3",
+	"e": "Target player becomes Stopped for 30 seconds"
+}

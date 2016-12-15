@@ -1,0 +1,24 @@
+{
+	"name": "Ranger",
+	"filters": [
+		{
+			"in_name": [
+				"equipment"
+			],
+			"type": [
+				"Neutral"
+			],
+			"addTags": [
+				"cost_free"
+			]
+		},
+		{
+			"type": [
+				"Enchantment"
+			],
+			"addTags": [
+				"cost_double"
+			]
+		}
+	]
+}

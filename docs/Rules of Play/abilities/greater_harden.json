@@ -1,0 +1,9 @@
+{
+	"name": "Greater Harden",
+	"t": "Enchantment",
+	"s": "Protection",
+	"r": "Touch",
+	"i": "&quot;I enchant thee with Greater Harden&quot; x3",
+	"m": ["Strip, White"],
+	"e": "Shields and weapons wielded by the player are affected as per Harden. May only be cast on a player"
+}
