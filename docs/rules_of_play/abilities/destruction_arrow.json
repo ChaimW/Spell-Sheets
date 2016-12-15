@@ -1,8 +1,0 @@
-{
-	"name": "Destruction Arrow",
-	"t": "Specialty Arrow",
-	"s": "Sorcery",
-	"i": "&quot;Destruction Arrow&quot;",
-	"m": ["Arrow, Red (Destruction)"],
-	"e": "This arrow is Armor Destroying and Shield Destroying. Armor Destroying and Shield Destroying are applied after the normal effect of being hit with an arrow is applied"
-}
