@@ -167,7 +167,7 @@
 	"archetypes": [
 		"avatar_of_nature",
 		"battlemage",
-		"combat_caster"
+		"combat_caster",
 		"dervish",
 		"evoker",
 		"legend",
@@ -191,7 +191,7 @@
 		"healer",
 		"wizard",
 		"antipaladin",
-		"paladin",
+		"paladin"
 	],
 	"materials": [
 		"Arrow, Gray (labeled Phase)",
@@ -233,13 +233,13 @@
 		"frequency_count_unlimited",
 		"frequency_per_life",
 		"frequency_per_refresh",
-		"frequency_per_none"
+		"frequency_per_none",
 		"metamagic_ambulant",
 		"metamagic_extension",
 		"metamagic_swift",
 		"range_add_self",
 		"range_add_touch",
 		"range_only_self",
-		"range_only_touch",
+		"range_only_touch"
 	]
 }
