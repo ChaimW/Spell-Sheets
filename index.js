@@ -1,5 +1,5 @@
-var allDefaultAbilities;    //map[String: DefaultAbility]
-var allDefaultClasses;  //map[String: DefaultClass]
+var allAbilities;    //map[String: DefaultAbility]
+var allClasses;  //map[String: DefaultClass]
 
 var libraries;
 
@@ -7,8 +7,8 @@ var currentPlayer;
 var currentAbility;
 
 function mountLib(url) {
-	libRequest = new XMLHttpRequest();
-	libRequest.open('GET', url + "/lib.json", true);
+	var libRequest = new XMLHttpRequest();
+	libRequest.open('GET', url + "/lib.json");
 	
 	libRequest.onreadystatechange = function() {
 		if (libRequest.readyState == 4) {
@@ -24,7 +24,7 @@ function mountLib(url) {
 	};
 	
 	libRequest.onerror = function() {
-		setStatus("Could not load library. Server not reached.", true);
+		setStatus("Could not load library. Server not reached.");
 	};
 	
 	libRequest.send();
@@ -32,23 +32,33 @@ function mountLib(url) {
 
 function addLib(url, lib) {
 	printObj(lib);
-	if (lib["abilities"] != null && lib["abilities"].length > 0) {
-		for(i in lib["abilities"]) {
+	if (lib["materials"] != null) {
+		var materialName;
+		for(var i = 0; i < lib["materials"].length; i++) {
+			materialName = lib["materials"][i];
+			if (!allMaterials.includes(materialName)) {
+				allMaterials.push(materialName);
+			}
+		}		
+	}
+	if (lib["abilities"] != null) {
+		for(var i = 0; i < lib["abilities"].length; i++) {
 			loadAbility(url, lib["abilities"][i]);
-		}
+		}		
 	}
 }
 
 function loadAbility(url, abilityName) {
-	abilityRequest = new XMLHttpRequest();
-	abilityRequest.open('GET', url + "/abilities/" + abilityName + ".json", true);
+	var abilityRequest = new XMLHttpRequest();
+	abilityRequest.open('GET', url + "/abilities/" + abilityName + ".json");
 	
 	abilityRequest.onreadystatechange = function() {
 		if (abilityRequest.readyState == 4) {
 			if (abilityRequest.status >= 200 && abilityRequest.status < 400){
 				setStatus("Ability " + abilityName + " loaded!");
+				console.log(abilityRequest.responseText);
 				var abilityJSON = JSON.parse(abilityRequest.responseText);
-				allDefaultAbilities.set(
+				allAbilities.set(
 					abilityName,
 					new DefaultAbility(
 						abilityJSON["name"],
@@ -62,7 +72,6 @@ function loadAbility(url, abilityName) {
 						abilityJSON["n"]
 					)
 				)
-				console.dir(allDefaultAbilities.get(abilityName));
 			} else {
 				setStatus("Could not load ability " + abilityName + ". Server reached, returned status code " + abilityRequest.status + ".");
 			}
@@ -104,12 +113,12 @@ function loadAbilities() {
 }
 
 function initAbilities(abilitiesJSON) {
-	allDefaultAbilities = new Map();
-	allDefaultAbilities.set("Look the Part", new DefaultAbility("Look the Part", "&#8210;", "&#8210;", "&#8210;"));
+	allAbilities = new Map();
+	allAbilities.set("Look the Part", new DefaultAbility("Look the Part", "&#8210;", "&#8210;", "&#8210;"));
 	var uniqueName, jsonEntry;
 	for (uniqueName in abilitiesJSON) {
 		jsonEntry = abilitiesJSON[uniqueName];
-		allDefaultAbilities.set(
+		allAbilities.set(
 			jsonEntry["name"],
 			new DefaultAbility(
 				jsonEntry["name"],
@@ -155,7 +164,7 @@ function loadClass() {
 }
 
 function initClass(classJSON) {
-	allDefaultClasses = new Map();
+	allClasses = new Map();
 	var defaultClass, curClass, abilityObj, levelIndex;
 	curClass = new DefaultClass(classJSON["name"], false);
 	curClass.isMagicUser = classJSON["magic-user"] != undefined && classJSON["magic-user"];
@@ -181,7 +190,7 @@ function initClass(classJSON) {
 		curClass.levels[6].points = 1;
 	}
 	curClass.addAbilityEntry(6, "*Look the Part*", "Look the Part", 0, 1, 1, "&#8210;", 0);
-	allDefaultClasses.set(classJSON["name"], curClass);
+	allClasses.set(classJSON["name"], curClass);
 }
 
 function unlock() {
@@ -210,10 +219,10 @@ function update() {
 	
 	/*
 	//console.clear();
-	console.log("allDefaultAbilities");
-	console.dir(allDefaultAbilities);
-	console.log("allDefaultClasses");
-	console.dir(allDefaultClasses);
+	console.log("allAbilities");
+	console.dir(allAbilities);
+	console.log("allClasses");
+	console.dir(allClasses);
 	console.log("currentPlayer");
 	console.dir(currentPlayer);
 	console.log(formatPointDistributionOfPlayer(currentPlayer));
@@ -386,15 +395,15 @@ function update() {
 }
 
 function setCurrentAbility(abilityName) {
-	if (allDefaultAbilities.get(abilityName) == undefined) {
+	if (allAbilities.get(abilityName) == undefined) {
 		document.getElementById("ability-info").innerHTML = "Click an ability for more information!";
 	} else {
-		document.getElementById("ability-info").innerHTML = allDefaultAbilities.get(abilityName).description;
+		document.getElementById("ability-info").innerHTML = allAbilities.get(abilityName).description;
 	}
 }
 
 function Player(playerClassName, level) {
-	this.playerClass = allDefaultClasses.get(playerClassName);
+	this.playerClass = allClasses.get(playerClassName);
 	this.level = Number(level);
 	this.hasLookThePart = false;
 	
@@ -714,7 +723,7 @@ function DefaultClass(name, isMagicUser) {
 
 function AbilityEntry(name, abilityName, cost, max, count, per, charge, tags) {
 	this.name = String(name);
-	this.ability = allDefaultAbilities.get(abilityName);
+	this.ability = allAbilities.get(abilityName);
 	this.cost = Number(cost);
 	this.max = Number(max);
 	this.count = Number(count);
@@ -922,7 +931,7 @@ function sum(arrayObj) {
 }
 
 function setStatus(infoText) {
-	document.getElementById("status-box").innerHTML = infoText;
+	document.getElementById("status-box").innerHTML += "<br>" + infoText;
 }
 
 var outputMessagesFrom = ["addLib", "update", "!Player_getCostOfAbilityEntry", "!Player_getPointsRemainingAtLevelIndex", "!Player_getPointsSpentOnAbilityEntry", "!Player_addAbilityEntry", "!DefaultClass_addAbilityEntry"];
@@ -1021,7 +1030,8 @@ function formatPointArray(preLabel, pointArray, postLabel) {
 
 function preInit() {
 	libraries = new Map();
-	allDefaultAbilities = new Map();
-	allDefaultClasses = new Map();
+	allAbilities = new Map();
+	allClasses = new Map();
+	allMaterials = new Array();
 	mountLib('https://jkat718.github.io/Spell-Sheets-By-Gor/docs/rules_of_play');
 }
