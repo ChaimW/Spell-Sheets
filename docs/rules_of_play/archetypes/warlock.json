@@ -1,0 +1,33 @@
+{
+	"name": "Warlock",
+	"filters": [
+		{
+			"type": [
+				"Verbal"
+			],
+			"school": [
+				"Death",
+				"Flame"
+			]
+			"addTags": [
+				"frequency_count_double",
+			]
+		},
+		{
+			"type": [
+				"Verbal"
+			],
+			"school": [
+				"Command",
+				"Neutral",
+				"Protection",
+				"Sorcery",
+				"Spirit",
+				"Subdual"
+			],
+			"addTags": [
+				"_disabled"
+			]
+		}
+	]
+}
