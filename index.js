@@ -1,10 +1,40 @@
 var allAbilities;    //map[String: DefaultAbility]
+var allArchetypes;
 var allClasses;  //map[String: DefaultClass]
+var allMaterials;
+var allTags;
 
 var libraries;
 
 var currentPlayer;
 var currentAbility;
+
+var fetchJSON = function(url, onSuccess, onFail) {
+	var request = new XMLHttpRequest();
+	request.open('get', url, true);
+	request.responseType = 'json';
+	request.onload = function() {
+		var status = xhr.status;
+		if (request.status >= 200 && request.status < 400) {
+			successHandler && successHandler(request.response);
+		} else {
+			errorHandler && errorHandler(request.status);
+		}
+	};
+	request.send();
+};
+
+function preInit() {
+	libraries = new Map();
+	allAbilities = new Map();
+	allAbilities.set("Look the Part", new DefaultAbility("Look the Part", "&#8210;"));
+	allArchetypes = new Map();
+	allClasses = new Map();
+	allMaterials = new Array();
+	allTags = new Array();
+	mountLib('https://jkat718.github.io/Spell-Sheets-By-Gor/docs/rules_of_play');
+	unlock();
+}
 
 function mountLib(url) {
 	var libRequest = new XMLHttpRequest();
@@ -13,173 +43,194 @@ function mountLib(url) {
 	libRequest.onreadystatechange = function() {
 		if (libRequest.readyState == 4) {
 			if (libRequest.status >= 200 && libRequest.status < 400){
-				setStatus("Library loaded!");
 				addLib(url, JSON.parse(libRequest.responseText));
+				console.log("Loaded library from " + url + "!");
 			} else {
-				setStatus("Could not load library. Server reached, returned status code " + libRequest.status + ".");
+				console.warn("Could not load library. Server reached, returned status code " + libRequest.status + ".");
 			}
 		}
 	};
 	
 	libRequest.onerror = function() {
-		setStatus("Could not load library. Server not reached.");
+		console.warn("Could not load library. Server not reached.");
 	};
 	
 	libRequest.send();
 }
 
 function addLib(url, lib) {
-	printObj(lib);
-	if (lib["materials"] != null) {
+	if (lib["materials"] == null) {
+		//console.log("No materials to load!");
+	} else {
 		var materialName;
 		for(var i = 0; i < lib["materials"].length; i++) {
 			materialName = lib["materials"][i];
-			if (!allMaterials.includes(materialName)) {
+			if (allMaterials.includes(materialName)) {
+				console.warn("Duplicate material \"" + tagName + "\"!");
+			} else {
 				allMaterials.push(materialName);
+				//console.log("Loaded material \"" + materialName + "\"!");
 			}
-		}		
+		}
 	}
-	if (lib["abilities"] != null) {
+	
+	if (lib["abilities"] == null) {
+		//console.log("No abilities to load!");
+	} else {
 		for(var i = 0; i < lib["abilities"].length; i++) {
 			loadAbility(url, lib["abilities"][i]);
-		}		
+		}
+	}
+	
+	if (lib["tags"] == null) {
+		//console.log("No tags to load!");
+	} else {
+		var tagName;
+		for(var i = 0; i < lib["tags"].length; i++) {
+			tagName = lib["tags"][i];
+			if (allTags.includes(tagName)) {
+				console.warn("Duplicate tag \"" + tagName + "\"!");
+			} else {
+				allTags.push(tagName);
+				//console.log("Loaded tag \"" + tagName + "\"!");
+			}
+		}
+	}
+	
+	if (lib["archetypes"] == null) {
+		console.log("No archetypes to load!");
+	} else {
+		for(var i = 0; i < lib["archetypes"].length; i++) {
+			loadArchetype(url, lib["archetypes"][i]);
+		}
+	}
+	
+	if (lib["classes"] == null) {
+		console.log("No classes to load!");
+	} else {
+		for(var i = 0; i < lib["classes"].length; i++) {
+			loadClass(url, lib["classes"][i]);
+		}
 	}
 }
 
 function loadAbility(url, abilityName) {
 	var abilityRequest = new XMLHttpRequest();
 	abilityRequest.open('GET', url + "/abilities/" + abilityName + ".json");
+	abilityRequest.responseType = 'json';
 	
 	abilityRequest.onreadystatechange = function() {
 		if (abilityRequest.readyState == 4) {
 			if (abilityRequest.status >= 200 && abilityRequest.status < 400){
 				try {
-					var abilityJSON = JSON.parse(abilityRequest.responseText);
 					allAbilities.set(
 						abilityName,
 						new DefaultAbility(
-							abilityJSON["name"],
-							abilityJSON["t"],
-							abilityJSON["s"],
-							abilityJSON["r"],
-							abilityJSON["m"],
-							abilityJSON["i"],
-							abilityJSON["e"],
-							abilityJSON["l"],
-							abilityJSON["n"]
+							abilityRequest.response["name"],
+							abilityRequest.response["t"],
+							abilityRequest.response["s"],
+							abilityRequest.response["r"],
+							abilityRequest.response["m"],
+							abilityRequest.response["i"],
+							abilityRequest.response["e"],
+							abilityRequest.response["l"],
+							abilityRequest.response["n"]
 						)
 					)
-					setStatus("Ability " + abilityName + " loaded!");
-					console.dir(allAbilities[abilityName]);
+					//console.log("Loaded ability \"" + abilityName + "\"!");
+					//console.dir(allAbilities.get(abilityName));
 				} catch (e) {
-					if (e instanceof SyntaxError) {
-						setStatus("Could not load ability " + abilityName + ". Directory file formatted improperly.");
-					}
+					console.warn("Could not load \"" + abilityName + "\". Directory file formatted improperly. Error code " + e.message);
 					throw e;
 				}
 			} else {
-				setStatus("Could not load ability " + abilityName + ". Server reached, returned status code " + abilityRequest.status + ".");
+				console.warn("Could not load \"" + abilityName + "\". Server reached, returned status code " + abilityRequest.status + ".");
 			}
 		}
 	};
 	
 	abilityRequest.onerror = function() {
-		setStatus("Could not load ability. Server not reached.", true);
+		console.warn("Could not load \"" + abilityName + "\". Server not reached.", true);
 	};
 	
 	abilityRequest.send();
 }
 
-function loadAbilities() {
-	abilitiesRequest = new XMLHttpRequest();
-	abilitiesRequest.open('GET', "https://jkat718.github.io/Spell-Sheets-By-Gor/docs/abilities.json", true);
+function loadArchetype(url, archetypeName) {
+	var archetypeRequest = new XMLHttpRequest();
+	archetypeRequest.open('GET', url + "/archetypes/" + archetypeName + ".json");
+	archetypeRequest.responseType = 'json';
 	
-	abilitiesRequest.onreadystatechange = function() {
-		if (abilitiesRequest.readyState == 4) {
-			if (abilitiesRequest.status >= 200 && abilitiesRequest.status < 400){
-				setStatus("Abilities loaded!");
-				initAbilities(JSON.parse(abilitiesRequest.responseText));
-				loadClass();
+	archetypeRequest.onreadystatechange = function() {
+		if (archetypeRequest.readyState == 4) {
+			if (archetypeRequest.status >= 200 && archetypeRequest.status < 400){
+				try {
+					allArchetypes.set(
+						archetypeName,
+						archetypeRequest.response
+					);
+					//console.log("Loaded archetype \"" + archetypeName + "\"!");
+					//console.dir(allArchetypes.get(archetypeName));
+				} catch (e) {
+					console.warn("Could not load \"" + archetypeName + "\". Directory file formatted improperly. Error code " + e.message);
+					throw e;
+				}
 			} else {
-				setStatus("Could not load abilities. Server reached, returned status code " + abilitiesRequest.status + ".");
+				console.warn("Could not load \"" + archetypeName + "\". Server reached, returned status code " + archetypeRequest.status + ".");
 			}
-		} else {
-			setStatus("Loading abilities, stand by...");
 		}
 	};
 	
-	abilitiesRequest.onerror = function() {
-		setStatus("Could not load abilities. Server not reached.", true);
+	archetypeRequest.onerror = function() {
+		console.warn("Could not load \"" + archetypeName + "\". Server not reached.", true);
 	};
 	
-	abilitiesRequest.send();
+	archetypeRequest.send();
 }
 
-function initAbilities(abilitiesJSON) {
-	allAbilities = new Map();
-	allAbilities.set("Look the Part", new DefaultAbility("Look the Part", "&#8210;", "&#8210;", "&#8210;"));
-	var uniqueName, jsonEntry;
-	for (uniqueName in abilitiesJSON) {
-		jsonEntry = abilitiesJSON[uniqueName];
-		allAbilities.set(
-			jsonEntry["name"],
-			new DefaultAbility(
-				jsonEntry["name"],
-				jsonEntry["t"],
-				jsonEntry["s"],
-				jsonEntry["r"],
-				jsonEntry["m"],
-				jsonEntry["i"],
-				jsonEntry["e"],
-				jsonEntry["l"],
-				jsonEntry["n"]
-			)
-		);
-	}
-}
-
-function loadClass() {
-	className = document.getElementById("select-className").value;
-	classLevel = document.getElementById("select-level").value;
-	classRequest = new XMLHttpRequest();
-	classRequest.open('GET', "https://jkat718.github.io/Spell-Sheets-By-Gor/docs/classes/" + className + "/main.json", true);
+function loadClass(url, className) {
+	var classRequest = new XMLHttpRequest();
+	classRequest.open('GET', url + "/classes/" + className + ".json");
+	classRequest.responseType = 'json';
 	
 	classRequest.onreadystatechange = function() {
 		if (classRequest.readyState == 4) {
 			if (classRequest.status >= 200 && classRequest.status < 400){
-				setStatus("Class loaded!");
-				initClass(JSON.parse(classRequest.responseText));
-				currentPlayer = new Player(className, document.getElementById("select-level").selectedIndex, 6);
-				unlock();
+				try {
+					allClasses.set(
+						className,
+						initClass(classRequest.response)
+					);
+					//console.log("Loaded class \"" + className + "\"!");
+					//console.dir(allClasses.get(className));
+				} catch (e) {
+					console.warn("Could not load \"" + className + "\". Directory file formatted improperly. Error code " + e.message);
+					throw e;
+				}
 			} else {
-				setStatus("Could not load class. Server reached, returned status code " + abilitiesRequest.status + ".");
+				console.warn("Could not load \"" + className + "\". Server reached, returned status code " + classRequest.status + ".");
 			}
-		} else {
-			setStatus("Loading class, stand by...");
 		}
 	};
 	
 	classRequest.onerror = function() {
-		setStatus("Could not load class. Server not reached.", true);
+		console.warn("Could not load \"" + className + "\". Server not reached.", true);
 	};
 	
 	classRequest.send();
 }
 
 function initClass(classJSON) {
-	allClasses = new Map();
 	var defaultClass, curClass, abilityObj, levelIndex;
-	curClass = new DefaultClass(classJSON["name"], false);
-	curClass.isMagicUser = classJSON["magic-user"] != undefined && classJSON["magic-user"];
+	curClass = new DefaultClass(classJSON["name"], classJSON["magic-user"] != undefined && classJSON["magic-user"]);
 	for (levelIndex = 0; levelIndex < 7 && levelIndex < classJSON["levels"].length; levelIndex++) {
 		if (classJSON["levels"][levelIndex]["points"] != undefined) {
 			curClass.levels[levelIndex].points = classJSON["levels"][levelIndex]["points"];
 		}
-		classJSON["levels"][levelIndex]["abilityEntries"].forEach(function(abilityObj) {
+		classJSON["levels"][levelIndex]["abilities"].forEach(function(abilityObj) {
 			curClass.addAbilityEntry(
 				levelIndex,
 				abilityObj["name"],
-				abilityObj["abilityName"],
 				abilityObj["cost"],
 				abilityObj["max"],
 				abilityObj["count"],
@@ -192,8 +243,8 @@ function initClass(classJSON) {
 	if (curClass.isMagicUser) {
 		curClass.levels[6].points = 1;
 	}
-	curClass.addAbilityEntry(6, "*Look the Part*", "Look the Part", 0, 1, 1, "&#8210;", 0);
-	allClasses.set(classJSON["name"], curClass);
+	curClass.addAbilityEntry(6, "Look the Part", 0, 1, 1, "&#8210;", 0, []);
+	return curClass;
 }
 
 function unlock() {
@@ -204,16 +255,18 @@ function unlock() {
 	
 	infoRequest.onreadystatechange = function() {
 		if (infoRequest.readyState == 4) {
-			if (classRequest.status >= 200 && classRequest.status < 400){
+			if (infoRequest.status >= 200 && infoRequest.status < 400){
 				document.getElementById("info-box").innerHTML = infoRequest.responseText;
 			} else {
 				document.getElementById("info-box").innerHTML = "Could not load information.";
 			}
-			update();
 		}
 	};
 	
 	infoRequest.send();
+	
+	currentPlayer = new Player(document.getElementById("select-className").value.toLowerCase(), document.getElementById("select-level").selectedIndex);
+	update();
 }
 
 var unimplementedAbilityNames = ["Avatar of Nature", "Battlemage", "Dervish", "Evoker", "Experienced", "Legend", "Necromancer", "Priest", "Ranger", "Sniper", "Summoner", "Warder", "Warlock"]
@@ -228,8 +281,8 @@ function update() {
 	console.dir(allClasses);
 	console.log("currentPlayer");
 	console.dir(currentPlayer);
-	console.log(formatPointDistributionOfPlayer(currentPlayer));
 	*/
+	console.log(formatPointDistributionOfPlayer(currentPlayer));
 
 //update Current Abilities
 	document.getElementById("current-abilities").innerHTML = "";
@@ -248,13 +301,13 @@ function update() {
 				currentAbilities.set(
 					abilityEntry.ability.name,
 					new AbilityEntry(
-						abilityEntry.ability.name,
-						abilityEntry.ability.name,
+						abilityEntry.name,
 						abilityEntry.cost,
 						abilityEntry.max,
 						currentPlayer.getCountOfAbilityEntry(abilityEntry) * abilityEntry.count,
 						abilityEntry.per,
-						abilityEntry.charge
+						abilityEntry.charge,
+						[]
 					)
 				);
 			}
@@ -263,7 +316,7 @@ function update() {
 	var currentAbilityText;
 	currentAbilities.forEach(function(newAbilityEntry, abilityEntryName) {
 		currentAbilityText = "<li>";
-		currentAbilityText += newAbilityEntry.name;
+		currentAbilityText += newAbilityEntry.ability.name;
 		if (newAbilityEntry.per != "&#8210;") {
 			currentAbilityText += " (";
 			currentAbilityText += newAbilityEntry.shortFrequency();
@@ -320,7 +373,7 @@ function update() {
 			document.getElementById("points" + curLevelIndex).innerHTML = "";
 		}
 		curLevel.abilityEntries.forEach(function(abilityEntry) {
-			classList = "<tr><td onclick=\"setCurrentAbility(\'" + abilityEntry.ability.name + "\')\">&nbsp;&nbsp;" + abilityEntry.name + " [" + abilityEntry.tags + "]</td>";
+			classList = "<tr><td onclick=\"setCurrentAbility(\'" + abilityEntry.name + "\')\">&nbsp;&nbsp;" + abilityEntry.ability.name + " [" + abilityEntry.tags + "]</td>";
 			classList += "<td id=\"cost " + abilityEntry.name + " @ " + curLevelIndex + "\">" + abilityEntry.cost + "</td><td id=\"max " + abilityEntry.name + " @ " + curLevelIndex + "\">";
 			if (abilityEntry.max == -1) {
 				classList += "&#8210;";
@@ -661,14 +714,12 @@ function DefaultClass(name, isMagicUser) {
 		return (this.levels[levelIndex].abilityEntries.indexOf(abilityEntry) != -1);
 	};
 	
-	this.addAbilityEntry = function DefaultClass_addAbilityEntry(levelIndex, name, abilityName, cost, max, count, per, charge, tags) {
+	this.addAbilityEntry = function DefaultClass_addAbilityEntry(levelIndex, abilityName, cost, max, count, per, charge, tags) {
 		if (this.indexOfAbilityName(abilityName, levelIndex) != -1) {
-			print("cannot add ability entry " + name + " at level index " + levelIndex);
+			print("cannot add ability entry " + abilityName + " at level index " + levelIndex);
 		} else {
-			var abilityEntry = new AbilityEntry(name, abilityName, 0, 1, 1, "&#8210;", 0, []);
-			if (name == undefined) {
-				abilityEntry.name = abilityName;
-			}
+			var abilityEntry = new AbilityEntry(abilityName, 0, 1, 1, "&#8210;", 0, []);
+			//abilityEntry.name = this.name + ": " + abilityName + "@" + (levelIndex);
 			if (cost != undefined) {
 				abilityEntry.cost = Number(cost);
 			}
@@ -724,8 +775,8 @@ function DefaultClass(name, isMagicUser) {
 	}
 }
 
-function AbilityEntry(name, abilityName, cost, max, count, per, charge, tags) {
-	this.name = String(name);
+function AbilityEntry(abilityName, cost, max, count, per, charge, tags) {
+	this.name = String(abilityName);
 	this.ability = allAbilities.get(abilityName);
 	this.cost = Number(cost);
 	this.max = Number(max);
@@ -786,13 +837,13 @@ function AbilityEntry(name, abilityName, cost, max, count, per, charge, tags) {
 function joinAbilityEntries(firstAbilityEntry, secondAbilityEntry) {
 	if (firstAbilityEntry.ability == secondAbilityEntry.ability) {
 		var returnAbilityEntry = new AbilityEntry(
-			firstAbilityEntry.ability.name,
-			firstAbilityEntry.ability.name,
+			firstAbilityEntry.name,
 			0,
 			1,
 			Math.max(firstAbilityEntry.count, secondAbilityEntry.count),
 			"&#8210;",
-			0
+			0,
+			[]
 		);
 		if (firstAbilityEntry.per == "Unlimited" || secondAbilityEntry.per == "Unlimited") {
 			returnAbilityEntry.per = "Unlimited";
@@ -861,7 +912,9 @@ function DefaultAbility(name, type, school, range, newEquipment, incantation, ef
 				this.description += ", ";
 			}
 		}
-		this.description = this.description.substr(0, this.description.length - 2);
+		//console.log(this.description);
+		//this.description = this.description.substr(0, this.description.length - 2);
+		console.log(this.description);
 		this.description += "<br>";
 	}
 	
@@ -1029,12 +1082,4 @@ function formatPointArray(preLabel, pointArray, postLabel) {
 		text += postLabel;
 	}
 	return text;
-}
-
-function preInit() {
-	libraries = new Map();
-	allAbilities = new Map();
-	allClasses = new Map();
-	allMaterials = new Array();
-	mountLib('https://jkat718.github.io/Spell-Sheets-By-Gor/docs/rules_of_play');
 }

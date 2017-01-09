@@ -3,7 +3,7 @@
 	"t": "Specialty Arrow",
 	"s": "Sorcery",
 	"i": "&quot;Suppression Arrow&quot;",
-	"m": ["Arrow, Purple (Suppression)"],
+	"m": ["Arrow, Purple (labeled Suppression)"],
 	"e": "A player struck by this arrow is Suppressed for 30 seconds",
 	"n": "Engulfing"
 }
