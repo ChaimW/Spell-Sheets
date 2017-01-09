@@ -9,7 +9,7 @@
 					"per": "Life",
 					"charge": "3",
 					"tags": [
-						"ability_ex"
+						"ability_ex",
 						"metamagic_ambulant"
 					]
 				}
