@@ -236,7 +236,7 @@
 					]
 				},
 				{
-					"name": "sleight of mind",
+					"name": "sleight_of_mind",
 					"cost": "1",
 					"count": "1",
 					"per": "Refresh",

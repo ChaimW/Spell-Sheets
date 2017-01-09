@@ -52,7 +52,7 @@
 		{
 			"abilities": [
 				{
-					"name": "hold person",
+					"name": "hold_person",
 					"count": "1",
 					"per": "Life",
 					"tags": [
@@ -77,7 +77,7 @@
 		{
 			"abilities": [
 				{
-					"name": "coup de grace",
+					"name": "coup_de_grace",
 					"count": "1",
 					"per": "Life",
 					"tags": [

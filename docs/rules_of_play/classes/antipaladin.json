@@ -22,7 +22,7 @@
 		{
 			"abilities": [
 				{
-					"name": "steal life essence",
+					"name": "steal_life_essence",
 					"count": "1",
 					"per": "Life",
 					"tags": [
@@ -34,7 +34,7 @@
 		{
 			"abilities": [
 				{
-					"name": "brutal strike",
+					"name": "brutal_strike",
 					"count": "1",
 					"per": "Life",
 					"tags": [
@@ -59,7 +59,7 @@
 		{
 			"abilities": [
 				{
-					"name": "undead minion",
+					"name": "undead_minion",
 					"count": "2",
 					"per": "Refresh",
 					"tags": [

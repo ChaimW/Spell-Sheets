@@ -101,7 +101,7 @@
 					]
 				},
 				{
-					"name": "break concentration",
+					"name": "break_concentration",
 					"cost": "1",
 					"count": "1",
 					"per": "Life",
@@ -129,7 +129,7 @@
 					]
 				},
 				{
-					"name": "planar grounding",
+					"name": "planar_grounding",
 					"cost": "1",
 					"count": "1",
 					"per": "Refresh",
@@ -147,7 +147,7 @@
 					]
 				},
 				{
-					"name": "suppression bolt",
+					"name": "suppression_bolt",
 					"cost": "1",
 					"max": "3",
 					"count": "1",
@@ -172,7 +172,7 @@
 			"points": "5",
 			"abilities": [
 				{
-					"name": "dispel magic",
+					"name": "dispel_magic",
 					"cost": "1",
 					"count": "1",
 					"per": "Refresh",
@@ -182,7 +182,7 @@
 					]
 				},
 				{
-					"name": "dragged below",
+					"name": "dragged_below",
 					"cost": "1",
 					"count": "1",
 					"per": "Refresh",
@@ -201,7 +201,7 @@
 					]
 				},
 				{
-					"name": "greater mend",
+					"name": "greater_mend",
 					"cost": "1",
 					"count": "1",
 					"per": "Refresh",
@@ -210,7 +210,7 @@
 					]
 				},
 				{
-					"name": "hold person",
+					"name": "hold_person",
 					"cost": "1",
 					"count": "1",
 					"per": "Life",
@@ -229,7 +229,7 @@
 					]
 				},
 				{
-					"name": "lightning bolt",
+					"name": "lightning_bolt",
 					"cost": "1",
 					"max": "4",
 					"count": "1",
@@ -248,7 +248,7 @@
 					]
 				},
 				{
-					"name": "shatter weapon",
+					"name": "shatter_weapon",
 					"cost": "1",
 					"count": "1",
 					"per": "Refresh",
@@ -271,7 +271,7 @@
 			"points": "5",
 			"abilities": [
 				{
-					"name": "destroy armor",
+					"name": "destroy_armor",
 					"cost": "1",
 					"count": "2",
 					"per": "Refresh",
@@ -280,7 +280,7 @@
 					]
 				},
 				{
-					"name": "dimensional rift",
+					"name": "dimensional_rift",
 					"cost": "1",
 					"count": "1",
 					"per": "Refresh",
@@ -299,7 +299,7 @@
 					]
 				},
 				{
-					"name": "icy blast",
+					"name": "icy_blast",
 					"cost": "1",
 					"count": "1",
 					"per": "Refresh",
@@ -317,7 +317,7 @@
 					]
 				},
 				{
-					"name": "suppress aura",
+					"name": "suppress_aura",
 					"cost": "1",
 					"count": "1",
 					"per": "Refresh",
@@ -379,7 +379,7 @@
 					]
 				},
 				{
-					"name": "equipment: weapon, long",
+					"name": "equipment_weapon_long",
 					"cost": "4",
 					"max": "1",
 					"tags": [
@@ -387,7 +387,7 @@
 					]
 				},
 				{
-					"name": "phase bolt",
+					"name": "phase_bolt",
 					"cost": "1",
 					"max": "4",
 					"count": "1",
@@ -407,7 +407,7 @@
 					]
 				},
 				{
-					"name": "steal life essence",
+					"name": "steal_life_essence",
 					"cost": "1",
 					"max": "2",
 					"count": "1",
@@ -417,7 +417,7 @@
 					]
 				},
 				{
-					"name": "void touched",
+					"name": "void_touched",
 					"cost": "1",
 					"max": "2",
 					"count": "1",
@@ -427,7 +427,7 @@
 					]
 				},
 				{
-					"name": "ward self",
+					"name": "ward_self",
 					"cost": "1",
 					"max": "2",
 					"count": "1",
@@ -451,7 +451,7 @@
 					]
 				},
 				{
-					"name": "elemental barrage",
+					"name": "elemental_barrage",
 					"cost": "1",
 					"max": "2",
 					"count": "1",
@@ -470,7 +470,7 @@
 					]
 				},
 				{
-					"name": "finger of death",
+					"name": "finger_of_death",
 					"cost": "1",
 					"count": "1",
 					"per": "Refresh",
@@ -488,7 +488,7 @@
 					]
 				},
 				{
-					"name": "protection from magic",
+					"name": "protection_from_magic",
 					"cost": "1",
 					"count": "1",
 					"per": "Refresh",
@@ -497,7 +497,7 @@
 					]
 				},
 				{
-					"name": "sphere of annihilation",
+					"name": "sphere_of_annihilation",
 					"cost": "2",
 					"max": "1",
 					"count": "1",
@@ -513,7 +513,7 @@
 					]
 				},
 				{
-					"name": "word of mending",
+					"name": "word_of_mending",
 					"cost": "1",
 					"count": "1",
 					"per": "Refresh",

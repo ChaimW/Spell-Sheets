@@ -142,17 +142,17 @@
 			"points": "1",
 			"abilities": [
 				{
-					"name": "destruction arrow",
+					"name": "destruction_arrow",
 					"cost": "1",
 					"per": "Arrow"
 				},
 				{
-					"name": "pinning arrow",
+					"name": "pinning_arrow",
 					"cost": "1",
 					"per": "Arrow"
 				},
 				{
-					"name": "poison arrow",
+					"name": "poison_arrow",
 					"cost": "1",
 					"per": "Arrow"
 				}
