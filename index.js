@@ -63,13 +63,12 @@ function addLib(url, lib) {
 		//console.log("No materials to load!");
 	} else {
 		var materialName;
-		for(var i = 0; i < lib["materials"].length; i++) {
-			materialName = lib["materials"][i];
-			if (allMaterials.has(materialName)) {
-				console.warn("Duplicate material \"" + tagName + "\"!");
+		for(var material in lib["materials"]) {
+			if (allMaterials.has(material)) {
+				console.warn("Duplicate material \"" + material + "\"!");
 			} else {
-				allMaterials.set(materialName, lib["materials"][materialName]);
-				//console.log("Loaded material \"" + materialName + "\"!");
+				allMaterials.set(material, lib["materials"][material]);
+				//console.log("Loaded material \"" + material + "\"!");
 			}
 		}
 	}
@@ -285,7 +284,8 @@ function update() {
 	console.log(formatPointDistributionOfPlayer(currentPlayer));
 
 //update Current Abilities
-	document.getElementById("current-abilities").innerHTML = "";
+	var curAbilElement = document.getElementById("current-abilities");
+	curAbilElement.innerHTML = "";
 	var currentAbilities, curNewAbilityEntry, currentAbilityText;
 	currentAbilities = new Map();
 	currentPlayer.allAvailableAbilityEntries.forEach(function(abilityEntry) {
@@ -326,14 +326,15 @@ function update() {
 			currentAbilityText += ")";
 		}
 		currentAbilityText += "</li>";
-		document.getElementById("current-abilities").innerHTML += currentAbilityText;
+		curAbilElement.innerHTML += currentAbilityText;
 	});
-	if (document.getElementById("current-abilities").innerHTML == "") {
-		document.getElementById("current-abilities").innerHTML = "<li>&nbsp;</li>";
+	if (curAbilElement.innerHTML == "") {
+		curAbilElement.innerHTML = "<li>&nbsp;</li>";
 	}
 	
 //update Current Equipment
-	document.getElementById("current-equipment").innerHTML = "";
+	var curEquipElement = document.getElementById("current-equipment");
+	curEquipElement.innerHTML = "";
 	var currentEquipmentCount, currentEquipmentText;
 	allMaterials.forEach(function(curEquipment) {
 		currentEquipmentCount = 0;
@@ -352,11 +353,11 @@ function update() {
 				currentEquipmentText += ")"
 			}
 			currentEquipmentText += "</li>";
-			document.getElementById("current-equipment").innerHTML += currentEquipmentText;
+			curEquipElement.innerHTML += currentEquipmentText;
 		}
 	});
-	if (document.getElementById("current-equipment").innerHTML == "") {
-		document.getElementById("current-equipment").innerHTML = "<li>&nbsp;</li>";
+	if (curEquipElement.innerHTML == "") {
+		curEquipElement.innerHTML = "<li>&nbsp;</li>";
 	}
 
 //update Class List
@@ -891,7 +892,7 @@ function DefaultAbility(name, type, school, range, newMaterials, incantation, ef
 	this.description += "<br>";
 	
 	this.materials = new Map();
-	if (newMaterials != undefined && newMaterials.length > 0 && newMaterials != ["No strip required"]) {
+	if (newMaterials != undefined && newMaterials.length) {
 		newMaterials.sort();
 		for (var curEquipmentIndex in newMaterials) {
 			if (this.materials.has(newMaterials[curEquipmentIndex])) {
