@@ -44,7 +44,7 @@ function mountLib(url) {
 		if (libRequest.readyState == 4) {
 			if (libRequest.status >= 200 && libRequest.status < 400){
 				addLib(url, JSON.parse(libRequest.responseText));
-				console.log("Loaded library from " + url + "!");
+				//console.log("Loaded library from " + url + "!");
 			} else {
 				console.warn("Could not load library. Server reached, returned status code " + libRequest.status + ".");
 			}
@@ -94,7 +94,7 @@ function addLib(url, lib) {
 	}
 	
 	if (lib["archetypes"] == null) {
-		console.log("No archetypes to load!");
+		//console.log("No archetypes to load!");
 	} else {
 		for(var i = 0; i < lib["archetypes"].length; i++) {
 			loadArchetype(url, lib["archetypes"][i]);
@@ -102,7 +102,7 @@ function addLib(url, lib) {
 	}
 	
 	if (lib["classes"] == null) {
-		console.log("No classes to load!");
+		//console.log("No classes to load!");
 	} else {
 		for(var i = 0; i < lib["classes"].length; i++) {
 			loadClass(url, lib["classes"][i]);
@@ -277,8 +277,8 @@ function update() {
 	console.dir(allClasses);
 	console.log("currentPlayer");
 	console.dir(currentPlayer);
-	*/
 	console.log(formatPointDistributionOfPlayer(currentPlayer));
+	*/
 
 //update Current Abilities
 	var curAbilElement = document.getElementById("current-abilities");
@@ -371,7 +371,7 @@ function update() {
 			document.getElementById("points" + curLevelIndex).innerHTML = "";
 		}
 		curLevel.abilityEntries.forEach(function(abilityEntry) {
-			classList = "<tr><td onclick=\"setCurrentAbility(\'" + abilityEntry.name + "\')\">&nbsp;&nbsp;" + abilityEntry + " [" + abilityEntry.tags + "]</td>";
+			classList = "<tr><td title=\"" + abilityEntry.name + " [" + abilityEntry.tags.join(", ") + "]\" onclick=\"setCurrentAbility(\'" + abilityEntry.name + "\')\">&nbsp;&nbsp;" + abilityEntry + "</td>";
 			classList += "<td id=\"cost " + abilityEntry.name + " @ " + curLevelIndex + "\">" + abilityEntry.cost + "</td><td id=\"max " + abilityEntry.name + " @ " + curLevelIndex + "\">";
 			if (abilityEntry.max == -1) {
 				classList += "&#8210;";
@@ -492,6 +492,7 @@ function Player(playerClassName, level) {
 	
 	this.getCountOfAbilityEntry = function Player_getCountOfAbilityEntry(abilityEntry) {
 		if (this.hasAbilityEntry(abilityEntry)) {
+			console.log(abilityEntry);
 			if (abilityEntry.ability.name == "Look the Part") {
 				return this.hasLookThePart == true;
 			}
@@ -828,16 +829,16 @@ function AbilityEntry(abilityName, cost, max, count, per, charge, tags) {
 	}
 	
 	this.toString = function() {
-		var curlabel, allLabels;
+		var curLabel, allLabels;
 		allLabels = "";
-		for (var tag in this.tags) {
-			curLabel = allTags.get(tag);
-			if (curLabel != null) {
-				allLabels += curLabel + ", ";
+		for (var i in this.tags) {
+			curLabel = allTags.get(this.tags[i]);
+			if (curLabel != "") {
+				allLabels +=  curLabel + ", ";
 			}
 		}
 		if (allLabels.length > 0) {
-			return this.ability.name + " (" + allLabels.substr(0, allLabels.length - 2) + ")";
+			return this.ability.name + " (" + allLabels.substring(0, allLabels.length - 2) + ")";
 		} else {
 			return this.ability.name;
 		}
