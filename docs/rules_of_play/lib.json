@@ -193,7 +193,7 @@
 		"antipaladin",
 		"paladin"
 	],
-	"materials": [
+	"materials": {
 		"arrow_gray": "Arrow with gray head cover labeled &quot;Phase&quot;",
 		"arrow_green": "Arrow with green head cover labeled &quot;Poison&quot;",
 		"arrow_purple": "Arrow with purple head cover labeled &quot;Suppression&quot;",
@@ -212,7 +212,7 @@
 		"strip_red": "Red Strip",
 		"strip_white": "White Strip",
 		"strip_yellow": "Yellow Strip"
-	],
+	},
 	"tags": [
 		"_archetype",
 		"_disabled",
