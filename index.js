@@ -92,7 +92,6 @@ function addLib(url, lib) {
 			}
 		}
 	}
-	console.dir(allTags);
 	
 	if (lib["archetypes"] == null) {
 		console.log("No archetypes to load!");
