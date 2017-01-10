@@ -8,9 +8,7 @@
     <div class="row">
         <span class="cell">
             <form id="select-player">
-                <select id="select-className" style="min-width: 110px;">
-                    <option disabled>--</option>
-                <select>
+                <select id="select-className" style="min-width: 110px;"></select>
                 <select id="select-level">
                     <option>1st Level</option>
                     <option>2nd Level</option>
@@ -20,7 +18,7 @@
                     <option>6th Level</option>
                 </select>
                 <br>
-                <button type="button" id="refresh-button" onclick="unlock()" disabled>Load Class</button>
+                <button type="button" id="selectPlayer-button" onclick="selectPlayer()" disabled>Select Player</button>
             </form>
         </span>
         <span id="info-box" class="cell">

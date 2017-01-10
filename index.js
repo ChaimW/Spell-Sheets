@@ -25,7 +25,6 @@ var fetchJSON = function(url, onSuccess, onFail) {
 };
 
 function preInit() {
-	document.getElementById("select-className").innerHTML = "";
 	libraries = new Map();
 	allAbilities = new Map();
 	allAbilities.set("Look the Part", new DefaultAbility("Look the Part", "&#8210;"));
@@ -34,7 +33,6 @@ function preInit() {
 	allMaterials = new Map();
 	allTags = new Map();
 	mountLib('https://jkat718.github.io/Spell-Sheets-By-Gor/docs/rules_of_play');
-	unlock();
 }
 
 function mountLib(url) {
@@ -201,6 +199,11 @@ function loadClass(url, className) {
 					document.getElementById("select-className").innerHTML += "<option value=\"" + className + "\">" + allClasses.get(className).name + "</option";
 					//console.log("Loaded class \"" + className + "\"!");
 					//console.dir(allClasses.get(className));
+					if (document.getElementById("select-className").options.length == 1) {
+						unlock();
+					} else {
+						sortSelect(document.getElementById("select-className"));
+					}
 				} catch (e) {
 					console.warn("Could not load \"" + className + "\". Directory file formatted improperly. Error code " + e.message);
 					throw e;
@@ -246,7 +249,7 @@ function initClass(classJSON) {
 }
 
 function unlock() {
-	document.getElementById("refresh-button").disabled = false;
+	document.getElementById("selectPlayer-button").disabled = false;
 	
 	infoRequest = new XMLHttpRequest();
 	infoRequest.open('GET', "https://jkat718.github.io/Spell-Sheets-By-Gor/docs/info.txt", true);
@@ -262,8 +265,10 @@ function unlock() {
 	};
 	
 	infoRequest.send();
-	
-	currentPlayer = new Player(document.getElementById("select-className").value.toLowerCase(), document.getElementById("select-level").selectedIndex);
+}
+
+function selectPlayer() {
+	new Player(document.getElementById("select-className").value.toLowerCase(), document.getElementById("select-level").selectedIndex);
 	update();
 }
 
@@ -1091,4 +1096,18 @@ function formatPointArray(preLabel, pointArray, postLabel) {
 		text += postLabel;
 	}
 	return text;
+}
+
+function sortSelect(selectElement) {
+    var allOptions = [];
+	for (var curOptionIndex in selectElement.options) {
+		allOptions[curOptionIndex] = [];
+		allOptions[curOptionIndex][0] = selectElement.options[curOptionIndex].text;
+		allOptions[curOptionIndex][1] = selectElement.options[curOptionIndex].value;
+	}
+    allOptions.sort();
+    selectElement.options = [];
+    for (var i in allOptions) {
+        selectElement.options[i] = new Option(allOptions[i][0], allOptions[i][1]);
+    }
 }
