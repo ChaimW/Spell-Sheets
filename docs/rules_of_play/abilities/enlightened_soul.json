@@ -4,7 +4,7 @@
 	"s": "Protection",
 	"r": "Touch",
 	"i": "&quot;A distant magic has no hold upon thy now enlightened soul&quot; x3",
-	"m": ["Strip, White"],
+	"m": ["strip_white"],
 	"e": "Player is unaffected by Verbal magic used at a Range greater than Touch",
 	"l": "Effects beneficial magic as well as harmful magic"
 }

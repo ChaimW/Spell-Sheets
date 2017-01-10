@@ -4,6 +4,6 @@
 	"s": "Sorcery",
 	"r": "Ball",
 	"i": "&quot;Forcebolt&quot; x3",
-	"m": ["Magic Ball, Blue"],
+	"m": ["magic_ball_blue"],
 	"e": "Force Bolt will have one of the following effects on the object first struck:<br>1. A weapon hit is destroyed<br>2. Armor hit with Armor Points remaining is subject to Armor Breaking<br>3. A player hit receives a Wound to that hit location"
 }

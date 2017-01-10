@@ -4,6 +4,6 @@
 	"s": "Command",
 	"r": "Self",
 	"i": "&quot;My discordant melodies shall stymie my foes&quot; x3",
-	"m": ["Strip, Red", "Strip, Red", "Strip, Red", "Strip, Red", "Strip, Red"],
+	"m": ["strip_red", "strip_red", "strip_red", "strip_red", "strip_red"],
 	"e": "Tie on five enchantment strips. Bearer may cast Break Concentration by announcing &quot;[Player] thou art suppressed&quot; and removing an enchantment strip. Enchantment is removed when the last strip is removed"
 }

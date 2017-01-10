@@ -4,6 +4,6 @@
 	"s": "Protection",
 	"r": "Touch",
 	"i": "&quot;I enchant thee with this protection&quot; x3",
-	"m": ["Strip, White"],
+	"m": ["strip_white"],
 	"e": "Bearer becomes Immune to one of the following Schools: Death, Flame, Subdual, Command, Sorcery. School is chosen at the time of casting"
 }

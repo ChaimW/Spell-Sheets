@@ -4,6 +4,6 @@
 	"s": "Protection",
 	"r": "Touch",
 	"i": "&quot;I enchant thee against all harm&quot; x3",
-	"m": ["Strip, White"],
+	"m": ["strip_white"],
 	"e": "Resistant to the next effect which would inflict a Wound, Death, State, or other negative effect. Does not trigger against effects cast by the player"
 }

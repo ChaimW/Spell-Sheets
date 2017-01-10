@@ -4,6 +4,6 @@
 	"s": "Sorcery",
 	"r": "Touch",
 	"i": "&quot;I grant thee a gift of the water&quot; x3",
-	"m": ["Strip, White", "Strip, Yellow"],
+	"m": ["strip_white", "strip_yellow"],
 	"e": "Bearer gains one point of magic armor and Heal (self- only) unlimited"
 }

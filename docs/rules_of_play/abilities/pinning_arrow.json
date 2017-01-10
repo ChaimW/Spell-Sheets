@@ -3,7 +3,7 @@
 	"t": "Specialty Arrow",
 	"s": "Sorcery",
 	"i": "&quot;Pinning Arrow&quot;",
-	"m": ["Arrow, Yellow (labeled Pinning)"],
+	"m": ["arrow_yellow"],
 	"e": "A player struck by this arrow is Stopped for 30 seconds",
 	"n": "Engulfing"
 }

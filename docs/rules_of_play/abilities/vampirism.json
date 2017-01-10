@@ -4,6 +4,6 @@
 	"s": "Death",
 	"r": "Touch",
 	"i": "&quot;Thy hunger can never be sated&quot; x3",
-	"m": ["Strip, White", "Strip, Yellow"],
+	"m": ["strip_white", "strip_yellow"],
 	"e": "Player gains Adrenaline unlimited (ex), is Immune to Death, and is Cursed. Bearer’s Adrenaline ability will work through their Cursed State"
 }

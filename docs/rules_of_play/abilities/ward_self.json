@@ -4,6 +4,6 @@
 	"s": "Protection",
 	"r": "Self",
 	"i": "&quot;The power of magic defends me&quot; x3",
-	"m": ["Strip, White"],
+	"m": ["strip_white"],
 	"e": "Resistant to the next effect which would inflict a Wound, Death, or State. Does not trigger against effects cast by the player"
 }

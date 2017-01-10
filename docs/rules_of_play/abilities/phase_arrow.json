@@ -3,7 +3,7 @@
 	"t": "Specialty Arrow",
 	"s": "Sorcery",
 	"i": "&quot;Phase Arrow&quot;",
-	"m": ["Arrow, Gray (labeled Phase)"],
+	"m": ["arrow_gray"],
 	"e": "This arrow does not interact with ongoing Magic or Abilities. Example: This arrow is not stopped by Stoneskin, Protection from Projectiles, and does not trigger the effects of Troll Blood, Undead Minion, Missile Block, or similar Magic or Abilities",
 	"l": "This arrow does not supercede the Frozen, Insubstantial, or Out of Game States"
 }

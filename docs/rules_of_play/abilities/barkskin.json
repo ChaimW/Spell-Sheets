@@ -4,6 +4,6 @@
 	"s": "Protection",
 	"r": "Touch",
 	"i": "&quot;I enchant thee with barkskin&quot; x3",
-	"m": ["Strip, White"],
+	"m": ["strip_white"],
 	"e": "Bearer gains one point of Magic Armor"
 }

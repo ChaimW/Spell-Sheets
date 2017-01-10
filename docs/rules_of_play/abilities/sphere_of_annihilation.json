@@ -4,7 +4,7 @@
 	"s": "Sorcery",
 	"r": "Ball",
 	"i": "&quot;The power of void is mine to evoke&quot; x3",
-	"m": ["Magic Ball, Black"],
+	"m": ["magic_ball_black"],
 	"e": "Sphere of Annihilation will have one of the following effects on the object first struck:<br>1. A weapon hit is destroyed<br>2. A shield hit is subject to Shield Destroying<br>3. A player hit dies and is Cursed",
 	"n": "Ignores armor. Enchantments which affect equipment, such as Imbue Shield or Harden, do not function against Sphere of Annihilation"
 }

@@ -3,6 +3,6 @@
 	"t": "Specialty Arrow",
 	"s": "Death",
 	"i": "&quot;Poison Arrow&quot;",
-	"m": ["Arrow, Green (Poison)"],
+	"m": ["arrow_green"],
 	"e": "This arrow is Wounds Kill"
 }

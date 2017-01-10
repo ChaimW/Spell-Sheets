@@ -4,6 +4,6 @@
 	"s": "Subdual",
 	"r": "Ball",
 	"i": "&quot;The strength of earth is mine to evoke&quot; x3",
-	"m": ["Magic Ball, Brown"],
+	"m": ["magic_ball_brown"],
 	"e": "Target is Stopped for 60 seconds. Engulfing"
 }

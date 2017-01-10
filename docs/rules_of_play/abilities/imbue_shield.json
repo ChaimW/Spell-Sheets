@@ -4,6 +4,6 @@
 	"s": "Protection",
 	"r": "Touch",
 	"i": "&quot;This shield shall neither break or bend&quot; x3",
-	"m": ["Strip, White"],
+	"m": ["strip_white"],
 	"e": "Shield wielded by the player cannot be destroyed. Engulfing effects hitting the shield are ignored"
 }

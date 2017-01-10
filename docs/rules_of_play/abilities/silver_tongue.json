@@ -4,7 +4,7 @@
 	"s": "Sorcery",
 	"r": "Self or Touch",
 	"i": "&quot;The seething sea ceaseth and thus the seething sea sufficeth us&quot; x2",
-	"m": ["Strip, Yellow"],
+	"m": ["strip_yellow"],
 	"e": "Bearer gains Swift 1/refresh Charge x3. Swift may still only be used on eligible magic. Other sources of Swift may not be utilized while Silver Tongue is worn",
 	"n": "Does not use up any purchased instances of Swift"
 }

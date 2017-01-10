@@ -4,7 +4,7 @@
 	"s": "Sorcery",
 	"r": "Touch",
 	"i": "&quot;From earth and clay I form thee&quot; x3",
-	"m": ["Strip, Red", "Strip, White"],
+	"m": ["strip_red", "strip_white"],
 	"e": "Bearer is Immune to Death. Bearer is Cursed. Bearer can remove a Wound via Mend. Bearer may use the caster as an alternate respawn point while the caster is alive. Non-magical armor worn affected as per Imbue Armor",
 	"l": "A caster may only have a single Golem Enchantment active at a time",
 	"n": "All Enchantments worn by the Bearer, including Golem, are Persistent while Golem is worn"

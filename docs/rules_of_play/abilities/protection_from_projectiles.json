@@ -4,6 +4,6 @@
 	"s": "Protection",
 	"r": "Touch",
 	"i": "&quot;I enchant thee with Protection from Projectiles&quot; x3",
-	"m": ["Strip, White"],
+	"m": ["strip_white"],
 	"e": "Bearer is unaffected by ammunition, thrown javelins, rocks, and throwing weapons. Engulfing effects from those objects, such as Pinning Arrow, do not affect the player"
 }

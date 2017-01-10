@@ -4,6 +4,6 @@
 	"s": "Protection",
 	"r": "Touch",
 	"i": "&quot;I enchant thee with this blessing&quot; x3",
-	"m": ["Strip, White"],
+	"m": ["strip_white"],
 	"e": "Bearer becomes Resistant to one of the following Schools: Death, Flame, Subdual, Command, Sorcery. School is chosen at the time of casting. Does not count towards a players Enchantment limit, may not be worn with any other Enchantments from the Protection School"
 }

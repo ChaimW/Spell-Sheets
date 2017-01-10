@@ -3,6 +3,6 @@
 	"t": "Enchantment",
 	"s": "Sorcery",
 	"r": "Self",
-	"m": ["Strip, Red"],
+	"m": ["strip_red"],
 	"e": "All weapons wielded in melee are Armor Breaking"
 }

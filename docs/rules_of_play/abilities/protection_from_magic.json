@@ -4,6 +4,6 @@
 	"s": "Protection",
 	"r": "Touch",
 	"i": "&quot;I enchant thee with protection from magic&quot; x3",
-	"m": ["Strip, White"],
+	"m": ["strip_white"],
 	"e": "Bearer is Immune to magic from any school. Upon death the player is Cursed"
 }

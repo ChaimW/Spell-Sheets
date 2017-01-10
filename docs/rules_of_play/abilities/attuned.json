@@ -4,7 +4,7 @@
 	"s": "Sorcery",
 	"r": "Touch",
 	"i": "&quot;I enchant thee with attune&quot; x3",
-	"m": ["Strip, Yellow"],
+	"m": ["strip_yellow"],
 	"e": "May wear an additional Enchantment. Attuned does not count towards the bearer’s Enchantment limit",
 	"l": "This ability may not be used in conjunction with any other similar ability or magic"
 }

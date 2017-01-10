@@ -4,6 +4,6 @@
 	"s": "Protection",
 	"r": "Self",
 	"i": "&quot;I sing to inspire my brothers-in-arms&quot;",
-	"m": "No strip required",
+	"m": "strip_none",
 	"e": "Friendly players within 20&#39; of the bearer have their Charging Incantation repetitions divided by 2, rounded down. Bearer is Stopped. Bearer must Chant &quot;Song of Power&quot; or sing an inspiring song. Singing in place of the normal Chant is still a Chant and must follow all Chant rules"
 }

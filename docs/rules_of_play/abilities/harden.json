@@ -4,7 +4,7 @@
 	"s": "Protection",
 	"r": "Touch",
 	"i": "&quot;I enchant thee with Harden&quot; x3",
-	"m": ["Strip, White"],
+	"m": ["strip_white"],
 	"e": "Bearers weapons or shield may only be destroyed by Magic Balls/Verbals which destroy objects e.g. Fireball or Pyrotechnics",
 	"l": "Will only affect either the weapons or the shield of the bearer, not both"
 }

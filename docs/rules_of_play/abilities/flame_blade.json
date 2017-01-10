@@ -4,6 +4,6 @@
 	"s": "Flame",
 	"r": "Touch",
 	"i": "&quot;The element of fire shall infuse your weapons&quot; x3",
-	"m": ["Strip, Red", "Strip, White"],
+	"m": ["strip_red", "strip_white"],
 	"e": "Bearer’s melee weapons are Armor Breaking and Shield Crushing. Bearer and their weapons are Immune to Flame"
 }

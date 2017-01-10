@@ -4,6 +4,6 @@
 	"s": "Protection",
 	"r": "Touch",
 	"i": "&quot;I enchant thy person, arms, and armor&quot; x3",
-	"m": ["Strip, White"],
+	"m": ["strip_white"],
 	"e": "Resistant to the next effect which would inflict a Wound, Death, State, or the next effect which would negatively affect them or their equipment. Does not trigger against effects cast by the player"
 }

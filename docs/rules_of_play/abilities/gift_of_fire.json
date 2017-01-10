@@ -4,6 +4,6 @@
 	"s": "Sorcery",
 	"r": "Touch",
 	"i": "&quot;I grant thee a gift of the fire&quot; x3",
-	"m": ["Strip, Red", "Strip, White"],
+	"m": ["strip_red", "strip_white"],
 	"e": "Bearer is Immune to Flame and gains Heat Weapon 1/Refresh Charge x3"
 }

@@ -1,7 +1,7 @@
 var allAbilities;    //map[String: DefaultAbility]
 var allArchetypes;
 var allClasses;  //map[String: DefaultClass]
-var allMaterials;
+var allMaterials;	//map[String: String]
 var allTags;
 
 var libraries;
@@ -30,7 +30,7 @@ function preInit() {
 	allAbilities.set("Look the Part", new DefaultAbility("Look the Part", "&#8210;"));
 	allArchetypes = new Map();
 	allClasses = new Map();
-	allMaterials = new Array();
+	allMaterials = new Map();
 	allTags = new Array();
 	mountLib('https://jkat718.github.io/Spell-Sheets-By-Gor/docs/rules_of_play');
 	unlock();
@@ -65,10 +65,10 @@ function addLib(url, lib) {
 		var materialName;
 		for(var i = 0; i < lib["materials"].length; i++) {
 			materialName = lib["materials"][i];
-			if (allMaterials.includes(materialName)) {
+			if (allMaterials.has(materialName)) {
 				console.warn("Duplicate material \"" + tagName + "\"!");
 			} else {
-				allMaterials.push(materialName);
+				allMaterials.set(materialName, lib["materials"][materialName]);
 				//console.log("Loaded material \"" + materialName + "\"!");
 			}
 		}
@@ -867,7 +867,7 @@ function joinAbilityEntries(firstAbilityEntry, secondAbilityEntry) {
 	}
 }
 
-function DefaultAbility(name, type, school, range, newEquipment, incantation, effect, limitations, notes) {
+function DefaultAbility(name, type, school, range, newMaterials, incantation, effect, limitations, notes) {
 	this.name = String(name);
 	this.description = "<span style=\"font-size:20px;font-weight:bold;font-variant:small-caps;\">" + this.name + "</span><br>";
 	
@@ -891,31 +891,28 @@ function DefaultAbility(name, type, school, range, newEquipment, incantation, ef
 	this.description += "<br>";
 	
 	this.materials = new Map();
-	if (newEquipment != undefined && newEquipment.length > 0 && newEquipment != ["No strip required"]) {
-		newEquipment.sort();
-		for (var curEquipmentIndex in newEquipment) {
-			if (this.materials.has(newEquipment[curEquipmentIndex])) {
-				this.materials.set(newEquipment[curEquipmentIndex], this.materials.get(newEquipment[curEquipmentIndex]) + 1);
+	if (newMaterials != undefined && newMaterials.length > 0 && newMaterials != ["No strip required"]) {
+		newMaterials.sort();
+		for (var curEquipmentIndex in newMaterials) {
+			if (this.materials.has(newMaterials[curEquipmentIndex])) {
+				this.materials.set(newMaterials[curEquipmentIndex], this.materials.get(newMaterials[curEquipmentIndex]) + 1);
 			} else {
-				this.materials.set(newEquipment[curEquipmentIndex], 1);
+				this.materials.set(newMaterials[curEquipmentIndex], 1);
 			}
 		}
 	}
 	if (this.materials.size > 0) {
-		this.description += "<b>M:</b> ";
-		for (var i = 0; i < allMaterials.length; i++) {
-			if (this.materials.has(allMaterials[i])) {
-				this.description += allMaterials[i];
-				if (this.materials.get(allMaterials[i]) > 1) {
-					this.description += " x" + this.materials.get(allMaterials[i]);
-				}
-				this.description += ", ";
+		this.description += "<b>M:</b><br>";
+		this.description += "<ul>";
+		for (var [material, count] of this.materials) {
+			this.description += "<li>";
+			this.description += allMaterials.get(material);
+			if (count > 1) {
+				this.description += " x" + count;
 			}
+			this.description += "</li>";
 		}
-		//console.log(this.description);
-		//this.description = this.description.substr(0, this.description.length - 2);
-		console.log(this.description);
-		this.description += "<br>";
+		this.description += "</ul>";
 	}
 	
 	if (incantation != undefined) {

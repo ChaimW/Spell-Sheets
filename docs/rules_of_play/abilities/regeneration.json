@@ -4,7 +4,7 @@
 	"s": "Spirit",
 	"r": "Touch",
 	"i": "&quot;I grant thee the power of regeneration&quot; x3",
-	"m": ["Strip, Yellow"],
+	"m": ["strip_yellow"],
 	"e": "Bearer gains unlimited use of Swift Heal (self-only)",
 	"l": "The Heal granted by Regeneration may not be used within 10&#39; of a living enemy"
 }

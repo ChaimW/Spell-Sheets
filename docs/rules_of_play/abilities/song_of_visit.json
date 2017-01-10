@@ -4,7 +4,7 @@
 	"s": "Protection",
 	"r": "Self",
 	"i": "&quot;I sing to entertain friend and foe&quot; x3",
-	"m": "No strip required",
+	"m": "strip_none",
 	"e": "Bearer cannot be Wounded and is Immune to all schools. Bearer is Stopped. Bearer must Chant &quot;Song of Visit&quot; or sing a song regarding their general good nature and friendly disposition. Singing in place of the normal Chant is still a Chant and must follow all Chant rules. Song of Visit ending results in the player becoming insubstantial, and the player must return to base to end their insubstantial state and resume play",
 	"l": "Bearer may not wield weapons, interact with game objects, impede play, or target any player",
 	"n": "This Enchantment can be removed by Dispel Magic and similar Magic and Abilities"

@@ -4,6 +4,6 @@
 	"s": "Protection",
 	"r": "Self",
 	"i": "&quot;I sing of my nimble acrobatics&quot;",
-	"m": "No strip required",
+	"m": "strip_none",
 	"e": "Bearer does not receive Wounds from ammunition, thrown javelins, rocks, and throwing weapons. Bearer must Chant &quot;Song of Deflection&quot; or sing a song regarding their acrobatic prowess. Singing in place of the normal Chant is still a Chant and must follow all Chant rules"
 }

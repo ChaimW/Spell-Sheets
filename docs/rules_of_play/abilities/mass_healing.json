@@ -4,7 +4,7 @@
 	"s": "Spirit",
 	"r": "Self",
 	"i": "&quot;Let the powers of healing flow through me&quot; x3",
-	"m": ["Strip, Yellow", "Strip, Yellow", "Strip, Yellow", "Strip, Yellow", "Strip, Yellow"],
+	"m": ["strip_yellow", "strip_yellow", "strip_yellow", "strip_yellow", "strip_yellow"],
 	"e": "Caster may Heal a player by touching them, stating &quot;I grant thee healing&quot;. Bearer must remove an Enchantment strip after each use of Heal",
 	"n": "Mass Healing is removed when the last strip is removed"
 }

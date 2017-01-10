@@ -4,6 +4,6 @@
 	"s": "Subdual",
 	"r": "Ball",
 	"i": "&quot;The strength of ice is mine to evoke&quot; x3",
-	"m": ["Magic Ball, White"],
+	"m": ["magic_ball_white"],
 	"e": "Target player becomes Frozen for 60 seconds. Engulfing"
 }
