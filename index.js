@@ -1,7 +1,7 @@
-var allAbilities;    //map[String: DefaultAbility]
+var allAbilities;
 var allArchetypes;
-var allClasses;  //map[String: DefaultClass]
-var allMaterials;	//map[String: String]
+var allClasses;
+var allMaterials;
 var allTags;
 
 var libraries;
@@ -31,7 +31,7 @@ function preInit() {
 	allArchetypes = new Map();
 	allClasses = new Map();
 	allMaterials = new Map();
-	allTags = new Array();
+	allTags = new Map();
 	mountLib('https://jkat718.github.io/Spell-Sheets-By-Gor/docs/rules_of_play');
 	unlock();
 }
@@ -62,7 +62,6 @@ function addLib(url, lib) {
 	if (lib["materials"] == null) {
 		//console.log("No materials to load!");
 	} else {
-		var materialName;
 		for(var material in lib["materials"]) {
 			if (allMaterials.has(material)) {
 				console.warn("Duplicate material \"" + material + "\"!");
@@ -84,17 +83,16 @@ function addLib(url, lib) {
 	if (lib["tags"] == null) {
 		//console.log("No tags to load!");
 	} else {
-		var tagName;
-		for(var i = 0; i < lib["tags"].length; i++) {
-			tagName = lib["tags"][i];
-			if (allTags.includes(tagName)) {
-				console.warn("Duplicate tag \"" + tagName + "\"!");
+		for(var tag in lib["tags"]) {
+			if (allTags.has(tag)) {
+				console.warn("Duplicate tag \"" + tag + "\"!");
 			} else {
-				allTags.push(tagName);
-				//console.log("Loaded tag \"" + tagName + "\"!");
+				allTags.set(tag, lib["tags"][tag]);
+				//console.log("Loaded tag \"" + tag + "\"!");
 			}
 		}
 	}
+	console.dir(allTags);
 	
 	if (lib["archetypes"] == null) {
 		console.log("No archetypes to load!");
@@ -374,7 +372,7 @@ function update() {
 			document.getElementById("points" + curLevelIndex).innerHTML = "";
 		}
 		curLevel.abilityEntries.forEach(function(abilityEntry) {
-			classList = "<tr><td onclick=\"setCurrentAbility(\'" + abilityEntry.name + "\')\">&nbsp;&nbsp;" + abilityEntry.ability.name + " [" + abilityEntry.tags + "]</td>";
+			classList = "<tr><td onclick=\"setCurrentAbility(\'" + abilityEntry.name + "\')\">&nbsp;&nbsp;" + abilityEntry + " [" + abilityEntry.tags + "]</td>";
 			classList += "<td id=\"cost " + abilityEntry.name + " @ " + curLevelIndex + "\">" + abilityEntry.cost + "</td><td id=\"max " + abilityEntry.name + " @ " + curLevelIndex + "\">";
 			if (abilityEntry.max == -1) {
 				classList += "&#8210;";
@@ -831,7 +829,19 @@ function AbilityEntry(abilityName, cost, max, count, per, charge, tags) {
 	}
 	
 	this.toString = function() {
-		return this.name;
+		var curlabel, allLabels;
+		allLabels = "";
+		for (var tag in this.tags) {
+			curLabel = allTags.get(tag);
+			if (curLabel != null) {
+				allLabels += curLabel + ", ";
+			}
+		}
+		if (allLabels.length > 0) {
+			return this.ability.name + " (" + allLabels.substr(0, allLabels.length - 2) + ")";
+		} else {
+			return this.ability.name;
+		}
 	}
 }
 
