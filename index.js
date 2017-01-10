@@ -336,13 +336,16 @@ function update() {
 	var curEquipElement = document.getElementById("current-equipment");
 	curEquipElement.innerHTML = "";
 	var currentEquipmentCount, currentEquipmentText;
-	allMaterials.forEach(function(curEquipment) {
+	allMaterials.forEach(function(curEquipmentDescription, curEquipment) {
 		currentEquipmentCount = 0;
 		currentAbilities.forEach(function(newAbilityEntry) {
+			console.dir(newAbilityEntry.ability.materials);
 			if (newAbilityEntry.ability.materials.has(curEquipment)) {
 				currentEquipmentCount += newAbilityEntry.ability.materials.get(curEquipment) * newAbilityEntry.count;
 			}
 		});
+		console.log(curEquipment);
+		console.log(currentEquipmentCount);
 		if (currentEquipmentCount > 0) {
 			currentEquipmentText = "";
 			currentEquipmentText += "<li>";
