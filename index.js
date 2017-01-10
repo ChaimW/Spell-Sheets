@@ -25,6 +25,7 @@ var fetchJSON = function(url, onSuccess, onFail) {
 };
 
 function preInit() {
+	document.getElementById("select-className").innerHTML = "";
 	libraries = new Map();
 	allAbilities = new Map();
 	allAbilities.set("Look the Part", new DefaultAbility("Look the Part", "&#8210;"));
@@ -197,6 +198,7 @@ function loadClass(url, className) {
 						className,
 						initClass(classRequest.response)
 					);
+					document.getElementById("select-className").innerHTML += "<option value=\"" + className + "\">" + allClasses.get(className).name + "</option";
 					//console.log("Loaded class \"" + className + "\"!");
 					//console.dir(allClasses.get(className));
 				} catch (e) {
@@ -492,7 +494,6 @@ function Player(playerClassName, level) {
 	
 	this.getCountOfAbilityEntry = function Player_getCountOfAbilityEntry(abilityEntry) {
 		if (this.hasAbilityEntry(abilityEntry)) {
-			console.log(abilityEntry);
 			if (abilityEntry.ability.name == "Look the Part") {
 				return this.hasLookThePart == true;
 			}
