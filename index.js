@@ -339,17 +339,14 @@ function update() {
 	allMaterials.forEach(function(curEquipmentDescription, curEquipment) {
 		currentEquipmentCount = 0;
 		currentAbilities.forEach(function(newAbilityEntry) {
-			console.dir(newAbilityEntry.ability.materials);
 			if (newAbilityEntry.ability.materials.has(curEquipment)) {
 				currentEquipmentCount += newAbilityEntry.ability.materials.get(curEquipment) * newAbilityEntry.count;
 			}
 		});
-		console.log(curEquipment);
-		console.log(currentEquipmentCount);
 		if (currentEquipmentCount > 0) {
 			currentEquipmentText = "";
 			currentEquipmentText += "<li>";
-			currentEquipmentText += curEquipment;
+			currentEquipmentText += curEquipmentDescription;
 			if (currentEquipmentCount > 1) {
 				currentEquipmentText += " (x";
 				currentEquipmentText += currentEquipmentCount;
