@@ -268,7 +268,7 @@ function unlock() {
 }
 
 function selectPlayer() {
-	new Player(document.getElementById("select-className").value.toLowerCase(), document.getElementById("select-level").selectedIndex);
+	currentPlayer = new Player(document.getElementById("select-className").value.toLowerCase(), document.getElementById("select-level").selectedIndex);
 	update();
 }
 
