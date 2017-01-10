@@ -4,7 +4,7 @@
 	"s": "Protection",
 	"r": "Self",
 	"i": "&quot;I sing of my numerous close calls&quot;",
-	"m": "strip_none",
+	"m": ["strip_none"],
 	"e": "When the bearer would otherwise die, they instead announce &quot;Song of Survival&quot; and become Insubstantial. The caster treats the triggering event as though it had no effect on them other than triggering Song of Survival. Bearer may choose to return directly to their respawn location immediately after Song of Survival activates. Bearer must Chant &quot;Song of Survival&quot; or sing a song regarding their many escapes from certain doom",
 	"l": "Once Song of Survival has activated to protect the bearer it may not be cast again on the same life. Singing in place of the normal Chant is still a Chant and must follow all Chant rules"
 }
