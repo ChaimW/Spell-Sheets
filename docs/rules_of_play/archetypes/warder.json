@@ -7,9 +7,9 @@
 			],
 			"school": [
 				"Protection"
-			]
-			"addTags": [
-				"frequency_count_double",
+			],
+			"add_tags": [
+				"frequency_count_double"
 			]
 		},
 		{
@@ -18,7 +18,7 @@
 				"Command",
 				"Subdual"
 			],
-			"addTags": [
+			"add_tags": [
 				"_disabled"
 			]
 		}

@@ -6,7 +6,7 @@
 				"ambulant"
 			],
 			"addTags": [
-				"frequency_count_unlimited",
+				"frequency_count_unlimited"
 			]
 		},
 		{
@@ -14,7 +14,7 @@
 				"Enchantment",
 				"Magic Ball"
 			],
-			"addTags": [
+			"add_tags": [
 				"_disabled"
 			]
 		}

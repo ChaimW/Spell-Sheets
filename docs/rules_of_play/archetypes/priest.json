@@ -7,8 +7,8 @@
 			],
 			"school": [
 				"Neutral"
-			]
-			"addTags": [
+			],
+			"add_tags": [
 				"frequency_charge_3",
 				"frequency_count_one",
 				"frequency_per_life"
@@ -18,7 +18,7 @@
 			"name": [
 				"heal"
 			],
-			"addTags": [
+			"add_tags": [
 				"cost_free"
 			]
 		}

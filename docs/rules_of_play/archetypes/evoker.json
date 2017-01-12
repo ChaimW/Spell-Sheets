@@ -9,8 +9,8 @@
 				"20",
 				"50",
 				"Unlimited"
-			]
-			"addTags": [
+			],
+			"add_tags": [
 				"_disabled"
 			]
 		},
@@ -18,8 +18,8 @@
 			"name": [
 				"elemental_barrage"
 			],
-			"addTags": [
-				"frequency_charge_ten",
+			"add_tags": [
+				"frequency_charge_ten"
 			]
 		}
 	]

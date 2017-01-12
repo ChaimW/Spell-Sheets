@@ -162,10 +162,13 @@ function loadArchetype(url, archetypeName) {
 				try {
 					allArchetypes.set(
 						archetypeName,
-						archetypeRequest.response
+						new DefaultArchetype(
+							archetypeRequest.response["name"],
+							[]
+						)
 					);
-					//console.log("Loaded archetype \"" + archetypeName + "\"!");
-					//console.dir(allArchetypes.get(archetypeName));
+					console.log("Loaded archetype \"" + archetypeName + "\"!");
+					console.dir(allArchetypes.get(archetypeName));
 				} catch (e) {
 					console.warn("Could not load \"" + archetypeName + "\". Directory file formatted improperly. Error code " + e.message);
 					throw e;
@@ -966,6 +969,85 @@ function DefaultAbility(name, type, school, range, newMaterials, incantation, ef
 
 	if (this.name == "Look the Part") {
 		this.description = "<b>Look the Part:</b> This is an extra Ability that is available to a player only if they actively role-play or portray their class. Examples would be acting consistently in character in battlegames, having good class-specific garb, and meaningfully  contributing to the atmosphere of the game. This ability need not meet a cookie-cutter definition of the class; any dedicated behavior consistent with a backstory can work. Barbarian, for example, could be played as a refined Samurai rather than a raging viking and still qualify for the bonus. Look The Part abilities are available at first level and are in addition to all other class abilities. Example: A player has a Look The Part ability of Scavenge 1/Life and a normal class ability of Scavenge 1/Life would have Scavenge 2/life. Who qualifies for Look The Part is game-by-game bonus awarded by the group monarch or joint decision of the game reeve and the guildmaster for the class.";
+	}
+}
+
+
+function DefaultArchetype(name, filters) {
+	this.name = String(name);
+	this.filters = filters;
+}
+
+function Filter(name, not_name, type, school, range, all_tags, some_tags, add_tags) {
+	if (name != null) {
+		this.name = name;
+	} else {
+		this.name = [];
+	}
+	if (not_name != null) {
+		this.not_name = not_name;
+	} else {
+		this.not_name = [];
+	}
+	if (type != null) {
+		this.type = type;
+	} else {
+		this.type = [];
+	}
+	if (school != null) {
+		this.school = school;
+	} else {
+		this.school = [];
+	}
+	if (range != null) {
+		this.range = range;
+	} else {
+		this.range = [];
+	}
+	if (all_tags != null) {
+		this.all_tags = all_tags;
+	} else {
+		this.all_tags = [];
+	}
+	if (some_tags != null) {
+		this.some_tags = some_tags;
+	} else {
+		this.some_tags = [];
+	}
+	this.add_tags = add_tags;
+	
+	function matches(abilityEntry) {
+		var ability = abilityEntry.ability;
+		if (!this.name.includes(ability.name)) {
+			return false;
+		}
+		if (this.not_name.includes(ability.name)) {
+			return false;
+		}
+		if (!this.type.includes(ability.type)) {
+			return false;
+		}
+		if (!this.school.includes(ability.school)) {
+			return false;
+		}
+		//TODO: reference modified range, not original range.
+		if (!this.range.includes(ability.range)) {
+			return false;
+		}
+		for (var tag in this.all_tags) {
+			if (!abilityEntry.tags.includes(tag)) {
+				return false;
+			}
+		}
+		if (this.some_tags.length > 0) {
+			for (var tag in this.some_tags) {
+				if(abilityEntry.tags.includes(tag)) {
+					return true;
+				}
+			}
+			return false;
+		}
+		return true;
 	}
 }
 

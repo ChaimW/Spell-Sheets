@@ -5,7 +5,7 @@
 			"type": [
 				"Enchantment"
 			],
-			"addTags": [
+			"add_tags": [
 				"frequency_count_double"
 			]
 		},
@@ -18,7 +18,7 @@
 				"50",
 				"Unlimited"
 			],
-			"addTags": [
+			"add_tags": [
 				"_disabled"
 			]
 		}

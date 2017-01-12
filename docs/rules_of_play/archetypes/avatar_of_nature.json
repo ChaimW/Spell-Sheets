@@ -14,7 +14,7 @@
 			"type": [
 				"Enchantment"
 			],
-			"addTags": [
+			"add_tags": [
 				"_self_only",
 				"range_only_self"
 			]

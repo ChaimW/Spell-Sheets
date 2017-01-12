@@ -8,10 +8,10 @@
 			"type": [
 				"Meta-Magic"
 			],
-			"tag": [
+			"all_tags": [
 				"ability_m"
 			],
-			"addTags": [
+			"add_tags": [
 				"frequency_charge_three"
 			]
 		},
@@ -22,7 +22,7 @@
 			"school": [
 				"Protection"
 			],
-			"addTags": [
+			"add_tags": [
 				"_disabled"
 			]
 		}
