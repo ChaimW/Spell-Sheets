@@ -61,6 +61,7 @@ body {
 
 #class-list tbody tr:not(:first-child) > td {
     border-bottom: 1px solid rgb(191, 191, 191);
+	height: 24px;
 }
 
 #class-list tbody tr:not(:first-child):nth-child(odd) {
