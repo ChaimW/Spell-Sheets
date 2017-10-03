@@ -160,15 +160,28 @@ function loadArchetype(url, archetypeName) {
 		if (archetypeRequest.readyState == 4) {
 			if (archetypeRequest.status >= 200 && archetypeRequest.status < 400){
 				try {
+					var filters = [];
+					for(var i = 0; i < archetypeRequest.response["filters"].length; i++) {
+						filters[i] = new Filter(
+							archetypeRequest.response["filters"][i]["name"],
+							archetypeRequest.response["filters"][i]["not_name"],
+							archetypeRequest.response["filters"][i]["type"],
+							archetypeRequest.response["filters"][i]["school"],
+							archetypeRequest.response["filters"][i]["range"],
+							archetypeRequest.response["filters"][i]["all_tags"],
+							archetypeRequest.response["filters"][i]["some_tags"],
+							archetypeRequest.response["filters"][i]["add_tags"]
+						)
+					}
 					allArchetypes.set(
 						archetypeName,
 						new DefaultArchetype(
 							archetypeRequest.response["name"],
-							[]
+							filters
 						)
 					);
-					console.log("Loaded archetype \"" + archetypeName + "\"!");
-					console.dir(allArchetypes.get(archetypeName));
+					//console.log("Loaded archetype \"" + archetypeName + "\"!");
+					//console.dir(allArchetypes.get(archetypeName));
 				} catch (e) {
 					console.warn("Could not load \"" + archetypeName + "\". Directory file formatted improperly. Error code " + e.message);
 					throw e;
@@ -279,7 +292,6 @@ var unimplementedAbilityNames = ["Avatar of Nature", "Battlemage", "Dervish", "E
 function update() {
 	currentPlayer.updatePoints();
 	
-	/*
 	//console.clear();
 	console.log("allAbilities");
 	console.dir(allAbilities);
@@ -288,7 +300,6 @@ function update() {
 	console.log("currentPlayer");
 	console.dir(currentPlayer);
 	console.log(formatPointDistributionOfPlayer(currentPlayer));
-	*/
 
 //update Current Abilities
 	var curAbilElement = document.getElementById("current-abilities");
